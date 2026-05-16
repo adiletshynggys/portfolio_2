@@ -1,188 +1,1104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Adilet Shynggys — Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adilet Shynggys — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    :root {
+      --bg:        #09101f;
+      --bg2:       #0d1628;
+      --bg3:       #111d35;
+      --gold:      #c8963e;
+      --gold-lt:   #e8b96a;
+      --gold-dim:  rgba(200,150,62,0.15);
+      --blue:      #3a6aad;
+      --blue-lt:   #5e9de8;
+      --text:      #e8eaf0;
+      --text-dim:  #8b96ad;
+      --border:    rgba(200,150,62,0.2);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-mono:    'Space Mono', monospace;
+      --font-body:    'DM Sans', sans-serif;
+    }
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+    html { scroll-behavior: smooth; }
 
-:root{
---bg:#09101f;
---bg2:#0d1628;
---bg3:#111d35;
---gold:#c8963e;
---gold-lt:#e8b96a;
---gold-dim:rgba(200,150,62,.15);
---blue:#3a6aad;
---blue-lt:#5e9de8;
---text:#e8eaf0;
---text-dim:#8b96ad;
---border:rgba(200,150,62,.2);
---font-display:'Cormorant Garamond',serif;
---font-mono:'Space Mono',monospace;
---font-body:'DM Sans',sans-serif;
-}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-body{
-background:var(--bg);
-color:var(--text);
-font-family:var(--font-body)
-}
+    /* ── Blueprint grid background ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(58,106,173,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58,106,173,0.04) 1px, transparent 1px),
+        linear-gradient(rgba(58,106,173,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58,106,173,0.02) 1px, transparent 1px);
+      background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+      pointer-events: none;
+    }
 
-/* SIDEBAR */
-.sidebar{
-position:fixed;
-top:0;left:0;height:100%;
-width:220px;
-background:var(--bg2);
-border-right:1px solid var(--border);
-padding:30px 0;
-}
+    /* ── Floating particles canvas ── */
+    #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
-.nav-link{
-display:block;
-padding:12px 28px;
-background:none;
-border:none;
-color:var(--text-dim);
-cursor:pointer;
-text-align:left;
-}
+    /* ── Layout wrapper ── */
+    .site { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
 
-.nav-link.active{color:var(--gold)}
+    /* ═══════════════════════════ SIDEBAR NAV ═══════════════════════════ */
+    .sidebar {
+      position: fixed; left: 0; top: 0; bottom: 0;
+      width: 220px;
+      background: linear-gradient(180deg, rgba(9,16,31,0.98) 0%, rgba(13,22,40,0.97) 100%);
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      padding: 40px 0 30px;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
 
-/* MAIN */
-.main{margin-left:220px;padding:40px}
+    .sidebar-logo {
+      padding: 0 28px 36px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+    .sidebar-logo .initials {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .sidebar-logo .tagline {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
 
-.section{display:none}
-.section.active{display:block}
+    .nav-links { flex: 1; }
+    .nav-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 28px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border-left: 2px solid transparent;
+      transition: all 0.25s;
+      user-select: none;
+    }
+    .nav-link:hover { color: var(--gold-lt); background: var(--gold-dim); }
+    .nav-link.active {
+      color: var(--gold);
+      border-left-color: var(--gold);
+      background: var(--gold-dim);
+    }
+    .nav-link .nav-icon { width: 16px; opacity: 0.7; flex-shrink: 0; }
+    .nav-link.active .nav-icon { opacity: 1; }
 
-/* CONTACT */
-.form-input,.form-textarea{
-width:100%;
-margin-bottom:10px;
-padding:10px;
-background:var(--bg3);
-border:1px solid var(--border);
-color:var(--text);
-}
+    .sidebar-footer {
+      padding: 20px 28px 0;
+      border-top: 1px solid var(--border);
+    }
+    .social-row { display: flex; gap: 14px; margin-top: 14px; }
+    .social-btn {
+      width: 32px; height: 32px; border-radius: 6px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); text-decoration: none; font-size: 13px;
+      transition: all 0.2s;
+    }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-label {
+      font-family: var(--font-mono); font-size: 9px;
+      color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase;
+    }
 
-.btn-send{
-padding:12px;width:100%;
-background:var(--gold);
-border:none;cursor:pointer;
-}
+    /* ═══════════════════════════ MAIN CONTENT ═══════════════════════════ */
+    .main { margin-left: 220px; min-height: 100vh; }
 
-/* MOBILE */
-@media(max-width:900px){
-.sidebar{transform:translateX(-100%)}
-.sidebar.open{transform:translateX(0)}
-.main{margin-left:0}
-}
-</style>
+    /* ── Sections ── */
+    .section { display: none; padding: 60px 70px; min-height: 100vh; animation: fadeUp 0.5s ease; }
+    .section.active { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Section heading ── */
+    .sec-label {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 3px; color: var(--gold); text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .sec-title {
+      font-family: var(--font-display); font-size: 48px;
+      font-weight: 600; line-height: 1.1;
+      color: var(--text); margin-bottom: 48px;
+    }
+    .sec-title span { color: var(--gold); }
+    .sec-divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 48px; margin-top: -36px;
+    }
+
+    /* ═══════════════════════════ HOME / ABOUT ═══════════════════════════ */
+    #home { padding-top: 80px; }
+
+    .hero-top {
+      display: flex; align-items: flex-start; gap: 60px;
+      margin-bottom: 60px;
+    }
+    .hero-photo {
+      flex-shrink: 0; width: 180px; height: 180px; border-radius: 4px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 60px; color: var(--gold);
+      position: relative; overflow: hidden;
+    }
+    .hero-photo::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--gold-dim) 0%, transparent 60%);
+    }
+    .hero-info { flex: 1; padding-top: 10px; }
+    .hero-greeting {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--gold); letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .hero-name {
+      font-family: var(--font-display); font-size: 64px;
+      font-weight: 700; line-height: 1; color: var(--text);
+      letter-spacing: -2px; margin-bottom: 10px;
+    }
+    .hero-role {
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--blue-lt); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero-tagline {
+      font-size: 16px; color: var(--text-dim);
+      max-width: 520px; line-height: 1.8;
+      border-left: 2px solid var(--gold);
+      padding-left: 18px; font-style: italic;
+    }
+
+    .hero-stats {
+      display: flex; gap: 0; margin-bottom: 50px;
+      border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+    }
+    .stat-box {
+      flex: 1; padding: 22px 20px; text-align: center;
+      border-right: 1px solid var(--border);
+      background: rgba(13,22,40,0.6);
+      transition: background 0.2s;
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-box:hover { background: var(--gold-dim); }
+    .stat-num {
+      font-family: var(--font-display); font-size: 36px;
+      font-weight: 700; color: var(--gold); line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-lbl {
+      font-family: var(--font-mono); font-size: 9px;
+      color: var(--text-dim); letter-spacing: 1.5px; text-transform: uppercase;
+    }
+
+    .about-text {
+      max-width: 760px; color: var(--text-dim); font-size: 15.5px;
+      line-height: 1.9; margin-bottom: 36px;
+    }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    .interest-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      padding: 7px 16px; border-radius: 100px;
+      border: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--gold-lt); letter-spacing: 1px; text-transform: uppercase;
+      background: var(--gold-dim);
+      transition: all 0.2s;
+    }
+    .chip:hover { background: rgba(200,150,62,0.25); border-color: var(--gold); }
+
+    /* ═══════════════════════════ EDUCATION ═══════════════════════════ */
+    .edu-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 32px 36px;
+      margin-bottom: 24px; position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--gold), var(--blue));
+    }
+    .edu-card:hover { border-color: var(--gold); transform: translateX(4px); }
+
+    .edu-school {
+      font-family: var(--font-display); font-size: 24px; font-weight: 600;
+      color: var(--text); margin-bottom: 4px;
+    }
+    .edu-degree {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--gold); letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .edu-meta { display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+    .edu-meta-item {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); letter-spacing: 1px;
+    }
+    .edu-meta-item svg { color: var(--gold); }
+    .gpa-badge {
+      display: inline-block; padding: 4px 12px;
+      background: linear-gradient(90deg, rgba(200,150,62,0.2), rgba(200,150,62,0.05));
+      border: 1px solid rgba(200,150,62,0.4);
+      border-radius: 4px; font-family: var(--font-mono);
+      font-size: 11px; color: var(--gold-lt); letter-spacing: 1px;
+    }
+    .edu-courses {
+      margin-top: 16px;
+    }
+    .courses-label {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .courses-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .course-tag {
+      padding: 4px 12px; border-radius: 4px;
+      background: rgba(58,106,173,0.1);
+      border: 1px solid rgba(58,106,173,0.25);
+      font-size: 12px; color: var(--blue-lt);
+    }
+
+    /* ═══════════════════════════ RESEARCH ═══════════════════════════ */
+    .research-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 32px 36px;
+      margin-bottom: 28px; position: relative; overflow: hidden;
+      transition: all 0.3s;
+    }
+    .research-card:hover { border-color: rgba(200,150,62,0.5); }
+    .research-card::after {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle at top right, rgba(200,150,62,0.06), transparent 70%);
+    }
+    .rc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .rc-org {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--blue-lt); letter-spacing: 2px; text-transform: uppercase;
+    }
+    .rc-date {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); letter-spacing: 1px;
+      border: 1px solid var(--border); padding: 3px 10px; border-radius: 100px;
+    }
+    .rc-title {
+      font-family: var(--font-display); font-size: 22px;
+      font-weight: 600; color: var(--text); margin-bottom: 16px;
+    }
+    .bullet-list { list-style: none; padding: 0; }
+    .bullet-list li {
+      padding: 8px 0 8px 22px; position: relative;
+      color: var(--text-dim); font-size: 14.5px; line-height: 1.7;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .bullet-list li:last-child { border-bottom: none; }
+    .bullet-list li::before {
+      content: '▸';
+      position: absolute; left: 0; color: var(--gold); font-size: 11px; top: 10px;
+    }
+    .bullet-list li strong { color: var(--text); }
+
+    .award-inline {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 14px; padding: 6px 14px;
+      background: rgba(200,150,62,0.08);
+      border: 1px solid rgba(200,150,62,0.25);
+      border-radius: 6px; font-size: 12.5px; color: var(--gold-lt);
+    }
+
+    /* ═══════════════════════════ PROJECTS ═══════════════════════════ */
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .proj-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      transition: all 0.3s; position: relative;
+    }
+    .proj-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .proj-card-accent {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--blue));
+    }
+    .proj-body { padding: 26px 28px; }
+    .proj-tag {
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 2px; color: var(--gold); text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .proj-title {
+      font-family: var(--font-display); font-size: 20px;
+      font-weight: 600; color: var(--text); margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .proj-desc { color: var(--text-dim); font-size: 13.5px; line-height: 1.7; margin-bottom: 20px; }
+    .proj-tech { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tech-tag {
+      padding: 3px 10px; border-radius: 3px;
+      background: rgba(58,106,173,0.12);
+      border: 1px solid rgba(58,106,173,0.2);
+      font-family: var(--font-mono); font-size: 10px; color: var(--blue-lt);
+    }
+    .proj-metric {
+      position: absolute; top: 20px; right: 20px;
+      font-family: var(--font-display); font-size: 28px;
+      font-weight: 700; color: rgba(200,150,62,0.15);
+    }
+
+    /* ═══════════════════════════ AWARDS ═══════════════════════════ */
+    .awards-list { display: flex; flex-direction: column; gap: 18px; }
+    .award-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 24px 30px;
+      display: flex; align-items: center; gap: 24px;
+      transition: all 0.3s;
+    }
+    .award-card:hover { border-color: var(--gold); transform: translateX(6px); }
+    .award-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid rgba(200,150,62,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .award-info { flex: 1; }
+    .award-name {
+      font-family: var(--font-display); font-size: 18px;
+      font-weight: 600; color: var(--text); margin-bottom: 4px;
+    }
+    .award-org {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); letter-spacing: 1px;
+    }
+    .award-badge {
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--gold); letter-spacing: 1px;
+    }
+
+    /* ═══════════════════════════ SKILLS ═══════════════════════════ */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .skill-group {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px 30px;
+    }
+    .skill-group-title {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 2px; color: var(--gold); text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .skill-item { margin-bottom: 16px; }
+    .skill-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .skill-name { font-size: 13px; color: var(--text); }
+    .skill-level { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); }
+    .skill-bar { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+    .skill-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--blue-lt));
+      transition: width 1s ease;
+    }
+    .lang-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .lang-chip {
+      padding: 6px 16px; border-radius: 100px;
+      border: 1px solid var(--border);
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text); letter-spacing: 1px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* ═══════════════════════════ CONTACT ═══════════════════════════ */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .contact-intro {
+      font-family: var(--font-display); font-size: 28px;
+      font-weight: 300; color: var(--text); line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .contact-intro strong { color: var(--gold); font-weight: 600; }
+    .contact-text { color: var(--text-dim); font-size: 14.5px; line-height: 1.8; margin-bottom: 32px; }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 8px; text-decoration: none; color: var(--text);
+      transition: all 0.25s;
+    }
+    .contact-item:hover { border-color: var(--gold); background: var(--gold-dim); }
+    .contact-item-icon {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: var(--gold-dim); border: 1px solid rgba(200,150,62,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .contact-item-info {}
+    .contact-item-label {
+      font-family: var(--font-mono); font-size: 9px;
+      color: var(--text-dim); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 2px;
+    }
+    .contact-item-val { font-size: 14px; color: var(--text); }
+
+    .contact-form-side { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 32px; }
+    .form-title {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 2px; color: var(--gold); text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .form-field { margin-bottom: 18px; }
+    .form-label {
+      display: block; font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-dim); letter-spacing: 1.5px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .form-input, .form-textarea {
+      width: 100%; background: var(--bg3);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 12px 16px; color: var(--text); font-family: var(--font-body);
+      font-size: 14px; outline: none; resize: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-textarea { height: 110px; }
+    .btn-send {
+      width: 100%; padding: 14px; border-radius: 6px;
+      background: linear-gradient(90deg, var(--gold), #a6742a);
+      border: none; color: #09101f; font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; font-weight: 700;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-send:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ═══════════════════════════ MOBILE TOGGLE ═══════════════════════════ */
+    .mobile-toggle {
+      display: none; position: fixed; top: 16px; left: 16px; z-index: 200;
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--bg2); border: 1px solid var(--border);
+      cursor: pointer; align-items: center; justify-content: center;
+      flex-direction: column; gap: 5px;
+    }
+    .mobile-toggle span { width: 20px; height: 2px; background: var(--gold); border-radius: 1px; }
+
+    /* ═══════════════════════════ RESPONSIVE ═══════════════════════════ */
+    @media (max-width: 900px) {
+      .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .section { padding: 80px 24px 40px; }
+      .hero-top { flex-direction: column; gap: 28px; }
+      .hero-name { font-size: 44px; }
+      .projects-grid, .skills-grid, .contact-layout { grid-template-columns: 1fr; }
+      .mobile-toggle { display: flex; }
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+  </style>
 </head>
-
 <body>
 
-<button id="mobileToggle">☰</button>
+<canvas id="stars"></canvas>
 
+<!-- Mobile toggle -->
+<button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Sidebar -->
 <nav class="sidebar" id="sidebar">
-<button class="nav-link active" data-target="home">About</button>
-<button class="nav-link" data-target="projects">Projects</button>
-<button class="nav-link" data-target="contact">Contact</button>
+  <div class="sidebar-logo">
+    <div class="initials">AS</div>
+    <div class="tagline">Mech &amp; Aerospace Eng.</div>
+  </div>
+
+  <div class="nav-links">
+    <div class="nav-link active" data-target="home">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h4v-4h2v4h4a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+      About
+    </div>
+    <div class="nav-link" data-target="education">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.194l4-1.333a1 1 0 11.632 1.898l-2.784.928L10 11.39l2.546-1.017 1.04.42V9.75a1 1 0 00-.398-.804L10.394 2.08zm3.02 10.064l-1.902.76a1 1 0 01-.739 0l-2.773-1.11V13.5a1 1 0 001 1h4a1 1 0 001-1v-1.773l-1.586.414z"/></svg>
+      Education
+    </div>
+    <div class="nav-link" data-target="research">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>
+      Research
+    </div>
+    <div class="nav-link" data-target="projects">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 010 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+      Projects
+    </div>
+    <div class="nav-link" data-target="awards">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      Awards
+    </div>
+    <div class="nav-link" data-target="skills">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+      Skills
+    </div>
+    <div class="nav-link" data-target="contact">
+      <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+      Contact
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="footer-label">Connect</div>
+    <div class="social-row">
+      <a class="social-btn" href="mailto:shyngysadilet81@gmail.com" title="Email">✉</a>
+      <a class="social-btn" href="https://linkedin.com" target="_blank" title="LinkedIn">in</a>
+      <a class="social-btn" href="https://github.com" target="_blank" title="GitHub">⌥</a>
+    </div>
+  </div>
 </nav>
 
+<!-- ════════════════════════════ MAIN ════════════════════════════ -->
 <main class="main">
 
-<section id="home" class="section active">
-<h1>Adilet Shynggys</h1>
-<p>Mechanical & Aerospace Engineering student.</p>
-</section>
+  <!-- ── ABOUT ── -->
+  <section id="home" class="section active">
+    <div class="hero-top">
+      <div class="hero-photo">AS</div>
+      <div class="hero-info">
+        <div class="hero-greeting">// Hello, world</div>
+        <h1 class="hero-name">Adilet<br>Shynggys</h1>
+        <div class="hero-role">Mechanical &amp; Aerospace Engineering · Nazarbayev University</div>
+        <p class="hero-tagline">"Stable energy equals stable development."</p>
+      </div>
+    </div>
 
-<section id="projects" class="section">
-<h2>Projects</h2>
-<p>TENG optimization, manufacturing improvements, etc.</p>
-</section>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-num">3.86</div>
+        <div class="stat-lbl">GPA</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">4</div>
+        <div class="stat-lbl">Dean's List Semesters</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">20%</div>
+        <div class="stat-lbl">Energy KPI Improvement</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">10%</div>
+        <div class="stat-lbl">Waste Reduction at Wabtec</div>
+      </div>
+    </div>
 
-<section id="contact" class="section">
-<h2>Contact</h2>
+    <p class="about-text">
+      I am a <strong>top-performing Mechanical &amp; Aerospace Engineering student</strong> at Nazarbayev University in Astana, Kazakhstan, with a rigorous, fundamentals-first approach to complex problem-solving. My work sits at the intersection of <strong>energy harvesting, manufacturing optimization,</strong> and <strong>materials research</strong>. I have contributed to nanogenerator design at the university's research labs and gained industry experience at <strong>Wabtec Corporation</strong> as a Product Support Engineering Intern.
+    </p>
+    <p class="about-text">
+      I am actively seeking <strong>graduate research opportunities</strong> in energy systems, smart materials, or aerospace engineering. I believe that accessible, efficient renewable energy is one of the defining engineering challenges of our generation — and I am committed to building my career around solving it.
+    </p>
 
-<form id="contactForm">
-<input name="name" class="form-input" placeholder="Name" required>
-<input name="email" type="email" class="form-input" placeholder="Email" required>
-<textarea name="message" class="form-textarea" placeholder="Message" required></textarea>
-<button type="submit" class="btn-send">Send Message</button>
-</form>
+    <div class="interest-chips">
+      <span class="chip">Renewable Energy</span>
+      <span class="chip">Nanogenerators (TENGs)</span>
+      <span class="chip">Manufacturing Optimization</span>
+      <span class="chip">Structural Mechanics</span>
+      <span class="chip">Thermodynamics</span>
+      <span class="chip">Fluid Mechanics</span>
+      <span class="chip">Data Analysis</span>
+    </div>
+  </section>
 
-</section>
+  <!-- ── EDUCATION ── -->
+  <section id="education" class="section">
+    <div class="sec-label">// Academic Background</div>
+    <h2 class="sec-title">Edu<span>cation</span></h2>
+    <div class="sec-divider"></div>
+
+    <div class="edu-card">
+      <div class="edu-school">Nazarbayev University</div>
+      <div class="edu-degree">Bachelor of Mechanical &amp; Aerospace Engineering</div>
+      <div class="edu-meta">
+        <div class="edu-meta-item">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20"><path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/></svg>
+          Aug 2023 — Jun 2027 (Expected)
+        </div>
+        <div class="edu-meta-item">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12z"/></svg>
+          Astana, Kazakhstan
+        </div>
+        <div class="gpa-badge">GPA: 3.86 — Top Student in Cohort</div>
+      </div>
+      <div class="edu-courses">
+        <div class="courses-label">Relevant Courses</div>
+        <div class="courses-list">
+          <span class="course-tag">Engineering Materials</span>
+          <span class="course-tag">Structural Mechanics</span>
+          <span class="course-tag">Dynamics</span>
+          <span class="course-tag">Thermodynamics</span>
+          <span class="course-tag">Fluid Mechanics</span>
+          <span class="course-tag">Process Engineering</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-school">University of Hong Kong</div>
+      <div class="edu-degree">Exchange Program</div>
+      <div class="edu-meta">
+        <div class="edu-meta-item">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 14a6 6 0 110-12 6 6 0 010 12z"/></svg>
+          Hong Kong SAR
+        </div>
+        <div class="gpa-badge">International Academic Exchange</div>
+      </div>
+      <p style="color:var(--text-dim); font-size:14px; margin-top:4px;">
+        Selected for a prestigious international exchange program, gaining exposure to a world-class engineering curriculum and multicultural academic environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── RESEARCH ── -->
+  <section id="research" class="section">
+    <div class="sec-label">// Professional & Research Experience</div>
+    <h2 class="sec-title">Re<span>search</span></h2>
+    <div class="sec-divider"></div>
+
+    <div class="research-card">
+      <div class="rc-header">
+        <div class="rc-org">Wabtec Corporation</div>
+        <div class="rc-date">Jun 2025 — Jul 2025</div>
+      </div>
+      <div class="rc-title">Product Support Engineering Intern</div>
+      <ul class="bullet-list">
+        <li>Applied <strong>Process Engineering</strong> knowledge to optimize manufacturing efficiency; implemented Product Change Requests to revise schematic designs, directly supporting IQS (Initial Quality Study) and KPI effectiveness, yielding a <strong>10% reduction in material waste</strong>.</li>
+        <li>Executed hands-on <strong>thermal testing of electric motors</strong> during site visits, analyzing heat dissipation metrics to support Clean Point Effectiveness tracking and overall product quality assurance.</li>
+      </ul>
+    </div>
+
+    <div class="research-card">
+      <div class="rc-header">
+        <div class="rc-org">Nazarbayev University — Research Lab</div>
+        <div class="rc-date">Jan 2025 — Dec 2025</div>
+      </div>
+      <div class="rc-title">Research Assistant — Nanogenerators &amp; Energy Harvesting</div>
+      <ul class="bullet-list">
+        <li>Applied process engineering principles to <strong>design and optimize triboelectric nanogenerators (TENGs)</strong>, improving energy-harvesting KPI effectiveness by <strong>15–20%</strong>.</li>
+        <li>Conducted complex <strong>data analysis using OriginPro</strong> to characterize energy output, generate performance trend reports, and validate device efficiency across multiple experimental configurations.</li>
+        <li>Leveraged strong communication skills to present technical findings to <strong>international research audiences</strong>, earning the prestigious Best Research Poster Presentation award.</li>
+      </ul>
+      <div class="award-inline">
+        🏅 Best Research Poster Presentation — Belt &amp; Road Initiative Conference
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="section">
+    <div class="sec-label">// Notable Work</div>
+    <h2 class="sec-title">Pro<span>jects</span></h2>
+    <div class="sec-divider"></div>
+
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-card-accent"></div>
+        <div class="proj-body">
+          <div class="proj-metric">+20%</div>
+          <div class="proj-tag">Energy Harvesting · Research</div>
+          <div class="proj-title">Triboelectric Nanogenerator (TENG) Optimization</div>
+          <p class="proj-desc">Designed and characterized novel TENG devices using electrospinning and silver-ink micro-printing. Improved energy-harvesting efficiency by 15–20% through systematic material and geometry optimization validated via OriginPro analysis.</p>
+          <div class="proj-tech">
+            <span class="tech-tag">Electrospinning</span>
+            <span class="tech-tag">OriginPro</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Silver-ink Printing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-accent" style="background: linear-gradient(90deg, var(--blue), var(--gold));"></div>
+        <div class="proj-body">
+          <div class="proj-metric">🏆</div>
+          <div class="proj-tag">Engineering Design · Competition</div>
+          <div class="proj-title">Mechaton Engineering Case Competition — 1st Place</div>
+          <p class="proj-desc">Led a team to first place in the NU IMechE Mechaton Engineering Case Competition. Developed and presented a comprehensive engineering solution under time-constrained conditions, demonstrating rapid prototyping and system design skills.</p>
+          <div class="proj-tech">
+            <span class="tech-tag">SolidWorks</span>
+            <span class="tech-tag">MATLAB</span>
+            <span class="tech-tag">3D Printing</span>
+            <span class="tech-tag">Systems Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-accent" style="background: linear-gradient(90deg, #2a6a4a, var(--blue));"></div>
+        <div class="proj-body">
+          <div class="proj-metric">-10%</div>
+          <div class="proj-tag">Manufacturing · Industry</div>
+          <div class="proj-title">Wabtec Manufacturing Efficiency &amp; Waste Reduction</div>
+          <p class="proj-desc">During the internship at Wabtec Corporation, implemented Product Change Requests to revise motor schematic designs. Analysis of IQS metrics directly contributed to a measurable 10% reduction in material waste across the production line.</p>
+          <div class="proj-tech">
+            <span class="tech-tag">Process Eng.</span>
+            <span class="tech-tag">Thermal Testing</span>
+            <span class="tech-tag">KPI Analysis</span>
+            <span class="tech-tag">Schematic Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-accent" style="background: linear-gradient(90deg, #8a3a9a, var(--gold));"></div>
+        <div class="proj-body">
+          <div class="proj-metric">150+</div>
+          <div class="proj-tag">Leadership · Social Impact</div>
+          <div class="proj-title">Health Day &amp; Charity Trail Run</div>
+          <p class="proj-desc">Organized a Health Day and Charity Trail Run for 150+ students at Nazarbayev University, raising over 600,000 KZT to fund business education scholarships for single mothers. Demonstrated large-scale event management and community impact.</p>
+          <div class="proj-tech">
+            <span class="tech-tag">Event Management</span>
+            <span class="tech-tag">Fundraising</span>
+            <span class="tech-tag">Leadership</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── AWARDS ── -->
+  <section id="awards" class="section">
+    <div class="sec-label">// Recognition</div>
+    <h2 class="sec-title">Hon<span>ors &amp; Awards</span></h2>
+    <div class="sec-divider"></div>
+
+    <div class="awards-list">
+
+      <div class="award-card">
+        <div class="award-icon">🏅</div>
+        <div class="award-info">
+          <div class="award-name">Best Research Poster Presentation</div>
+          <div class="award-org">Belt &amp; Road Initiative Conference · International Audience</div>
+        </div>
+        <div class="award-badge">2025</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">📜</div>
+        <div class="award-info">
+          <div class="award-name">Dean's List</div>
+          <div class="award-org">Nazarbayev University · School of Engineering</div>
+        </div>
+        <div class="award-badge">4 Semesters</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🥇</div>
+        <div class="award-info">
+          <div class="award-name">1st Place — Mechaton Engineering Case Competition</div>
+          <div class="award-org">NU IMechE (Institution of Mechanical Engineers)</div>
+        </div>
+        <div class="award-badge">2024–2025</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🎖️</div>
+        <div class="award-info">
+          <div class="award-name">Presidential Stipend</div>
+          <div class="award-org">Nazarbayev University · Merit-Based Scholarship</div>
+        </div>
+        <div class="award-badge">Ongoing</div>
+      </div>
+
+      <div class="award-card">
+        <div class="award-icon">🌐</div>
+        <div class="award-info">
+          <div class="award-name">International Exchange Scholar</div>
+          <div class="award-org">University of Hong Kong · Academic Exchange Program</div>
+        </div>
+        <div class="award-badge">2024</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" class="section">
+    <div class="sec-label">// Technical Toolkit</div>
+    <h2 class="sec-title">Ski<span>lls</span></h2>
+    <div class="sec-divider"></div>
+
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="skill-group-title">Engineering Software</div>
+
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">SolidWorks</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="88" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">MATLAB</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">OriginPro</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="90" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Python</span><span class="skill-level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="78" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Wolfram / Mathematica</span><span class="skill-level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="72" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Laboratory &amp; Manufacturing</div>
+
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Electrospinning</span><span class="skill-level">Experienced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">3D Printing / Rapid Prototyping</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="88" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Silver-Ink Micro-Printing</span><span class="skill-level">Experienced</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="80" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Silicon Printing</span><span class="skill-level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="74" style="width:0%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Thermal Testing &amp; Analysis</span><span class="skill-level">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="76" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Core Engineering Domains</div>
+        <div class="courses-list" style="margin-top:4px;">
+          <span class="course-tag">Thermodynamics</span>
+          <span class="course-tag">Fluid Mechanics</span>
+          <span class="course-tag">Structural Mechanics</span>
+          <span class="course-tag">Dynamics</span>
+          <span class="course-tag">Engineering Materials</span>
+          <span class="course-tag">Process Engineering</span>
+          <span class="course-tag">Energy Systems</span>
+          <span class="course-tag">Manufacturing</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="lang-chips" style="margin-top:4px;">
+          <span class="lang-chip">🇬🇧 English — Fluent</span>
+          <span class="lang-chip">🇷🇺 Russian — Native</span>
+          <span class="lang-chip">🇰🇿 Kazakh — Native</span>
+        </div>
+        <div class="skill-group-title" style="margin-top:28px;">Soft Skills</div>
+        <div class="courses-list" style="margin-top:8px;">
+          <span class="course-tag">Technical Communication</span>
+          <span class="course-tag">Critical Thinking</span>
+          <span class="course-tag">Adaptability</span>
+          <span class="course-tag">Collaborative Teamwork</span>
+          <span class="course-tag">Mentoring</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section">
+    <div class="sec-label">// Let's Connect</div>
+    <h2 class="sec-title">Con<span>tact</span></h2>
+    <div class="sec-divider"></div>
+
+    <div class="contact-layout">
+      <div>
+        <p class="contact-intro">Looking for a <strong>driven researcher</strong> for your graduate program?</p>
+        <p class="contact-text">I am actively pursuing graduate opportunities in mechanical engineering, energy systems, and materials science. Whether you are a faculty member, recruiter, or collaborator — I would love to hear from you.</p>
+
+        <div class="contact-items">
+          <a class="contact-item" href="mailto:shyngysadilet81@gmail.com">
+            <div class="contact-item-icon">✉</div>
+            <div class="contact-item-info">
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">shyngysadilet81@gmail.com</div>
+            </div>
+          </a>
+          <a class="contact-item" href="tel:+77009590833">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-info">
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val">+7 700 959 0833</div>
+            </div>
+          </a>
+          <a class="contact-item" href="https://linkedin.com" target="_blank">
+            <div class="contact-item-icon">in</div>
+            <div class="contact-item-info">
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-val">linkedin.com/in/adilet-shynggys</div>
+            </div>
+          </a>
+          <div class="contact-item" style="cursor:default;">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-info">
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-val">Astana, Kazakhstan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-side">
+        <div class="form-title">// Send a Message</div>
+        <div class="form-field">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="Prof. Jane Smith" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@university.edu" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="I'm reaching out about a graduate research position…"></textarea>
+        </div>
+        <button class="btn-send" onclick="handleSend(this)">Send Message</button>
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <script>
-const links=document.querySelectorAll('.nav-link');
-const sections=document.querySelectorAll('.section');
+  /* ── Navigation ── */
+  const links = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.section');
 
-function activateSection(id){
-sections.forEach(s=>s.classList.remove('active'));
-links.forEach(l=>l.classList.remove('active'));
+  function showSection(id) {
+    sections.forEach(s => s.classList.remove('active'));
+    links.forEach(l => l.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
+    const link = document.querySelector(`[data-target="${id}"]`);
+    if (link) link.classList.add('active');
+    if (id === 'skills') animateBars();
+    // Close mobile sidebar
+    document.getElementById('sidebar').classList.remove('open');
+  }
 
-document.getElementById(id).classList.add('active');
-document.querySelector(`[data-target="${id}"]`).classList.add('active');
-document.getElementById('sidebar').classList.remove('open');
-}
+  links.forEach(link => {
+    link.addEventListener('click', () => showSection(link.dataset.target));
+  });
 
-function showSection(id){
-location.hash=id;
-}
+  /* ── Mobile toggle ── */
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.toggle('open');
+  });
 
-links.forEach(link=>{
-link.addEventListener('click',()=>showSection(link.dataset.target));
-});
+  /* ── Skill bar animation ── */
+  function animateBars() {
+    document.querySelectorAll('.skill-fill').forEach(bar => {
+      const w = bar.dataset.w;
+      setTimeout(() => bar.style.width = w + '%', 100);
+    });
+  }
 
-window.addEventListener('load',()=>{
-const id=location.hash.replace('#','')||'home';
-activateSection(id);
-});
+  /* ── Stars / particles ── */
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
 
-window.addEventListener('hashchange',()=>{
-const id=location.hash.replace('#','');
-activateSection(id);
-});
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
 
-document.getElementById('mobileToggle').onclick=()=>{
-document.getElementById('sidebar').classList.toggle('open');
-};
+  function rand(a, b) { return a + Math.random() * (b - a); }
 
-/* CONTACT FORM */
-const form=document.getElementById('contactForm');
+  for (let i = 0; i < 90; i++) {
+    particles.push({
+      x: rand(0, 1), y: rand(0, 1),
+      r: rand(0.4, 1.4),
+      vx: rand(-0.04, 0.04), vy: rand(-0.04, 0.04),
+      alpha: rand(0.2, 0.7)
+    });
+  }
 
-form.addEventListener('submit',async e=>{
-e.preventDefault();
+  function drawStars() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.vx / W * 60;
+      p.y += p.vy / H * 60;
+      if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+      if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,180,100,${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+  drawStars();
 
-const btn=form.querySelector('button');
-btn.textContent="Sending...";
-
-const data=new FormData(form);
-
-try{
-await fetch("https://formspree.io/f/YOUR_FORM_ID",{
-method:"POST",
-body:data,
-headers:{'Accept':'application/json'}
-});
-btn.textContent="✓ Sent!";
-form.reset();
-}catch{
-btn.textContent="Error";
-}
-
-setTimeout(()=>btn.textContent="Send Message",3000);
-});
+  /* ── Contact form ── */
+  function handleSend(btn) {
+    const inputs = btn.closest('.contact-form-side').querySelectorAll('input, textarea');
+    let ok = true;
+    inputs.forEach(i => { if (!i.value.trim()) ok = false; });
+    if (!ok) { btn.textContent = '⚠ Please fill all fields'; setTimeout(() => btn.textContent = 'Send Message', 2000); return; }
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = 'linear-gradient(90deg,#2d7a4a,#1a5c35)';
+    inputs.forEach(i => i.value = '');
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+    }, 3000);
+  }
 </script>
-
 </body>
 </html>
