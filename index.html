@@ -1013,29 +1013,59 @@
 </main>
 
 <script>
-  /* ── Navigation ── */
+  /* ── Navigation with URL support ── */
   const links = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.section');
 
-  function showSection(id) {
+  function activateSection(id) {
     sections.forEach(s => s.classList.remove('active'));
     links.forEach(l => l.classList.remove('active'));
+
     const target = document.getElementById(id);
     if (target) target.classList.add('active');
+
     const link = document.querySelector(`[data-target="${id}"]`);
     if (link) link.classList.add('active');
+
     if (id === 'skills') animateBars();
-    // Close mobile sidebar
+
     document.getElementById('sidebar').classList.remove('open');
   }
 
+  function showSection(id) {
+    location.hash = id; // ✅ updates URL
+  }
+
   links.forEach(link => {
-    link.addEventListener('click', () => showSection(link.dataset.target));
+    link.addEventListener('click', () => {
+      showSection(link.dataset.target);
+    });
+  });
+
+  /* Load section from URL */
+  window.addEventListener('load', () => {
+    const id = location.hash.replace('#', '') || 'home';
+    activateSection(id);
+  });
+
+  /* Handle manual hash change */
+  window.addEventListener('hashchange', () => {
+    const id = location.hash.replace('#', '');
+    activateSection(id);
   });
 
   /* ── Mobile toggle ── */
+  const sidebar = document.getElementById('sidebar');
+
   document.getElementById('mobileToggle').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.toggle('open');
+    sidebar.classList.toggle('open');
+  });
+
+  /* close sidebar when clicking outside */
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !e.target.closest('#mobileToggle')) {
+      sidebar.classList.remove('open');
+    }
   });
 
   /* ── Skill bar animation ── */
@@ -1046,17 +1076,23 @@
     });
   }
 
-  /* ── Stars / particles ── */
+  /* ── Stars / particles (optimized) ── */
   const canvas = document.getElementById('stars');
   const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
+
+  let W, H, particles = [], running = true;
 
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
+
   window.addEventListener('resize', resize);
   resize();
+
+  document.addEventListener("visibilitychange", () => {
+    running = !document.hidden;
+  });
 
   function rand(a, b) { return a + Math.random() * (b - a); }
 
@@ -1070,35 +1106,69 @@
   }
 
   function drawStars() {
+    if (!running) {
+      requestAnimationFrame(drawStars);
+      return;
+    }
+
     ctx.clearRect(0, 0, W, H);
+
     particles.forEach(p => {
       p.x += p.vx / W * 60;
       p.y += p.vy / H * 60;
-      if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
-      if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
+
+      if (p.x < 0) p.x = 1;
+      if (p.x > 1) p.x = 0;
+      if (p.y < 0) p.y = 1;
+      if (p.y > 1) p.y = 0;
+
       ctx.beginPath();
       ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(200,180,100,${p.alpha})`;
       ctx.fill();
     });
+
     requestAnimationFrame(drawStars);
   }
+
   drawStars();
 
-  /* ── Contact form ── */
-  function handleSend(btn) {
-    const inputs = btn.closest('.contact-form-side').querySelectorAll('input, textarea');
+  /* ── OPTIONAL: real form instead of fake ── */
+  async function handleSend(btn) {
+    const form = btn.closest('.contact-form-side');
+    const inputs = form.querySelectorAll('input, textarea');
+
     let ok = true;
     inputs.forEach(i => { if (!i.value.trim()) ok = false; });
-    if (!ok) { btn.textContent = '⚠ Please fill all fields'; setTimeout(() => btn.textContent = 'Send Message', 2000); return; }
-    btn.textContent = '✓ Message Sent!';
-    btn.style.background = 'linear-gradient(90deg,#2d7a4a,#1a5c35)';
-    inputs.forEach(i => i.value = '');
+
+    if (!ok) {
+      btn.textContent = '⚠ Please fill all fields';
+      setTimeout(() => btn.textContent = 'Send Message', 2000);
+      return;
+    }
+
+    btn.textContent = 'Sending...';
+
+    try {
+      await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      btn.textContent = '✓ Message Sent!';
+      inputs.forEach(i => i.value = '');
+
+    } catch {
+      btn.textContent = '⚠ Error';
+    }
+
     setTimeout(() => {
       btn.textContent = 'Send Message';
       btn.style.background = '';
     }, 3000);
   }
 </script>
+``
 </body>
 </html>
