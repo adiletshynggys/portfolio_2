@@ -1,698 +1,397 @@
-# Graduate Portfolio Website (GitHub Pages Ready)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adilet Shynggys | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for easy color theme management */
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+        }
 
-A modern academic portfolio website for graduate applications.
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-Tech Stack:
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-* React + Vite
-* TailwindCSS
-* Framer Motion
-* Lucide Icons
-* GitHub Pages Deployment
+        /* Header / Hero Section */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
 
----
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
+        }
 
-# 1. Project Structure
+        header h2 {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
 
-```bash
-portfolio-website/
-│
-├── public/
-│   └── profile.jpg
-│
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Education.jsx
-│   │   ├── Research.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Awards.jsx
-│   │   ├── Leadership.jsx
-│   │   ├── Contact.jsx
-│   │   └── Footer.jsx
-│   │
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-│
-├── package.json
-├── vite.config.js
-└── tailwind.config.js
-```
+        .header-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
 
----
+        .header-contact a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-# 2. Setup Commands
+        .header-contact a:hover {
+            color: var(--secondary-color);
+        }
 
-```bash
-npm create vite@latest portfolio-website -- --template react
-cd portfolio-website
+        /* Tab Navigation */
+        .tab-container {
+            max-width: 1000px;
+            margin: -2rem auto 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
 
-npm install
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+        .tabs {
+            display: flex;
+            background-color: #f1f5f9;
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
 
-npm install framer-motion lucide-react gh-pages
-```
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
 
----
+        .tab-button:hover {
+            color: var(--secondary-color);
+            background-color: #e2e8f0;
+        }
 
-# 3. tailwind.config.js
+        .tab-button.active {
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            background-color: var(--card-bg);
+        }
 
-```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        primary: '#0F172A',
-        accent: '#38BDF8',
-      },
-    },
-  },
-  plugins: [],
-}
-```
+        /* Tab Content Area */
+        .tab-content {
+            display: none;
+            padding: 2.5rem;
+            animation: fadeIn 0.4s ease-in-out;
+        }
 
----
+        .tab-content.active {
+            display: block;
+        }
 
-# 4. src/index.css
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+        /* Reusable Section Styles */
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
 
-html {
-  scroll-behavior: smooth;
-}
+        .item {
+            margin-bottom: 2rem;
+        }
 
-body {
-  margin: 0;
-  background: #020617;
-  color: white;
-  font-family: Inter, sans-serif;
-}
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
 
-.section-title {
-  @apply text-4xl font-bold mb-10 text-center;
-}
+        .item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
 
-.card {
-  @apply bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl hover:scale-[1.02] transition duration-300;
-}
-```
+        .item-subtitle {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-light);
+        }
 
----
+        .item-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
 
-# 5. src/main.jsx
+        ul.bullet-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
 
-```jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+        ul.bullet-list li {
+            margin-bottom: 0.5rem;
+        }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
-```
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
 
----
+        .skill-tag {
+            background-color: #eff6ff;
+            color: var(--secondary-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
 
-# 6. src/App.jsx
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
 
-```jsx
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Education from './components/Education'
-import Research from './components/Research'
-import Projects from './components/Projects'
-import Awards from './components/Awards'
-import Leadership from './components/Leadership'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .item-header {
+                flex-direction: column;
+            }
+            .tab-container {
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
 
-function App() {
-  return (
-    <div className="bg-slate-950 text-white overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <About />
-      <Education />
-      <Research />
-      <Projects />
-      <Awards />
-      <Leadership />
-      <Contact />
-      <Footer />
-    </div>
-  )
-}
-
-export default App
-```
-
----
-
-# 7. src/components/Navbar.jsx
-
-```jsx
-const Navbar = () => {
-  return (
-    <nav className="fixed w-full z-50 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-accent">
-          Adilet Shynggys
-        </h1>
-
-        <div className="hidden md:flex gap-8 text-sm">
-          <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
-          <a href="#awards">Awards</a>
-          <a href="#contact">Contact</a>
+    <header>
+        <h1>Adilet Shynggys [cite: 1]</h1>
+        <h2>Mechanical & Aerospace Engineering Student [cite: 2]</h2>
+        <div class="header-contact">
+            <a href="mailto:shyngysadilet81@gmail.com">shyngysadilet81@gmail.com [cite: 3]</a>
+            <span>|</span>
+            <span>+7 700 959 0833 [cite: 3]</span>
+            <span>|</span>
+            <span>Astana, Kazakhstan [cite: 3]</span>
+            <span>|</span>
+            <a href="#">LinkedIn [cite: 3]</a>
         </div>
-      </div>
-    </nav>
-  )
-}
+    </header>
 
-export default Navbar
-```
-
----
-
-# 8. src/components/Hero.jsx
-
-```jsx
-import { motion } from 'framer-motion'
-
-const Hero = () => {
-  return (
-    <section className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="text-accent mb-4 uppercase tracking-widest">
-            Mechanical & Aerospace Engineering
-          </p>
-
-          <h1 className="text-6xl md:text-7xl font-black leading-tight mb-6">
-            Adilet
-            <span className="text-accent"> Shynggys</span>
-          </h1>
-
-          <p className="text-slate-300 text-lg leading-relaxed mb-8">
-            Top-performing engineering student focused on energy,
-            optimization, manufacturing, and sustainable technologies.
-            Passionate about research that advances renewable energy
-            accessibility and engineering innovation.
-          </p>
-
-          <div className="flex gap-4 flex-wrap">
-            <a
-              href="#contact"
-              className="bg-accent text-black px-6 py-3 rounded-xl font-semibold"
-            >
-              Contact Me
-            </a>
-
-            <a
-              href="#research"
-              className="border border-slate-700 px-6 py-3 rounded-xl"
-            >
-              Research
-            </a>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="flex justify-center"
-        >
-          <img
-            src="/profile.jpg"
-            alt="Profile"
-            className="w-[350px] h-[350px] object-cover rounded-3xl border border-slate-700 shadow-2xl"
-          />
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-export default Hero
-```
-
----
-
-# 9. src/components/About.jsx
-
-```jsx
-const About = () => {
-  return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="section-title">About Me</h2>
-
-        <div className="card">
-          <p className="text-slate-300 leading-relaxed text-lg">
-            I am a Mechanical & Aerospace Engineering student at
-            Nazarbayev University with strong interests in energy systems,
-            optimization, manufacturing, and advanced materials.
-
-            My academic and research work focuses on solving complex
-            engineering problems through rigorous analytical thinking,
-            experimentation, and computational tools.
-
-            I am particularly motivated by sustainable energy technologies
-            and research that contributes to environmentally responsible
-            industrial development.
-          </p>
+    <main class="tab-container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'Background')">Background</button>
+            <button class="tab-button" onclick="openTab(event, 'Education')">Education</button>
+            <button class="tab-button" onclick="openTab(event, 'Experience')">Research & Experience</button>
+            <button class="tab-button" onclick="openTab(event, 'Honors')">Honors & Leadership</button>
+            <button class="tab-button" onclick="openTab(event, 'Skills')">Skills & Certifications</button>
         </div>
-      </div>
-    </section>
-  )
-}
 
-export default About
-```
+        <div id="Background" class="tab-content active">
+            <h3>About Me</h3>
+            <p>I am a top-performing Mechanical & Aerospace Engineering student specializing in energy, optimization, and manufacturing. [cite: 4] I am recognized for a rigorous, fundamentals-first approach to complex problem-solving. [cite: 5]</p>
+            <br>
+            <p>Driven by the belief that 'stable energy equals stable development,' I am looking for technical and research opportunities to apply my technical skills toward making renewable energy more accessible, efficient, and environmentally friendly. [cite: 5]</p>
+        </div>
 
----
-
-# 10. src/components/Education.jsx
-
-```jsx
-const Education = () => {
-  return (
-    <section id="education" className="py-24 px-6 bg-slate-900/30">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="section-title">Education</h2>
-
-        <div className="card space-y-4">
-          <h3 className="text-2xl font-bold">
-            Nazarbayev University
-          </h3>
-
-          <p className="text-accent">
-            BSc Mechanical & Aerospace Engineering
-          </p>
-
-          <p className="text-slate-400">
-            2023 – 2027 | GPA: 3.86/4.0
-          </p>
-
-          <div>
-            <h4 className="font-semibold mb-2">Relevant Coursework</h4>
-
-            <div className="flex flex-wrap gap-3">
-              {[
-                'Thermodynamics',
-                'Fluid Mechanics',
-                'Dynamics',
-                'Structural Mechanics',
-                'Engineering Materials',
-              ].map((course) => (
-                <span
-                  key={course}
-                  className="bg-slate-800 px-4 py-2 rounded-lg text-sm"
-                >
-                  {course}
-                </span>
-              ))}
+        <div id="Education" class="tab-content">
+            <h3>Education</h3>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Nazarbayev University [cite: 19]</span>
+                    <span class="item-date">August 2023 - exp. June 2027 [cite: 23]</span>
+                </div>
+                <div class="item-subtitle">Bachelor of Mechanical & Aerospace Engineering [cite: 20]</div>
+                <ul class="bullet-list">
+                    <li><strong>GPA:</strong> 3.86 (Top student in the cohort) [cite: 21]</li>
+                    <li><strong>Relevant Courses:</strong> Engineering Materials, Structural Mechanics, Dynamics, Thermodynamics, Fluid Mechanics [cite: 24]</li>
+                </ul>
             </div>
-          </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">University of Hong Kong [cite: 22]</span>
+                </div>
+                <div class="item-subtitle">Exchange Program [cite: 22]</div>
+            </div>
         </div>
-      </div>
-    </section>
-  )
-}
 
-export default Education
-```
+        <div id="Experience" class="tab-content">
+            <h3>Professional & Research Experience</h3>
 
----
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Nazarbayev University [cite: 12]</span>
+                    <span class="item-date">January 2025 - December 2025 [cite: 14]</span>
+                </div>
+                <div class="item-subtitle">Research Assistant [cite: 13]</div>
+                <ul class="bullet-list">
+                    <li>Applied process engineering principles to design and optimize nanogenerators (TENGs), improving energy-harvesting KPI effectiveness by 15-20%. [cite: 15]</li>
+                    <li>Conducted complex data analysis using OriginPro to characterize energy output, create data reports on specific performance trends, and validate device efficiency. [cite: 16]</li>
+                    <li>Leveraged strong communication and collaboration skills to present technical reports and findings to international audiences, earning the 'Best Research Poster Presentation' award. [cite: 17]</li>
+                </ul>
+            </div>
 
-# 11. src/components/Research.jsx
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Wabtec Corporation [cite: 7]</span>
+                    <span class="item-date">June 2025 - July 2025 [cite: 9]</span>
+                </div>
+                <div class="item-subtitle">Product Support Engineering Intern [cite: 8]</div>
+                <ul class="bullet-list">
+                    <li>Applied Process Engineering knowledge to optimize manufacturing efficiency; implemented Product Change Requests to revise schematic designs, directly supporting IQS (Initial Quality Study) and KPI effectiveness by yielding a 10% reduction in material waste. [cite: 10]</li>
+                    <li>Executed hands-on thermal testing of electric motors during site visits, analyzing heat dissipation metrics to support Clean Point Effectiveness tracking and overall product quality. [cite: 11]</li>
+                </ul>
+            </div>
+        </div>
 
-```jsx
-const Research = () => {
-  return (
-    <section id="research" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="section-title">Research Experience</h2>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="card">
-            <h3 className="text-2xl font-bold mb-4">
-              Research Assistant
-            </h3>
-
-            <p className="text-accent mb-3">
-              Nazarbayev University | 2025
-            </p>
-
-            <ul className="space-y-3 text-slate-300 list-disc pl-5">
-              <li>
-                Designed and optimized nanogenerators (TENGs)
-                for improved energy harvesting.
-              </li>
-
-              <li>
-                Conducted experimental characterization using OriginPro.
-              </li>
-
-              <li>
-                Presented technical findings to international audiences.
-              </li>
-
-              <li>
-                Achieved 15–20% performance improvements.
-              </li>
+        <div id="Honors" class="tab-content">
+            <h3>Honors & Awards</h3>
+            <ul class="bullet-list">
+                <li>Best Research Poster Presentation, Belt & Road Initiative Conference [cite: 33]</li>
+                <li>Dean's List (4 semesters) [cite: 33]</li>
+                <li>1st place, Mechaton Engineering Case Competition (NU IMechE) [cite: 34]</li>
+                <li>Presidential Stipend, Nazarbayev University [cite: 34]</li>
             </ul>
-          </div>
 
-          <div className="card">
-            <h3 className="text-2xl font-bold mb-4">
-              Engineering Internship
-            </h3>
-
-            <p className="text-accent mb-3">
-              Wabtec Corporation | 2025
-            </p>
-
-            <ul className="space-y-3 text-slate-300 list-disc pl-5">
-              <li>
-                Optimized manufacturing efficiency and KPI tracking.
-              </li>
-
-              <li>
-                Reduced material waste by approximately 10%.
-              </li>
-
-              <li>
-                Conducted electric motor thermal testing.
-              </li>
-
-              <li>
-                Supported product quality improvement initiatives.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export default Research
-```
-
----
-
-# 12. src/components/Projects.jsx
-
-```jsx
-const projects = [
-  {
-    title: 'Nanogenerator Optimization',
-    description:
-      'Research-focused energy harvesting system using triboelectric nanogenerator optimization methods.',
-  },
-  {
-    title: 'Manufacturing Process Optimization',
-    description:
-      'Industrial engineering optimization project focused on waste reduction and KPI efficiency.',
-  },
-  {
-    title: 'Thermal Testing Analysis',
-    description:
-      'Engineering analysis of electric motor thermal dissipation and performance reliability.',
-  },
-]
-
-const Projects = () => {
-  return (
-    <section id="projects" className="py-24 px-6 bg-slate-900/30">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="section-title">Projects</h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div key={project.title} className="card">
-              <h3 className="text-2xl font-bold mb-4">
-                {project.title}
-              </h3>
-
-              <p className="text-slate-300 leading-relaxed">
-                {project.description}
-              </p>
+            <h3 style="margin-top: 2rem;">Leadership & Volunteering</h3>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Nazarbayev University Leadership [cite: 26]</span>
+                    <span class="item-date">August 2024 - November 2025 [cite: 27]</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Organized the Health Day & Charity Trail Run for 150 students, raising 600,000+ KZT to support single mothers to get a business education. [cite: 28]</li>
+                    <li>Tutored physics to over 20 students and mentored 3 freshman students, contributing to a 15% grade improvement. [cite: 29]</li>
+                    <li>Represented the major cohort, improving communication between students and faculty. [cite: 30]</li>
+                    <li>Participated in the Mereke CF "Warm winter" charity for children, taking care of the retirement home. [cite: 31]</li>
+                </ul>
             </div>
-          ))}
         </div>
-      </div>
-    </section>
-  )
-}
 
-export default Projects
-```
-
----
-
-# 13. src/components/Awards.jsx
-
-```jsx
-const awards = [
-  'Best Research Poster Presentation — Belt & Road Initiative Conference',
-  'Dean’s List (4 semesters)',
-  '1st Place — Mechaton Engineering Case Competition',
-  'Presidential Stipend — Nazarbayev University',
-]
-
-const Awards = () => {
-  return (
-    <section id="awards" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="section-title">Honors & Awards</h2>
-
-        <div className="space-y-6">
-          {awards.map((award) => (
-            <div key={award} className="card text-lg">
-              {award}
+        <div id="Skills" class="tab-content">
+            <h3>Technical Skills</h3>
+            <p><strong>Laboratory & Manufacturing:</strong></p>
+            <div class="skills-container">
+                <span class="skill-tag">3D Printing [cite: 36]</span>
+                <span class="skill-tag">Electrospinning [cite: 36]</span>
+                <span class="skill-tag">Silver-ink micro-printing [cite: 36]</span>
+                <span class="skill-tag">Silicon printing [cite: 36]</span>
             </div>
-          ))}
+
+            <p><strong>Data Analysis & Engineering Software:</strong></p>
+            <div class="skills-container">
+                <span class="skill-tag">OriginPro [cite: 37]</span>
+                <span class="skill-tag">Solidworks [cite: 37]</span>
+                <span class="skill-tag">Python [cite: 37]</span>
+                <span class="skill-tag">MATLAB [cite: 37]</span>
+                <span class="skill-tag">Wolfram [cite: 37]</span>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Soft Skills</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Communication [cite: 38]</span>
+                <span class="skill-tag">Critical thinking [cite: 38]</span>
+                <span class="skill-tag">Adaptability [cite: 38]</span>
+                <span class="skill-tag">Collaborative teamwork [cite: 38]</span>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Languages</h3>
+            <div class="skills-container">
+                <span class="skill-tag">English [cite: 40]</span>
+                <span class="skill-tag">Russian [cite: 40]</span>
+                <span class="skill-tag">Kazakh [cite: 40]</span>
+            </div>
         </div>
-      </div>
-    </section>
-  )
-}
+    </main>
 
-export default Awards
-```
-
----
-
-# 14. src/components/Leadership.jsx
-
-```jsx
-const Leadership = () => {
-  return (
-    <section className="py-24 px-6 bg-slate-900/30">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="section-title">
-          Leadership & Volunteering
-        </h2>
-
-        <div className="card">
-          <ul className="space-y-4 text-slate-300 list-disc pl-5">
-            <li>
-              Organized Health Day & Charity Trail Run for 150+ students.
-            </li>
-
-            <li>
-              Raised over 600,000 KZT for educational initiatives.
-            </li>
-
-            <li>
-              Tutored physics and mentored freshman engineering students.
-            </li>
-
-            <li>
-              Served as major representative improving student-faculty communication.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export default Leadership
-```
-
----
-
-# 15. src/components/Contact.jsx
-
-```jsx
-import { Mail, Linkedin } from 'lucide-react'
-
-const Contact = () => {
-  return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="section-title">Contact</h2>
-
-        <p className="text-slate-300 mb-10 text-lg">
-          Interested in collaboration, research opportunities,
-          or graduate applications.
-        </p>
-
-        <div className="flex justify-center gap-6 flex-wrap">
-          <a
-            href="mailto:shynggysadilet81@gmail.com"
-            className="card flex items-center gap-3"
-          >
-            <Mail />
-            Email
-          </a>
-
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            className="card flex items-center gap-3"
-          >
-            <Linkedin />
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export default Contact
-```
-
----
-
-# 16. src/components/Footer.jsx
-
-```jsx
-const Footer = () => {
-  return (
-    <footer className="border-t border-slate-800 py-8 text-center text-slate-500">
-      © 2026 Adilet Shynggys. All rights reserved.
+    <footer>
+        <p>&copy; 2026 Adilet Shynggys. Designed for Graduate Applications.</p>
     </footer>
-  )
-}
 
-export default Footer
-```
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content elements
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
 
----
+            // Remove the active class from all tab buttons
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
 
-# 17. package.json additions
-
-Add this inside package.json:
-
-```json
-"homepage": "https://YOUR_USERNAME.github.io/portfolio-website",
-```
-
-Add scripts:
-
-```json
-"predeploy": "npm run build",
-"deploy": "gh-pages -d dist"
-```
-
----
-
-# 18. vite.config.js
-
-```js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-  base: '/portfolio-website/',
-})
-```
-
----
-
-# 19. Deploy to GitHub Pages
-
-```bash
-git init
-git add .
-git commit -m "Initial portfolio website"
-
-# create repository on GitHub
-
-git remote add origin https://github.com/YOUR_USERNAME/portfolio-website.git
-git branch -M main
-git push -u origin main
-
-npm run deploy
-```
-
-Your website will appear at:
-
-```bash
-https://YOUR_USERNAME.github.io/portfolio-website/
-```
-
----
-
-# 20. Recommended Improvements
-
-You can later add:
-
-* Research publications section
-* Interactive project gallery
-* Embedded CAD renders
-* Animated engineering simulations
-* Blog/articles section
-* Dark/light mode toggle
-* Custom domain
-* Graduate application downloadable CV
-* Interactive timeline
-* AI-generated background animations
-* Publication DOI links
-* Google Scholar integration
-* GitHub API project cards
-
----
-
-# 21. Best Design Recommendations
-
-Use:
-
-* Black/slate background
-* Cyan accent color
-* Large typography
-* Minimalist research-oriented design
-* Smooth scrolling animations
-* Professional engineering aesthetic
-
-This style resembles modern MIT/Stanford student portfolios.
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            var currentTab = document.getElementById(tabName);
+            currentTab.style.display = "block";
+            // A tiny timeout ensures the CSS display:block applies before the opacity transition kicks in
+            setTimeout(() => {
+                currentTab.classList.add("active");
+            }, 10);
+            
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
