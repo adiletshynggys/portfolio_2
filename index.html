@@ -152,7 +152,7 @@
       font-weight: 700; line-height: 1.05; color: var(--text);
       margin-bottom: 10px;
     }
-    .sec-title em { font-style: italic; color: var(--gold); }
+    .sec-title em { font-style: normal; color: var(--text); }
     .sec-line { width: 56px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--teal)); margin-bottom: 44px; }
 
     /* ═══════ HOME ═══════ */
@@ -218,6 +218,26 @@
     .about-body { max-width: 780px; }
     .about-body p { color: var(--text-mid); font-size: 15.5px; line-height: 1.9; margin-bottom: 20px; }
     .about-body p strong { color: var(--text); font-weight: 600; }
+
+    /* Vision panel */
+    .vision-panel {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; margin-bottom: 38px;
+    }
+    .vision-col {
+      padding: 24px 24px; border-right: 1px solid var(--border);
+      background: rgba(11,25,41,0.4);
+      transition: background 0.22s;
+    }
+    .vision-col:last-child { border-right: none; }
+    .vision-col:hover { background: rgba(42,138,138,0.06); }
+    .vision-icon { font-size: 22px; margin-bottom: 10px; }
+    .vision-label {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--teal-lt); margin-bottom: 10px;
+    }
+    .vision-text { font-size: 13.5px; color: var(--text-dim); line-height: 1.7; }
     .interest-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 8px; }
     .chip {
       padding: 6px 15px; border-radius: 100px;
@@ -450,7 +470,7 @@
       .sidebar.open { transform: translateX(0); }
       .main { margin-left: 0; }
       .section { padding: 70px 22px 36px; }
-      .hero-wrap, .stats-row, .proj-grid, .skills-grid, .contact-grid, .rec-grid, .cert-grid, .course-proj-grid { grid-template-columns: 1fr; }
+      .hero-wrap, .stats-row, .proj-grid, .skills-grid, .contact-grid, .rec-grid, .cert-grid, .course-proj-grid, .vision-panel { grid-template-columns: 1fr; }
       .stats-row { display: flex; flex-wrap: wrap; }
       .stat { flex: 1 1 40%; }
       .hero-name { font-size: 44px; }
@@ -567,27 +587,50 @@
       <div class="stat"><div class="stat-n">1+</div><div class="stat-l">Paper Under Review</div></div>
     </div>
 
+    <div class="vision-panel">
+      <div class="vision-col">
+        <div class="vision-icon">🎓</div>
+        <div class="vision-label">Why Graduate School</div>
+        <div class="vision-text">To learn deeply, grow alongside brilliant minds, and contribute to knowledge that outlasts me. A PhD is not the end goal — it is the environment where real thinking happens.</div>
+      </div>
+      <div class="vision-col">
+        <div class="vision-icon">⚡</div>
+        <div class="vision-label">Research Vision</div>
+        <div class="vision-text">Sustainable energy transition — through renewable harvesting, hydrogen systems, and advanced nuclear — making clean energy not just possible, but practical for everyone.</div>
+      </div>
+      <div class="vision-col">
+        <div class="vision-icon">🌉</div>
+        <div class="vision-label">Long-Term Mission</div>
+        <div class="vision-text">Bridge academia and industry. Develop better engineering education. Share knowledge generously. Build things that improve quality of life at scale.</div>
+      </div>
+    </div>
+
     <div class="about-body">
       <p>
-        I am the <strong>top-ranked Mechanical &amp; Aerospace Engineering student</strong> in my cohort at Nazarbayev University, Kazakhstan's premier research institution. My work sits at the intersection of <strong>energy harvesting, smart materials, and manufacturing optimization</strong> — driven by a fundamental conviction that accessible renewable energy is the most consequential engineering challenge of our era.
+        Above all, I am here to <strong>learn</strong>. I am applying for graduate study — Master's and PhD — because I genuinely believe that the most important thing I can do right now is immerse myself in a world-class research environment, absorb knowledge from outstanding mentors, grow alongside brilliant peers, and contribute back everything I discover. That exchange of ideas, that culture of rigorous inquiry and shared progress, is exactly what I am looking for.
       </p>
       <p>
-        I have designed and characterized triboelectric nanogenerators (TENGs) in the university's research labs, gaining hands-on expertise in <strong>electrospinning, micro-printing, and materials science</strong>. My industry experience at <strong>Wabtec Corporation</strong> gave me a rigorous grounding in real-world manufacturing systems and quality engineering. My <strong>exchange year at the University of Hong Kong</strong> broadened my perspective through exposure to world-class faculty and international research networks — including Professor Nicholas Fang, a global leader in metamaterials.
+        My research interests centre on the questions that will define the next century of engineering: <strong>how do we transition humanity to sustainable energy?</strong> I want to work on the science and engineering of renewable energy harvesting, <strong>hydrogen as a clean energy carrier</strong>, and the role of <strong>advanced nuclear technologies</strong> in a low-carbon future. Beyond individual technologies, I am drawn to the bigger challenge of bridging the gap between academic discovery and real-world deployment — making the transition not just scientifically possible, but practically achievable. I also care deeply about <strong>developing better ways to teach engineering</strong>: the quality of the next generation of engineers depends on how we educate them today.
       </p>
       <p>
-        I am actively seeking <strong>graduate research opportunities at leading U.S. universities</strong> — including MIT, Stanford, Caltech, and UC Berkeley — to pursue doctoral work in energy systems, smart materials, or aerospace engineering. I bring speed of learning, cross-cultural adaptability, and the drive to translate fundamental research into real-world impact.
+        I am the <strong>top-ranked student in my Mechanical &amp; Aerospace Engineering cohort</strong> at Nazarbayev University, with a GPA of 3.86 and four consecutive Dean's List semesters. I have contributed to nanogenerator research, gained hands-on manufacturing experience at <strong>Wabtec Corporation</strong>, and spent an exchange year at the <strong>University of Hong Kong</strong> engaging with world-class researchers including Prof. Nicholas Fang. These experiences have given me a strong foundation — but they have also made clear how much more there is to learn, and how much I want to learn it.
+      </p>
+      <p>
+        I bring <strong>speed of learning, cross-cultural adaptability, and a genuine eagerness to grow with others</strong>. I thrive in collaborative environments where ideas are debated openly and everyone is driven by curiosity. I am actively applying to graduate programs at MIT, Stanford, Caltech, and UC Berkeley, and I am excited by the prospect of contributing to research groups that are changing how the world produces and uses energy.
       </p>
       <div class="interest-row">
-        <span class="chip">Energy Harvesting</span>
-        <span class="chip">Nanogenerators (TENGs)</span>
-        <span class="chip teal">Smart Materials</span>
-        <span class="chip teal">Metamaterials</span>
+        <span class="chip teal">Sustainable Energy Systems</span>
+        <span class="chip teal">Hydrogen Energy</span>
+        <span class="chip teal">Nuclear Technology</span>
+        <span class="chip">Energy Harvesting · TENGs</span>
+        <span class="chip">Smart Materials</span>
+        <span class="chip teal">Academia–Industry Bridge</span>
+        <span class="chip">Engineering Education</span>
         <span class="chip">Manufacturing Optimization</span>
-        <span class="chip">Structural Mechanics</span>
-        <span class="chip teal">Thermodynamics</span>
-        <span class="chip">Fluid Mechanics</span>
-        <span class="chip teal">Aerospace Engineering</span>
-        <span class="chip">Data Analysis</span>
+        <span class="chip teal">Renewable Energy</span>
+        <span class="chip">Aerospace Engineering</span>
+        <span class="chip">Nanofabrication</span>
+        <span class="chip teal">Quality of Life Research</span>
       </div>
     </div>
   </section>
@@ -1203,7 +1246,7 @@
         <div class="rec-relation">
           Prof. Fang is a globally recognized authority in metamaterials and nanophotonics (43,000+ citations; ICO Prize; NSF CAREER Award). I engaged with his research group during my HKU exchange year, where exposure to his work in acoustic metamaterials and nanofabrication directly informed my own TENG research approach.
         </div>
-        <a class="rec-email" href="mailto:nicfang@hku.hk">✉ nicfang@hku.hk</a>
+        <a class="rec-email" href="mailto:nicxfang@hku.hk">✉ nicxfang@hku.hk</a>
       </div>
 
       <div class="rec-card">
@@ -1219,7 +1262,7 @@
         <div class="rec-relation">
           Dr. Wei supervised coursework and engaged with me directly during my exchange year at HKU. With 13+ years of teaching experience across international institutions including SUSTech, she brings a strong perspective on cross-cultural academic performance and engineering problem-solving skills.
         </div>
-        <div class="rec-note">// Email to be confirmed — please reach out via HKU Mechanical Engineering Department</div>
+        <a class="rec-email" href="mailto:weiyan@hku.hk">✉ weiyan@hku.hk</a>
       </div>
 
       <div class="rec-card">
@@ -1235,7 +1278,7 @@
         <div class="rec-relation">
           Prof. Salama provided instruction and guidance in core engineering fundamentals at Nazarbayev University, directly observing my analytical approach and problem-solving capability in rigorous coursework. He can speak to my depth of foundational engineering knowledge.
         </div>
-        <div class="rec-note">// Email to be confirmed — please reach out via NU Engineering Department</div>
+        <a class="rec-email" href="mailto:amgad.salama@nu.edu.kz">✉ amgad.salama@nu.edu.kz</a>
       </div>
 
     </div>
@@ -1256,8 +1299,8 @@
 
     <div class="contact-grid">
       <div>
-        <p class="contact-headline">Looking for a <strong>driven researcher</strong> for your graduate program?</p>
-        <p class="contact-body">I am actively pursuing graduate opportunities at MIT, Stanford, Caltech, UC Berkeley, and other leading institutions in mechanical engineering, energy systems, and materials science. Whether you're a faculty member, recruiter, or potential collaborator — I'd love to hear from you.</p>
+        <p class="contact-headline">Seeking a <strong>graduate research home</strong> to learn, grow, and contribute.</p>
+        <p class="contact-body">I am applying for Master's and PhD programs in mechanical and aerospace engineering, with a focus on sustainable energy, hydrogen, nuclear technologies, and the academia–industry bridge. If you are a faculty member with an opening, a recruiter, or a potential collaborator — I would genuinely love to connect and learn more about your work.</p>
 
         <a class="citem" href="mailto:shyngysadilet81@gmail.com">
           <div class="citem-icon">✉</div>
