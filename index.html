@@ -1,423 +1,311 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adilet Shynggys | Mechanical & Aerospace Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
-        }
-        .nav-link {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .nav-link:hover {
-            color: #22d3ee;
-            transform: translateY(-2px);
-        }
-        .section {
-            scroll-margin-top: 80px;
-        }
-        .card {
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-        }
-        .timeline-dot {
-            box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.3);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adilet Shynggys | Mechanical & Aerospace Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #07111e;
+      --accent: #c8963e;
+      --teal: #2a8a8a;
+      --text: #edf0f5;
+      --text-dim: #b0bdd0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    .sidebar {
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      width: 260px;
+      background: rgba(7, 17, 30, 0.98);
+      border-right: 1px solid rgba(200,150,62,0.2);
+      padding: 40px 28px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .monogram {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .nav-link {
+      padding: 12px 16px;
+      margin: 4px 0;
+      border-radius: 8px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: rgba(200,150,62,0.1);
+      color: white;
+      transform: translateX(8px);
+    }
+
+    .main {
+      margin-left: 260px;
+      padding: 60px 80px;
+      max-width: 1000px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .section { margin-bottom: 120px; }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      color: var(--accent);
+    }
+
+    .card {
+      background: rgba(11, 25, 41, 0.8);
+      border: 1px solid rgba(200,150,62,0.15);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 28px;
+      transition: all 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: #07111e;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      .sidebar { transform: translateX(-100%); transition: 0.4s; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; padding: 30px 20px; }
+      h1 { font-size: 2.8rem; }
+    }
+  </style>
 </head>
-<body class="bg-zinc-950 text-zinc-200">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-cyan-400 rounded-2xl flex items-center justify-center text-zinc-950 font-bold text-2xl">A</div>
-                <span class="heading-font text-2xl font-semibold tracking-tight">Adilet Shynggys</span>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#about" class="nav-link text-zinc-400 hover:text-white">About</a>
-                <a href="#education" class="nav-link text-zinc-400 hover:text-white">Education</a>
-                <a href="#experience" class="nav-link text-zinc-400 hover:text-white">Experience</a>
-                <a href="#research" class="nav-link text-zinc-400 hover:text-white">Research</a>
-                <a href="#projects" class="nav-link text-zinc-400 hover:text-white">Projects</a>
-                <a href="#awards" class="nav-link text-zinc-400 hover:text-white">Awards</a>
-                <a href="#skills" class="nav-link text-zinc-400 hover:text-white">Skills</a>
-            </div>
-            
-            <a href="#contact" 
-               class="px-6 py-3 bg-white text-zinc-900 rounded-2xl font-semibold hover:bg-cyan-400 hover:text-zinc-900 transition-all duration-300 flex items-center gap-2">
-                <i class="fas fa-paper-plane"></i>
-                Contact
-            </a>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero -->
-    <section class="hero-bg min-h-screen flex items-center pt-20">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 rounded-full px-4 py-2 text-sm">
-                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    Open to Graduate Opportunities 2026–2027
-                </div>
-                
-                <h1 class="heading-font text-7xl md:text-8xl font-bold tracking-tighter leading-none">
-                    ADILET<br>SHYNGGYS
-                </h1>
-                
-                <p class="text-2xl text-zinc-400">
-                    Mechanical & Aerospace Engineering Student
-                </p>
-                
-                <p class="max-w-md text-lg text-zinc-400">
-                    Passionate about energy systems, advanced manufacturing, and triboelectric nanogenerators. 
-                    Driven to make renewable energy more efficient and accessible.
-                </p>
-                
-                <div class="flex items-center gap-4">
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank"
-                       class="px-8 py-4 bg-cyan-400 text-zinc-900 rounded-3xl font-semibold flex items-center gap-3 hover:scale-105 transition">
-                        <i class="fab fa-linkedin"></i>
-                        LinkedIn
-                    </a>
-                    <a href="#contact" 
-                       class="px-8 py-4 border border-zinc-700 hover:border-zinc-400 rounded-3xl font-semibold transition">
-                        Download CV
-                    </a>
-                </div>
-                
-                <div class="flex gap-8 text-sm pt-6">
-                    <div>
-                        <div class="text-cyan-400">GPA</div>
-                        <div class="text-4xl font-semibold">3.86</div>
-                    </div>
-                    <div>
-                        <div class="text-cyan-400">University</div>
-                        <div class="text-xl">Nazarbayev University</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Placeholder for your photo -->
-            <div class="relative">
-                <div class="aspect-square bg-zinc-800 rounded-[3rem] overflow-hidden border border-zinc-700 shadow-2xl">
-                    <div class="w-full h-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-48 h-48 mx-auto bg-zinc-700 rounded-3xl flex items-center justify-center text-8xl mb-6">
-                                👨‍🔬
-                            </div>
-                            <p class="text-zinc-400">Your professional photo here</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute -bottom-6 -right-6 bg-zinc-900 border border-zinc-700 rounded-3xl p-6 shadow-xl">
-                    <div class="flex items-center gap-4">
-                        <div class="text-emerald-400 text-3xl">🇰🇿</div>
-                        <div>
-                            <div class="font-medium">Astana, Kazakhstan</div>
-                            <div class="text-sm text-zinc-500">Currently in Hong Kong (Exchange)</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="monogram">AS</div>
+  <p style="color:#c8963e; margin-top:8px; font-size:14px;">Mechanical & Aerospace Engineering</p>
 
-    <!-- About -->
-    <section id="about" class="section py-24 bg-zinc-900">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="heading-font text-5xl font-semibold mb-8">About Me</h2>
-            <div class="prose prose-invert max-w-none text-lg">
-                <p class="text-zinc-300">
-                    Top-performing Mechanical & Aerospace Engineering student with a strong foundation in energy systems, 
-                    optimization, and manufacturing. I believe <span class="text-cyan-400 font-medium">"stable energy equals stable development"</span>.
-                </p>
-                <p class="text-zinc-300 mt-6">
-                    My experience spans from hands-on manufacturing optimization at Wabtec to cutting-edge research on 
-                    triboelectric nanogenerators (TENGs) at Nazarbayev University. I'm seeking graduate opportunities where 
-                    I can contribute to sustainable energy solutions and advanced engineering systems.
-                </p>
-            </div>
-        </div>
-    </section>
+  <div style="margin-top: 60px; flex: 1;">
+    <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
+    <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
+    <a href="#research" class="nav-link"><i class="fas fa-flask"></i> Research</a>
+    <a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a>
+    <a href="#awards" class="nav-link"><i class="fas fa-award"></i> Awards</a>
+    <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
+    <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
 
-    <!-- Education -->
-    <section id="education" class="section py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="heading-font text-5xl font-semibold mb-12 text-center">Education</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-10">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <div class="font-semibold text-2xl">Nazarbayev University</div>
-                            <div class="text-cyan-400">Bachelor of Mechanical & Aerospace Engineering</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-sm text-zinc-500">Aug 2023 – Jun 2027 (Expected)</div>
-                            <div class="font-mono text-emerald-400 font-medium">GPA: 3.86 / 4.0</div>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-zinc-400">
-                        <li class="flex gap-3"><span class="text-cyan-400">•</span> Exchange Program: University of Hong Kong</li>
-                        <li class="flex gap-3"><span class="text-cyan-400">•</span> Relevant Coursework: Thermodynamics, Fluid Mechanics, Structural Mechanics, Dynamics, Engineering Materials</li>
-                        <li class="flex gap-3"><span class="text-cyan-400">•</span> Top student in the cohort</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div style="margin-top: auto; padding-top: 30px; border-top: 1px solid rgba(200,150,62,0.2);">
+    <a href="#" onclick="downloadCV()" class="btn" style="width: 100%; justify-content: center;">
+      <i class="fas fa-download"></i> Download CV
+    </a>
+  </div>
+</nav>
 
-    <!-- Experience -->
-    <section id="experience" class="section py-24 bg-zinc-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="heading-font text-5xl font-semibold mb-12 text-center">Professional Experience</h2>
-            
-            <div class="space-y-16">
-                <!-- Wabtec -->
-                <div class="grid md:grid-cols-12 gap-8 items-start">
-                    <div class="md:col-span-4">
-                        <div class="sticky top-24">
-                            <div class="text-cyan-400 font-medium">June 2025 – July 2025</div>
-                            <div class="text-2xl font-semibold mt-2">Wabtec Corporation</div>
-                            <div class="text-zinc-400">Product Support Engineering Intern</div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-8">
-                        <div class="card bg-zinc-800/50 border border-zinc-700 rounded-3xl p-8">
-                            <ul class="space-y-4 text-zinc-300">
-                                <li class="flex gap-4">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    Optimized manufacturing efficiency by implementing Product Change Requests, achieving <span class="font-medium text-emerald-400">10% reduction in material waste</span>.
-                                </li>
-                                <li class="flex gap-4">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    Conducted thermal testing of electric motors and analyzed heat dissipation metrics.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<!-- Main Content -->
+<main class="main">
 
-                <!-- Research Assistant -->
-                <div class="grid md:grid-cols-12 gap-8 items-start">
-                    <div class="md:col-span-4">
-                        <div class="sticky top-24">
-                            <div class="text-cyan-400 font-medium">Jan 2025 – Dec 2025</div>
-                            <div class="text-2xl font-semibold mt-2">Nazarbayev University</div>
-                            <div class="text-zinc-400">Research Assistant</div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-8">
-                        <div class="card bg-zinc-800/50 border border-zinc-700 rounded-3xl p-8">
-                            <ul class="space-y-4 text-zinc-300">
-                                <li class="flex gap-4">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    Designed and optimized triboelectric nanogenerators (TENGs), improving energy-harvesting efficiency by <span class="font-medium text-emerald-400">15–20%</span>.
-                                </li>
-                                <li class="flex gap-4">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    Performed complex data analysis in OriginPro and presented findings internationally.
-                                </li>
-                                <li class="flex gap-4">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    Awarded <span class="font-medium">"Best Research Poster Presentation"</span> at Belt & Road Initiative Conference.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- About -->
+  <section id="about" class="section">
+    <h1>Adilet Shynggys</h1>
+    <p style="font-size:1.35rem; color:var(--accent); margin-bottom:24px;">Mechanical & Aerospace Engineering Student</p>
+    
+    <p style="font-size:1.15rem; max-width:700px; color:var(--text-dim);">
+      Top-performing engineering student passionate about <strong>sustainable energy systems</strong>. 
+      I believe <em>"stable energy equals stable development"</em>. Seeking graduate opportunities (Master's/PhD) 
+      in energy harvesting, advanced manufacturing, and renewable technologies.
+    </p>
 
-    <!-- Research -->
-    <section id="research" class="section py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="heading-font text-5xl font-semibold mb-12 text-center">Research Experience</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="card bg-zinc-900 border border-zinc-700 rounded-3xl p-10">
-                    <h3 class="text-2xl font-semibold mb-4">Triboelectric Nanogenerators (TENGs)</h3>
-                    <p class="text-zinc-400 mb-6">Developed and optimized energy-harvesting devices using process engineering principles. Achieved 15–20% improvement in KPI effectiveness through systematic design iteration.</p>
-                    <div class="flex gap-2">
-                        <span class="px-4 py-1 bg-zinc-800 text-xs rounded-full">Energy Harvesting</span>
-                        <span class="px-4 py-1 bg-zinc-800 text-xs rounded-full">Nanomaterials</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div style="margin-top:40px;">
+      <a href="https://www.linkedin.com/in/adilet-shynggys-229224251/" target="_blank" class="btn">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </section>
 
-    <!-- Projects (Placeholder - add your own) -->
-    <section id="projects" class="section py-24 bg-zinc-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="heading-font text-5xl font-semibold mb-12 text-center">Selected Projects</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Add your actual projects here -->
-                <div class="card bg-zinc-800 border border-zinc-700 rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-6xl">⚡</div>
-                    <div class="p-8">
-                        <h3 class="font-semibold text-xl mb-2">TENG Energy Harvester</h3>
-                        <p class="text-zinc-400 text-sm">Optimized design resulting in significant efficiency gains.</p>
-                    </div>
-                </div>
-                <div class="card bg-zinc-800 border border-zinc-700 rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-6xl">🏭</div>
-                    <div class="p-8">
-                        <h3 class="font-semibold text-xl mb-2">Manufacturing Optimization @ Wabtec</h3>
-                        <p class="text-zinc-400 text-sm">10% material waste reduction via process improvements.</p>
-                    </div>
-                </div>
-                <div class="card bg-zinc-800 border border-zinc-700 rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-6xl">📊</div>
-                    <div class="p-8">
-                        <h3 class="font-semibold text-xl mb-2">Thermal Analysis of Electric Motors</h3>
-                        <p class="text-zinc-400 text-sm">Hands-on testing and data-driven optimization.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Education -->
+  <section id="education" class="section">
+    <h2 class="sec-title">Education</h2>
+    <div class="card">
+      <h3>Nazarbayev University</h3>
+      <p><strong>Bachelor of Mechanical & Aerospace Engineering</strong> • Expected Jun 2027</p>
+      <p>GPA: <strong>3.86</strong> (Top of Cohort) • Presidential Stipend Recipient</p>
+      <p style="margin-top:12px; color:var(--text-dim);">Exchange: University of Hong Kong (2024)</p>
+    </div>
+  </section>
 
-    <!-- Awards -->
-    <section id="awards" class="section py-24">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="heading-font text-5xl font-semibold mb-12 text-center">Honors & Awards</h2>
-            <div class="space-y-6">
-                <div class="flex gap-8 items-start bg-zinc-900 border border-zinc-700 rounded-3xl p-8">
-                    <div class="text-5xl">🏆</div>
-                    <div>
-                        <div class="font-semibold">Best Research Poster Presentation</div>
-                        <div class="text-cyan-400">Belt & Road Initiative Conference</div>
-                    </div>
-                </div>
-                <div class="flex gap-8 items-start bg-zinc-900 border border-zinc-700 rounded-3xl p-8">
-                    <div class="text-5xl">📋</div>
-                    <div>
-                        <div class="font-semibold">Dean's List</div>
-                        <div class="text-zinc-400">4 semesters</div>
-                    </div>
-                </div>
-                <div class="flex gap-8 items-start bg-zinc-900 border border-zinc-700 rounded-3xl p-8">
-                    <div class="text-5xl">🥇</div>
-                    <div>
-                        <div class="font-semibold">1st Place - Mechaton Engineering Case Competition</div>
-                        <div class="text-zinc-400">NU IMechE</div>
-                    </div>
-                </div>
-                <div class="flex gap-8 items-start bg-zinc-900 border border-zinc-700 rounded-3xl p-8">
-                    <div class="text-5xl">🎖️</div>
-                    <div>
-                        <div class="font-semibold">Presidential Stipend</div>
-                        <div class="text-zinc-400">Nazarbayev University</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Experience -->
+  <section id="experience" class="section">
+    <h2 class="sec-title">Experience</h2>
+    
+    <div class="card">
+      <h3>Wabtec Corporation — Product Support Engineering Intern</h3>
+      <p style="color:var(--accent);">Jun 2025 – Jul 2025</p>
+      <ul style="margin-top:16px; padding-left:20px; color:var(--text-dim);">
+        <li>Implemented Product Change Requests → <strong>10% reduction in material waste</strong></li>
+        <li>Conducted thermal testing of electric motors and analyzed heat dissipation</li>
+      </ul>
+    </div>
 
-    <!-- Skills -->
-    <section id="skills" class="section py-24 bg-zinc-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="heading-font text-5xl font-semibold mb-12 text-center">Technical Skills</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="uppercase tracking-widest text-sm text-zinc-500 mb-6">Laboratory & Manufacturing</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">3D Printing</span>
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">Electrospinning</span>
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">Silver-ink Micro-printing</span>
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">Silicon Printing</span>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="uppercase tracking-widest text-sm text-zinc-500 mb-6">Software & Tools</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">SolidWorks</span>
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">OriginPro</span>
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">MATLAB</span>
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">Python</span>
-                        <span class="px-5 py-3 bg-zinc-800 rounded-2xl">Wolfram</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="card">
+      <h3>Research Assistant — Nazarbayev University</h3>
+      <p style="color:var(--accent);">Jan 2025 – Dec 2025</p>
+      <ul style="margin-top:16px; padding-left:20px; color:var(--text-dim);">
+        <li>Optimized Triboelectric Nanogenerators (TENGs) → <strong>15-20% improvement</strong> in energy harvesting</li>
+        <li>Awarded <strong>Best Research Poster Presentation</strong> at Belt & Road Initiative Conference</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section py-24">
-        <div class="max-w-2xl mx-auto px-6 text-center">
-            <h2 class="heading-font text-5xl font-semibold mb-8">Let's Connect</h2>
-            <p class="text-zinc-400 mb-12">I'm actively looking for graduate research or internship opportunities in mechanical/aerospace engineering, energy systems, and advanced manufacturing.</p>
-            
-            <div class="flex flex-col gap-4 items-center">
-                <a href="mailto:shyngysadilet81@gmail.com" 
-                   class="w-full max-w-md flex items-center justify-center gap-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-cyan-400 rounded-3xl py-6 transition">
-                    <i class="fas fa-envelope text-2xl"></i>
-                    <div class="text-left">
-                        <div class="font-medium">shyngysadilet81@gmail.com</div>
-                    </div>
-                </a>
-                
-                <a href="tel:+77009590833" 
-                   class="w-full max-w-md flex items-center justify-center gap-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-cyan-400 rounded-3xl py-6 transition">
-                    <i class="fas fa-phone text-2xl"></i>
-                    <div class="text-left">
-                        <div class="font-medium">+7 700 959 0833</div>
-                    </div>
-                </a>
-                
-                <div class="flex gap-6 mt-8">
-                    <a href="https://linkedin.com" target="_blank" class="text-4xl hover:text-cyan-400 transition"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-4xl hover:text-cyan-400 transition"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Research -->
+  <section id="research" class="section">
+    <h2 class="sec-title">Research Focus</h2>
+    <div class="card">
+      <h3>Triboelectric Nanogenerators (TENGs)</h3>
+      <p style="margin:16px 0; color:var(--text-dim);">
+        Designed and fabricated energy harvesting devices using electrospinning and micro-printing techniques. 
+        Conducted detailed performance characterization using OriginPro.
+      </p>
+      <p><strong>Key Achievement:</strong> 15–20% efficiency improvement + Best Poster Award</p>
+    </div>
+  </section>
 
-    <footer class="border-t border-zinc-800 py-12 text-center text-zinc-500 text-sm">
-        <div class="max-w-6xl mx-auto px-6">
-            © 2026 Adilet Shynggys • Built for graduate applications
-        </div>
-    </footer>
+  <!-- Awards -->
+  <section id="awards" class="section">
+    <h2 class="sec-title">Awards & Honors</h2>
+    <div class="card">
+      <ul style="padding-left:20px; line-height:2;">
+        <li><strong>Best Research Poster Presentation</strong> – Belt & Road Initiative Conference (2025)</li>
+        <li><strong>Dean's List</strong> – 4 semesters</li>
+        <li><strong>1st Place</strong> – Mechaton Engineering Case Competition (NU IMechE)</li>
+        <li><strong>Presidential Stipend</strong> – Nazarbayev University</li>
+        <li>Top Student in Mechanical & Aerospace Engineering Cohort</li>
+      </ul>
+    </div>
+  </section>
 
-    <script>
-        // Tailwind script already included
-        // Smooth scrolling for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-        
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-2xl');
-            } else {
-                nav.classList.remove('shadow-2xl');
-            }
-        });
-    </script>
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <h2 class="sec-title">Skills</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:24px;">
+      <div class="card">
+        <h3>Laboratory & Manufacturing</h3>
+        <p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p>
+      </div>
+      <div class="card">
+        <h3>Software & Tools</h3>
+        <p>SolidWorks (CSWA), OriginPro, MATLAB, Python, Wolfram Mathematica</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2 class="sec-title">Let's Connect</h2>
+    <p style="font-size:1.2rem; max-width:600px;">
+      I am actively looking for graduate (Master's / PhD) opportunities in sustainable energy, energy harvesting, 
+      advanced manufacturing, and mechanical/aerospace engineering.
+    </p>
+    
+    <div style="margin-top:40px; display:flex; flex-wrap:wrap; gap:20px;">
+      <a href="mailto:shyngysadilet81@gmail.com" class="btn">
+        <i class="fas fa-envelope"></i> Email Me
+      </a>
+      <a href="https://www.linkedin.com/in/adilet-shynggys-229224251/" target="_blank" class="btn">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Active nav link
+  window.addEventListener('scroll', () => {
+    let current = '';
+    document.querySelectorAll('section').forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  function downloadCV() {
+    alert("CV download would be triggered here. You can host your PDF and link it directly.");
+    // window.open('resume.pdf', '_blank');
+  }
+
+  // Mobile menu (basic)
+  if (window.innerWidth < 900) {
+    console.log("%cMobile view active - sidebar can be toggled if needed", "color:#c8963e");
+  }
+</script>
 </body>
 </html>
