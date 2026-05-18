@@ -20,71 +20,85 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'Inter', sans-serif;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     .sidebar {
       position: fixed;
       left: 0; top: 0; bottom: 0;
-      width: 260px;
+      width: 280px;
       background: rgba(7, 17, 30, 0.98);
       border-right: 1px solid rgba(200,150,62,0.25);
-      padding: 40px 24px;
+      padding: 48px 28px;
       z-index: 100;
       overflow-y: auto;
     }
 
     .monogram {
       font-family: 'Playfair Display', serif;
-      font-size: 54px;
+      font-size: 58px;
       font-weight: 900;
       color: var(--accent);
+      letter-spacing: -2px;
     }
 
     .nav-link {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
+      gap: 14px;
+      padding: 14px 18px;
       margin: 6px 0;
-      border-radius: 8px;
+      border-radius: 10px;
       color: var(--text-dim);
       text-decoration: none;
-      transition: all 0.3s;
+      font-weight: 500;
+      transition: all 0.3s ease;
     }
 
     .nav-link:hover, .nav-link.active {
-      background: rgba(200,150,62,0.12);
+      background: rgba(200,150,62,0.15);
       color: white;
-      transform: translateX(6px);
+      transform: translateX(8px);
     }
 
     .main {
-      margin-left: 260px;
-      padding: 60px 80px 100px;
+      margin-left: 280px;
+      padding: 70px 90px 120px;
+      max-width: 1100px;
     }
 
-    h1 { font-family: 'Playfair Display', serif; font-size: 3.6rem; line-height: 1.05; }
+    h1 { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 3.8rem; 
+      line-height: 1.05; 
+    }
+
     .sec-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-size: 2.7rem;
       color: var(--accent);
-      margin: 60px 0 30px;
+      margin: 70px 0 36px;
     }
 
     .card {
-      background: rgba(11, 25, 41, 0.85);
-      border: 1px solid rgba(200,150,62,0.2);
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 32px;
+      background: rgba(11, 25, 41, 0.9);
+      border: 1px solid rgba(200,150,62,0.22);
+      border-radius: 18px;
+      padding: 36px;
+      margin-bottom: 36px;
+      transition: all 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
+      gap: 12px;
+      padding: 15px 36px;
       background: var(--accent);
       color: #07111e;
       border-radius: 50px;
@@ -92,32 +106,31 @@
       text-decoration: none;
       transition: all 0.3s;
     }
-    .btn:hover { background: white; transform: scale(1.05); }
+    .btn:hover { background: white; transform: scale(1.04); }
 
-    @media (max-width: 900px) {
-      .sidebar { transform: translateX(-100%); }
+    @media (max-width: 920px) {
+      .sidebar { transform: translateX(-100%); transition: 0.4s; }
       .sidebar.open { transform: translateX(0); }
-      .main { margin-left: 0; padding: 30px 20px; }
+      .main { margin-left: 0; padding: 40px 24px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Sidebar -->
 <nav class="sidebar" id="sidebar">
   <div class="monogram">AS</div>
-  <p style="color:#c8963e; margin:8px 0 40px;">Mechanical & Aerospace Engineering</p>
+  <p style="color:#c8963e; margin:10px 0 50px; font-size:15px;">Mechanical & Aerospace Engineering</p>
 
   <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
   <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
   <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
   <a href="#research" class="nav-link"><i class="fas fa-flask"></i> Research</a>
-  <a href="#awards" class="nav-link"><i class="fas fa-award"></i> Awards</a>
-  <a href="#courses" class="nav-link"><i class="fas fa-book"></i> Key Courses</a>
+  <a href="#leadership" class="nav-link"><i class="fas fa-users"></i> Leadership & Volunteering</a>
+  <a href="#awards" class="nav-link"><i class="fas fa-award"></i> Awards & Scholarships</a>
   <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
   <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
 
-  <div style="margin-top: auto; padding-top: 40px;">
+  <div style="margin-top: auto; padding-top: 50px;">
     <a href="#" onclick="downloadCV()" class="btn" style="width:100%; justify-content:center;">
       <i class="fas fa-download"></i> Download CV
     </a>
@@ -129,15 +142,12 @@
   <!-- About -->
   <section id="about">
     <h1>Adilet Shynggys</h1>
-    <p style="font-size:1.4rem; color:var(--accent); margin:12px 0 24px;">Mechanical & Aerospace Engineering Student</p>
-    <p style="font-size:1.2rem; max-width:720px; color:var(--text-dim);">
-      Top-performing student with a strong passion for <strong>sustainable energy systems</strong>. 
-      I believe <em>"stable energy equals stable development"</em>. Currently seeking Master's/PhD opportunities 
-      in energy harvesting, renewable technologies, and advanced manufacturing.
+    <p style="font-size:1.45rem; color:var(--accent); margin:16px 0 28px;">Mechanical & Aerospace Engineering Student</p>
+    <p style="font-size:1.22rem; max-width:750px; color:var(--text-dim);">
+      Top-ranked student passionate about sustainable energy and advanced engineering. 
+      I believe <em>"stable energy equals stable development"</em>. Actively seeking Master's/PhD opportunities in energy systems, 
+      renewable technologies, and advanced manufacturing.
     </p>
-    <a href="https://www.linkedin.com/in/adilet-shynggys-229224251/" target="_blank" class="btn" style="margin-top:32px;">
-      <i class="fab fa-linkedin"></i> Connect on LinkedIn
-    </a>
   </section>
 
   <!-- Education -->
@@ -145,62 +155,79 @@
     <h2 class="sec-title">Education</h2>
     <div class="card">
       <h3>Nazarbayev University</h3>
-      <p><strong>Bachelor of Mechanical & Aerospace Engineering</strong> • Expected June 2027</p>
-      <p>GPA: <strong>3.86</strong> — Top of Cohort • Presidential Stipend Recipient</p>
+      <p><strong>B.S. Mechanical & Aerospace Engineering</strong> — Expected June 2027</p>
+      <p>GPA: <strong>3.86</strong> (Top of Cohort) • Presidential Stipend Recipient</p>
     </div>
-
     <div class="card">
-      <h3>University of Hong Kong (HKU)</h3>
-      <p><strong>International Exchange Program</strong> • 2024</p>
-      <p>Competitively selected exchange at one of Asia’s top universities. Engaged with world-class faculty including Prof. Nicholas Fang (Metamaterials & Nanophotonics).</p>
+      <h3>University of Hong Kong</h3>
+      <p><strong>International Academic Exchange</strong> — 2024</p>
+      <p>Competitively selected. Engaged with leading researchers including Prof. Nicholas Fang (Metamaterials & Nanophotonics).</p>
     </div>
   </section>
 
   <!-- Experience -->
   <section id="experience">
-    <h2 class="sec-title">Experience</h2>
+    <h2 class="sec-title">Professional Experience</h2>
     <div class="card">
       <h3>Wabtec Corporation — Product Support Engineering Intern</h3>
       <p style="color:var(--accent);">June – July 2025</p>
-      <ul style="margin-top:16px; padding-left:20px;">
-        <li>Achieved <strong>10% reduction in material waste</strong> by implementing Product Change Requests</li>
-        <li>Conducted hands-on thermal testing of electric motors and analyzed performance metrics</li>
+      <ul style="margin-top:16px; padding-left:22px;">
+        <li>Implemented Product Change Requests resulting in <strong>10% material waste reduction</strong></li>
+        <li>Performed thermal testing and analysis of electric motors</li>
       </ul>
     </div>
 
     <div class="card">
       <h3>Research Assistant — Nazarbayev University</h3>
       <p style="color:var(--accent);">January – December 2025</p>
-      <ul style="margin-top:16px; padding-left:20px;">
-        <li>Optimized Triboelectric Nanogenerators (TENGs), improving energy harvesting efficiency by <strong>15–20%</strong></li>
-        <li>Presented research internationally and won Best Research Poster Award</li>
+      <ul style="margin-top:16px; padding-left:22px;">
+        <li>Optimized Triboelectric Nanogenerators (TENGs) → <strong>15–20% efficiency improvement</strong></li>
+        <li>Awarded Best Research Poster at international conference</li>
       </ul>
     </div>
   </section>
 
   <!-- Research -->
   <section id="research">
-    <h2 class="sec-title">Research Experience</h2>
+    <h2 class="sec-title">Research</h2>
     <div class="card">
-      <h3>Triboelectric Nanogenerators (TENGs) for Energy Harvesting</h3>
-      <p>Designed, fabricated, and optimized TENG devices using electrospinning, silver-ink micro-printing, and silicon printing techniques. Conducted detailed characterization using OriginPro.</p>
-      <p><strong>Outcome:</strong> 15–20% performance improvement + Best Poster Presentation Award</p>
+      <h3>Triboelectric Nanogenerators (TENGs)</h3>
+      <p>Designed and fabricated advanced energy harvesting devices using electrospinning, silver-ink micro-printing, and silicon printing. Conducted comprehensive performance analysis using OriginPro.</p>
+      <p><strong>Key Result:</strong> 15–20% improvement in energy harvesting KPI</p>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership">
+    <h2 class="sec-title">Leadership & Volunteering</h2>
+    <div class="card">
+      <h3>Organizer — Health Day & Charity Trail Run</h3>
+      <p>Nazarbayev University • 2024–2025</p>
+      <p>Organized university-wide event for 150+ students. Raised over <strong>600,000 KZT</strong> (~$1,300) to support single mothers pursuing business education.</p>
+    </div>
+    <div class="card">
+      <h3>Physics Tutor & Freshman Mentor</h3>
+      <p>Tutored 20+ students (average 15% grade improvement) and mentored 3 freshmen.</p>
+    </div>
+    <div class="card">
+      <h3>Cohort Representative & Charity Volunteer</h3>
+      <p>Served as student representative and volunteered with Mereke CF “Warm Winter” initiative supporting children and elderly.</p>
     </div>
   </section>
 
   <!-- Awards -->
   <section id="awards">
-    <h2 class="sec-title">Awards & Honors</h2>
+    <h2 class="sec-title">Awards & Scholarships</h2>
     
     <div class="card">
-      <h3>Best Research Poster Presentation</h3>
-      <p style="color:var(--accent);">Belt & Road Initiative Conference • 2025</p>
-      <p>Recognized among international participants for outstanding presentation on Triboelectric Nanogenerator research.</p>
+      <h3>Yessenov Scholarship</h3>
+      <p style="color:var(--accent);">2026 • Shakhmardan Yessenov Foundation</p>
+      <p><strong>20 winners selected out of 500+ applicants</strong> across Kazakhstan. Prestigious scholarship supporting top STEM students.</p>
     </div>
 
     <div class="card">
-      <h3>Dean's List</h3>
-      <p>4 consecutive semesters • Nazarbayev University</p>
+      <h3>Best Research Poster Presentation</h3>
+      <p>Belt & Road Initiative Conference • 2025</p>
     </div>
 
     <div class="card">
@@ -209,44 +236,26 @@
     </div>
 
     <div class="card">
-      <h3>Presidential Stipend</h3>
-      <p>Highly competitive merit-based scholarship awarded by Nazarbayev University</p>
-    </div>
-
-    <div class="card">
-      <h3>Top Student in Mechanical & Aerospace Engineering Cohort</h3>
-      <p>GPA 3.86</p>
-    </div>
-  </section>
-
-  <!-- Key Courses -->
-  <section id="courses">
-    <h2 class="sec-title">Key Courses & Projects</h2>
-    <div class="card">
-      <strong>Thermodynamics</strong> — Rankine Cycle Optimization for Power Plants<br><br>
-      <strong>Fluid Mechanics</strong> — CFD Analysis of Airfoil Performance<br><br>
-      <strong>Structural Mechanics</strong> — Finite Element Analysis of Composite Beams<br><br>
-      <strong>Dynamics & Vibrations</strong> — Multi-DOF System Analysis<br><br>
-      <strong>Engineering Materials</strong> — Materials Selection using Ashby Method<br><br>
-      <strong>Process Engineering</strong> — Manufacturing Process Planning & Optimization
+      <h3>Dean's List (4 semesters) & Presidential Stipend</h3>
+      <p>Nazarbayev University</p>
     </div>
   </section>
 
   <!-- Skills -->
   <section id="skills">
     <h2 class="sec-title">Skills</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
       <div class="card">
         <h3>Laboratory & Manufacturing</h3>
         <p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p>
       </div>
       <div class="card">
-        <h3>Engineering Software</h3>
-        <p>SolidWorks (CSWA), OriginPro, MATLAB, Python (NumPy, SciPy), Wolfram Mathematica</p>
+        <h3>Software & Tools</h3>
+        <p>SolidWorks (CSWA), OriginPro, MATLAB, Python, Wolfram Mathematica</p>
       </div>
       <div class="card">
-        <h3>Core Engineering</h3>
-        <p>Thermodynamics, Fluid Mechanics, Structural Mechanics, Dynamics, Process Engineering, Energy Systems</p>
+        <h3>Core Competencies</h3>
+        <p>Energy Systems, Process Engineering, Thermodynamics, Fluid Mechanics, Structural Mechanics, Data Analysis</p>
       </div>
     </div>
   </section>
@@ -254,12 +263,13 @@
   <!-- Contact -->
   <section id="contact">
     <h2 class="sec-title">Let's Connect</h2>
-    <p style="font-size:1.25rem; max-width:650px;">
-      I am actively looking for graduate opportunities (Master's and PhD) starting 2026–2027 in sustainable energy, energy harvesting, and advanced mechanical/aerospace engineering.
+    <p style="font-size:1.25rem; max-width:680px;">
+      Open to graduate (Master's / PhD) opportunities in sustainable energy, energy harvesting, and advanced engineering. 
+      Happy to discuss research alignment or collaboration.
     </p>
-    <div style="margin-top:40px;">
+    <div style="margin-top:48px;">
       <a href="mailto:shyngysadilet81@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email Me</a>
-      <a href="https://www.linkedin.com/in/adilet-shynggys-229224251/" target="_blank" class="btn" style="margin-left:16px;">
+      <a href="https://www.linkedin.com/in/adilet-shynggys-229224251/" target="_blank" class="btn" style="margin-left:20px;">
         <i class="fab fa-linkedin"></i> LinkedIn
       </a>
     </div>
@@ -268,19 +278,19 @@
 </main>
 
 <script>
-  // Smooth scroll + active nav
+  // Active nav + smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
+    link.addEventListener('click', function(e) {
       e.preventDefault();
       document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      this.classList.add('active');
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
 
   function downloadCV() {
-    alert("Your CV will be downloaded here. Replace this with a direct link to your PDF.");
-    // window.open('Adilet_Shynggys_CV.pdf', '_blank');
+    alert("CV download link will go here. You can replace this with a direct PDF link.");
+    // window.open('your-cv.pdf', '_blank');
   }
 </script>
 </body>
