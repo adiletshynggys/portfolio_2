@@ -21,13 +21,15 @@
       font-family: 'Inter', sans-serif;
       line-height: 1.85;
     }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: rgba(200,150,62,0.4); border-radius: 10px; }
 
     .sidebar {
       position: fixed; left: 0; top: 0; bottom: 0;
-      width: 245px;                    /* Narrower */
+      width: 260px;                    /* Slightly narrower */
       background: rgba(7, 17, 30, 0.98);
       border-right: 1px solid rgba(200,150,62,0.25);
-      padding: 32px 20px;              /* Reduced padding */
+      padding: 40px 24px;              /* Reduced padding */
       z-index: 100;
       overflow-y: auto;
       display: flex;
@@ -35,50 +37,44 @@
     }
     .monogram {
       font-family: 'Playfair Display', serif;
-      font-size: 46px;                 /* Smaller */
+      font-size: 52px;
       font-weight: 900;
       color: var(--accent);
-      margin-bottom: 4px;
-    }
-    .subtitle {
-      color:#c8963e; 
-      font-size: 13.5px; 
-      margin-bottom: 35px;
     }
     .nav-link {
-      display: flex; align-items: center; gap: 11px;
-      padding: 9px 14px; 
-      margin: 3px 0;
-      border-radius: 8px;
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 16px; 
+      margin: 4px 0;
+      border-radius: 10px;
       color: var(--text-dim);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.97rem;
       transition: all 0.3s;
     }
     .nav-link:hover, .nav-link.active {
-      background: rgba(200,150,62,0.18);
+      background: rgba(200,150,62,0.15);
       color: white;
-      transform: translateX(6px);
+      transform: translateX(8px);
     }
-    .main { margin-left: 245px; padding: 60px 70px 100px; max-width: 1100px; }
+    .main { margin-left: 260px; padding: 70px 80px 120px; max-width: 1100px; }
 
     h1 { 
       font-family: 'Playfair Display', serif; 
-      font-size: 3.6rem; 
+      font-size: 3.7rem; 
       line-height: 1.05; 
     }
     .sec-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-size: 2.65rem;
       color: var(--accent);
-      margin: 60px 0 30px;
+      margin: 65px 0 32px;
     }
     .card {
       background: rgba(11, 25, 41, 0.9);
       border: 1px solid rgba(200,150,62,0.22);
       border-radius: 18px;
-      padding: 32px;
-      margin-bottom: 30px;
+      padding: 34px;
+      margin-bottom: 32px;
       transition: all 0.4s;
     }
     .card:hover { 
@@ -86,8 +82,8 @@
       border-color: var(--accent); 
     }
     .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 13px 28px;
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 32px;
       background: var(--accent);
       color: #07111e;
       border-radius: 50px;
@@ -101,18 +97,18 @@
     }
 
     .profile-photo {
-      width: 148px;
-      height: 148px;
+      width: 155px;
+      height: 155px;
       border-radius: 50%;
       border: 4px solid var(--accent);
-      margin: 15px 0 20px;
+      margin: 20px 0 15px;
       object-fit: cover;
     }
 
     @media (max-width: 920px) {
       .sidebar { transform: translateX(-100%); transition: 0.4s; }
       .sidebar.open { transform: translateX(0); }
-      .main { margin-left: 0; padding: 40px 20px; }
+      .main { margin-left: 0; padding: 40px 24px; }
     }
   </style>
 </head>
@@ -120,7 +116,7 @@
 
 <nav class="sidebar" id="sidebar">
   <div class="monogram">AS</div>
-  <p class="subtitle">Mechanical & Aerospace Engineering</p>
+  <p style="color:#c8963e; margin:8px 0 40px; font-size:14.5px;">Mechanical & Aerospace Engineering</p>
   
   <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
   <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
@@ -132,7 +128,7 @@
   <a href="#recommenders" class="nav-link"><i class="fas fa-user-graduate"></i> Recommenders</a>
   <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
 
-  <div style="margin-top: auto; padding-top: 30px;">
+  <div style="margin-top: auto; padding-top: 40px;">
     <a href="CV.pdf" class="btn" style="width:100%; justify-content:center;" download>
       <i class="fas fa-download"></i> Download CV
     </a>
@@ -144,16 +140,14 @@
   <section id="about">
     <img src="my_photo.jpg" alt="Adilet Shynggys" class="profile-photo">
     <h1>Adilet Shynggys</h1>
-    <p style="font-size:1.4rem; color:var(--accent); margin:12px 0 24px;">Mechanical & Aerospace Engineering Student</p>
-    <p style="font-size:1.2rem; max-width:780px; color:var(--text-dim);">
+    <p style="font-size:1.45rem; color:var(--accent); margin:16px 0 28px;">Mechanical & Aerospace Engineering Student</p>
+    <p style="font-size:1.22rem; max-width:780px; color:var(--text-dim);">
       Top-performing student (GPA 3.86/4.00) at Nazarbayev University with research experience in Triboelectric Nanogenerators and Nuclear Reactor Simulations. 
       Passionate about advancing sustainable and reliable energy systems. Seeking Master's/PhD opportunities in the United States starting Fall 2027.
     </p>
   </section>
 
-  <!-- Rest of the content remains the same as previous version -->
-  <!-- Education, Experience, Research, Leadership, Awards, Skills, Recommenders, Contact -->
-
+  <!-- Education -->
   <section id="education">
     <h2 class="sec-title">Education</h2>
     <div class="card">
@@ -168,23 +162,25 @@
       <ul style="margin-top:12px; padding-left:22px; color:var(--text-dim);">
         <li>Prof. N. Fang — Chair Professor</li>
         <li>Prof. W. Yan — Senior Lecturer</li>
-        <li>Prof. H. Kazerooni (UC Berkeley)</li>
+        <li>Prof. H. Kazerooni (UC Berkeley) — Visiting Professor</li>
       </ul>
     </div>
   </section>
 
+  <!-- Experience -->
   <section id="experience">
     <h2 class="sec-title">Research & Professional Experience</h2>
     <div class="card">
       <h3>Research Assistant — Nuclear Reactor Simulations</h3>
-      <p style="color:var(--accent);">Summer 2026 (Upcoming) • Prof. Amgad Salama</p>
+      <p style="color:var(--accent);">Summer 2026 (Upcoming) • Prof. Amgad Salama, Nazarbayev University</p>
       <p>Computational modeling of nuclear reactor systems for clean baseload energy.</p>
     </div>
     <div class="card">
       <h3>Research Assistant — Triboelectric Nanogenerators</h3>
-      <p style="color:var(--accent);">Jan – Dec 2025</p>
+      <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
       <p>Designed & fabricated TENG devices using electrospinning, silver-ink micro-printing & silicon printing. 
-      Improved power density by <strong>15–20%</strong>. Best Research Poster Award, Belt & Road Initiative Conference 2025.</p>
+      Improved power density by <strong>15–20%</strong>. Manuscript in preparation. 
+      <strong>Best Research Poster Award</strong>, Belt & Road Initiative Conference 2025.</p>
     </div>
     <div class="card">
       <h3>Product Support Engineering Intern</h3>
@@ -193,8 +189,96 @@
     </div>
   </section>
 
-  <!-- Add the remaining sections (research, leadership, awards, skills, recommenders, contact) from the previous full version I sent -->
+  <!-- Research Interests -->
+  <section id="research">
+    <h2 class="sec-title">Research Interests</h2>
+    <div class="card">
+      <p><strong>Sustainable Energy Systems</strong> — Triboelectric Nanogenerators, Nuclear Reactor Modeling, Energy Harvesting, Advanced Manufacturing, and integration of clean energy technologies.</p>
+    </div>
+  </section>
 
+  <!-- Leadership -->
+  <section id="leadership">
+    <h2 class="sec-title">Leadership & Volunteering</h2>
+    <div class="card">
+      <h3>Charity Trail Run Organizer</h3>
+      <p>Raised <strong>600,000 KZT (~1,300 USD)</strong> for single mothers’ business education (150+ participants).</p>
+    </div>
+    <div class="card">
+      <h3>Physics Tutor & Freshman Mentor</h3>
+      <p>Tutored 20+ students with average <strong>+15%</strong> grade improvement.</p>
+    </div>
+    <div class="card">
+      <h3>Other Contributions</h3>
+      <p>Ramadan Volunteering, HKU Muslim Society • Mereke CF “Warm Winter” (winter clothing distribution for children) • Cohort Representative, MAE Department</p>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards">
+    <h2 class="sec-title">Awards & Scholarships</h2>
+    <div class="card">
+      <ul style="padding-left: 20px; line-height: 2;">
+        <li><strong>Presidential Scholarship</strong>, Republic of Kazakhstan (2026)</li>
+        <li><strong>Yessenov Scholarship 2026</strong> — Top 20 out of 500+ applicants</li>
+        <li><strong>Best Research Poster</strong> — Belt & Road Initiative Conference 2025</li>
+        <li><strong>1st Place</strong> — Mechaton Engineering Case Competition</li>
+        <li>Presidential Scholarship, Nazarbayev University</li>
+        <li>Dean’s List (4 semesters)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="sec-title">Skills</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;">
+      <div class="card">
+        <h3>Fabrication & Laboratory</h3>
+        <p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p>
+      </div>
+      <div class="card">
+        <h3>Software & Tools</h3>
+        <p>SolidWorks (CSWA), MATLAB, Python, OriginPro, Wolfram Mathematica</p>
+      </div>
+      <div class="card">
+        <h3>Technical Knowledge</h3>
+        <p>Thermodynamics, Fluid Mechanics, Energy Systems, Nuclear Modeling</p>
+      </div>
+      <div class="card">
+        <h3>Languages</h3>
+        <p>English (Fluent), Russian (Native), Kazakh (Native)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommenders -->
+  <section id="recommenders">
+    <h2 class="sec-title">Recommenders</h2>
+    <div class="card">
+      <ul style="padding-left: 20px; line-height: 2.1;">
+        <li>Prof. H. Kazerooni (UC Berkeley) — kazerooni@berkeley.edu</li>
+        <li>Prof. N. Fang (HKU) — nicxfang@hku.hk</li>
+        <li>Prof. W. Yan (HKU) — weiyan@hku.hk</li>
+        <li>Prof. A. Salama (NU) — amgad.salama@nu.edu.kz</li>
+        <li>Prof. E. Shehab (NU) — essam.shehab@nu.edu.kz</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="sec-title">Let's Connect</h2>
+    <p style="font-size:1.25rem; max-width:720px;">
+      Actively seeking Master's and PhD opportunities in Sustainable Energy, Nuclear Engineering, Mechanical Engineering, and related fields for Fall 2027.
+    </p>
+    <div style="margin-top:48px;">
+      <a href="mailto:shyngysadilet81@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email Me</a>
+      <a href="https://www.linkedin.com/in/adilet-shynggys/" target="_blank" class="btn" style="margin-left:20px;">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </section>
 </main>
 
 <script>
