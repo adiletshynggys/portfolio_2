@@ -80,53 +80,18 @@
       transform: translateY(-8px);
       border-color: var(--accent);
     }
-    .btn {
-      display: inline-flex; align-items: center; gap: 12px;
-      padding: 14px 32px;
-      background: var(--accent);
-      color: #07111e;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .btn:hover {
-      background: white;
-      transform: scale(1.05);
-    }
-    .profile-photo {
-      width: 155px;
-      height: 155px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      margin: 20px 0 15px;
-      object-fit: cover;
-    }
-
-    /* Skill Bars */
-    .skill-bar {
-      margin: 18px 0;
-    }
-    .skill-label {
+    .icon-card {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-      font-size: 0.95rem;
+      gap: 20px;
+      align-items: flex-start;
     }
-    .bar-container {
-      height: 8px;
-      background: rgba(200,150,62,0.15);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .bar {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), #e0b76b);
-      border-radius: 10px;
-      transition: width 1.2s ease;
+    .icon-card i {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-top: 4px;
+      flex-shrink: 0;
     }
 
-    /* Research Visuals */
     .research-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -136,7 +101,7 @@
       background: rgba(11, 25, 41, 0.85);
       border: 1px solid rgba(200,150,62,0.22);
       border-radius: 16px;
-      padding: 24px;
+      padding: 28px;
       text-align: center;
     }
     .nuclear-svg {
@@ -209,22 +174,34 @@
   <!-- Experience -->
   <section id="experience">
     <h2 class="sec-title">Research & Professional Experience</h2>
-    <div class="card">
-      <h3>Research Assistant — Nuclear Reactor Simulations</h3>
-      <p style="color:var(--accent);">Summer 2026 (Upcoming) • Prof. Amgad Salama, Nazarbayev University</p>
-      <p>Computational modeling of nuclear reactor systems for clean baseload energy.</p>
+    
+    <div class="card icon-card">
+      <i class="fas fa-atom"></i>
+      <div>
+        <h3>Research Assistant — Nuclear Reactor Simulations</h3>
+        <p style="color:var(--accent);">Summer 2026 (Upcoming) • Prof. Amgad Salama, Nazarbayev University</p>
+        <p>Computational modeling of nuclear reactor systems for clean baseload energy.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Research Assistant — Triboelectric Nanogenerators</h3>
-      <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
-      <p>Designed & fabricated TENG devices using electrospinning, silver-ink micro-printing & silicon printing.
-      Improved power density by <strong>15–20%</strong>. Manuscript in preparation.
-      <strong>Best Research Poster Award</strong>, Belt & Road Initiative Conference 2025.</p>
+
+    <div class="card icon-card">
+      <i class="fas fa-bolt"></i>
+      <div>
+        <h3>Research Assistant — Triboelectric Nanogenerators</h3>
+        <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
+        <p>Designed & fabricated TENG devices using electrospinning, silver-ink micro-printing & silicon printing. 
+        Improved power density by <strong>15–20%</strong>. Manuscript in preparation. 
+        <strong>Best Research Poster Award</strong>, Belt & Road Initiative Conference 2025.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Product Support Engineering Intern</h3>
-      <p style="color:var(--accent);">Wabtec Corporation • Jun – Jul 2025</p>
-      <p>Reduced material waste by <strong>10%</strong> and conducted thermal testing of electric motors.</p>
+
+    <div class="card icon-card">
+      <i class="fas fa-cogs"></i>
+      <div>
+        <h3>Product Support Engineering Intern</h3>
+        <p style="color:var(--accent);">Wabtec Corporation • Jun – Jul 2025</p>
+        <p>Reduced material waste by <strong>10%</strong> and conducted thermal testing of electric motors.</p>
+      </div>
     </div>
   </section>
 
@@ -233,47 +210,26 @@
     <h2 class="sec-title">Research Interests</h2>
     <div class="research-grid">
       <div class="card">
-        <p><strong>Sustainable Energy Systems</strong> — Triboelectric Nanogenerators, Nuclear Reactor Modeling, Energy Harvesting, Advanced Manufacturing, and integration of clean energy technologies.</p>
+        <p><strong>Sustainable Energy & Engineering</strong> — Triboelectric Nanogenerators, Nuclear Reactor Modeling, Hydrogen Energy, Energy Harvesting, Advanced Manufacturing, and clean energy integration. 
+        Passionate about developing technologies that improve quality of life through reliable and sustainable energy solutions.</p>
       </div>
       
-      <!-- Nuclear Visualization -->
       <div class="viz-card">
-        <h3 style="margin-bottom: 20px; color: var(--accent);">Nuclear Reactor Focus</h3>
+        <h3 style="margin-bottom: 20px; color: var(--accent);">Clean Energy Systems</h3>
         <svg class="nuclear-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <!-- Reactor Vessel -->
           <circle cx="100" cy="100" r="65" fill="none" stroke="#c8963e" stroke-width="12" stroke-opacity="0.3"/>
           <circle cx="100" cy="100" r="52" fill="none" stroke="#c8963e" stroke-width="8"/>
-          
-          <!-- Core -->
           <circle cx="100" cy="100" r="32" fill="#1a2a44"/>
           <circle cx="100" cy="100" r="26" fill="#c8963e" fill-opacity="0.15"/>
-          
-          <!-- Fuel Rods -->
           <rect x="88" y="72" width="8" height="56" rx="4" fill="#e0b76b"/>
           <rect x="104" y="72" width="8" height="56" rx="4" fill="#e0b76b"/>
-          <rect x="72" y="88" width="8" height="56" rx="4" fill="#e0b76b" transform="rotate(-45 76 100)"/>
-          <rect x="120" y="88" width="8" height="56" rx="4" fill="#e0b76b" transform="rotate(45 124 100)"/>
-          
-          <!-- Neutrons / Energy -->
-          <circle cx="65" cy="65" r="6" fill="#ffeb9f">
-            <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="135" cy="65" r="6" fill="#ffeb9f">
-            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="65" cy="135" r="6" fill="#ffeb9f">
-            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="135" cy="135" r="6" fill="#ffeb9f">
-            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
-          </circle>
-          
-          <!-- Steam / Energy Flow -->
+          <circle cx="65" cy="65" r="6" fill="#ffeb9f"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="135" cy="65" r="6" fill="#ffeb9f"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/></circle>
           <path d="M80 40 Q100 25 120 40" fill="none" stroke="#a8d4ff" stroke-width="4" stroke-opacity="0.7">
             <animate attributeName="stroke-dashoffset" from="60" to="0" dur="4s" repeatCount="indefinite"/>
           </path>
         </svg>
-        <p style="color:var(--text-dim); font-size:0.95rem;">Clean Baseload Energy Modeling</p>
+        <p style="color:var(--text-dim);">Nuclear • Hydrogen • Energy Harvesting</p>
       </div>
     </div>
   </section>
@@ -281,17 +237,45 @@
   <!-- Leadership -->
   <section id="leadership">
     <h2 class="sec-title">Leadership & Volunteering</h2>
-    <div class="card">
-      <h3>Charity Trail Run Organizer</h3>
-      <p>Raised <strong>600,000 KZT (~1,300 USD)</strong> for single mothers’ business education (150+ participants).</p>
+    
+    <div class="card icon-card">
+      <i class="fas fa-running"></i>
+      <div>
+        <h3>Charity Trail Run Organizer</h3>
+        <p>Raised <strong>600,000 KZT (~1,300 USD)</strong> for single mothers’ business education with 150+ participants.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Physics Tutor & Freshman Mentor</h3>
-      <p>Tutored 20+ students with average <strong>+15%</strong> grade improvement.</p>
+
+    <div class="card icon-card">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <div>
+        <h3>Physics Tutor & Freshman Mentor</h3>
+        <p>Tutored 20+ students, achieving an average grade improvement of <strong>+15%</strong>.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Other Contributions</h3>
-      <p>Ramadan Volunteering, HKU Muslim Society • Mereke CF “Warm Winter” (winter clothing distribution for children) • Cohort Representative, MAE Department</p>
+
+    <div class="card icon-card">
+      <i class="fas fa-hands-helping"></i>
+      <div>
+        <h3>Cohort Representative, MAE Department</h3>
+        <p>Represented Mechanical & Aerospace Engineering students at Nazarbayev University.</p>
+      </div>
+    </div>
+
+    <div class="card icon-card">
+      <i class="fas fa-mosque"></i>
+      <div>
+        <h3>HKU Muslim Society – Ramadan Volunteering</h3>
+        <p>Active volunteer during exchange semester at University of Hong Kong.</p>
+      </div>
+    </div>
+
+    <div class="card icon-card">
+      <i class="fas fa-child"></i>
+      <div>
+        <h3>Mereke CF “Warm Winter” Campaign</h3>
+        <p>Distributed winter clothing to children in need.</p>
+      </div>
     </div>
   </section>
 
@@ -299,7 +283,7 @@
   <section id="awards">
     <h2 class="sec-title">Awards & Scholarships</h2>
     <div class="card">
-      <ul style="padding-left: 20px; line-height: 2;">
+      <ul style="padding-left: 20px; line-height: 2.1;">
         <li><strong>Presidential Scholarship</strong>, Republic of Kazakhstan (2026)</li>
         <li><strong>Yessenov Scholarship 2026</strong> — Top 20 out of 500+ applicants</li>
         <li><strong>Best Research Poster</strong> — Belt & Road Initiative Conference 2025</li>
@@ -313,75 +297,27 @@
   <!-- Skills -->
   <section id="skills">
     <h2 class="sec-title">Skills</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:28px;">
-      
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;">
       <div class="card">
         <h3>Fabrication & Laboratory</h3>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Electrospinning & Printing</span><span>90%</span></div>
-          <div class="bar-container"><div class="bar" style="width:90%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>3D Printing</span><span>85%</span></div>
-          <div class="bar-container"><div class="bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Thermal Testing</span><span>80%</span></div>
-          <div class="bar-container"><div class="bar" style="width:80%"></div></div>
-        </div>
+        <p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p>
       </div>
-
       <div class="card">
         <h3>Software & Tools</h3>
-        <div class="skill-bar">
-          <div class="skill-label"><span>SolidWorks (CSWA)</span><span>88%</span></div>
-          <div class="bar-container"><div class="bar" style="width:88%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>MATLAB / Python</span><span>85%</span></div>
-          <div class="bar-container"><div class="bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>OriginPro & Mathematica</span><span>75%</span></div>
-          <div class="bar-container"><div class="bar" style="width:75%"></div></div>
-        </div>
+        <p>SolidWorks (CSWA), MATLAB, Python, OriginPro, Wolfram Mathematica</p>
       </div>
-
       <div class="card">
         <h3>Technical Knowledge</h3>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Thermodynamics & Fluids</span><span>92%</span></div>
-          <div class="bar-container"><div class="bar" style="width:92%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Nuclear Reactor Modeling</span><span>78%</span></div>
-          <div class="bar-container"><div class="bar" style="width:78%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Energy Systems</span><span>87%</span></div>
-          <div class="bar-container"><div class="bar" style="width:87%"></div></div>
-        </div>
+        <p>Thermodynamics, Fluid Mechanics, Energy Systems, Nuclear Modeling</p>
       </div>
-
       <div class="card">
         <h3>Languages</h3>
-        <div class="skill-bar">
-          <div class="skill-label"><span>English</span><span>Fluent</span></div>
-          <div class="bar-container"><div class="bar" style="width:95%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Russian</span><span>Native</span></div>
-          <div class="bar-container"><div class="bar" style="width:100%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Kazakh</span><span>Native</span></div>
-          <div class="bar-container"><div class="bar" style="width:100%"></div></div>
-        </div>
+        <p>English (Fluent), Russian (Native), Kazakh (Native)</p>
       </div>
     </div>
   </section>
 
-  <!-- Recommenders -->
+  <!-- Recommenders & Contact remain the same -->
   <section id="recommenders">
     <h2 class="sec-title">Recommenders</h2>
     <div class="card">
@@ -395,7 +331,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <h2 class="sec-title">Let's Connect</h2>
     <p style="font-size:1.25rem; max-width:720px;">
@@ -411,7 +346,6 @@
 </main>
 
 <script>
-  // Smooth scrolling + active nav
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -420,25 +354,6 @@
       document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
-
-  // Animate skill bars when scrolled into view
-  const bars = document.querySelectorAll('.bar');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        bars.forEach(bar => {
-          const width = bar.style.width;
-          bar.style.width = '0%';
-          setTimeout(() => {
-            bar.style.width = width;
-          }, 100);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  observer.observe(document.getElementById('skills'));
 </script>
 </body>
 </html>
