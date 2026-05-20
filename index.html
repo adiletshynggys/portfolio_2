@@ -6,7 +6,7 @@
   <title>Adilet Shynggys | Mechanical & Aerospace Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+ 
   <style>
     :root {
       --bg: #07111e;
@@ -26,10 +26,10 @@
 
     .sidebar {
       position: fixed; left: 0; top: 0; bottom: 0;
-      width: 260px;                    /* Slightly narrower */
+      width: 260px;
       background: rgba(7, 17, 30, 0.98);
       border-right: 1px solid rgba(200,150,62,0.25);
-      padding: 40px 24px;              /* Reduced padding */
+      padding: 40px 24px;
       z-index: 100;
       overflow-y: auto;
       display: flex;
@@ -43,7 +43,7 @@
     }
     .nav-link {
       display: flex; align-items: center; gap: 12px;
-      padding: 11px 16px; 
+      padding: 11px 16px;
       margin: 4px 0;
       border-radius: 10px;
       color: var(--text-dim);
@@ -57,11 +57,10 @@
       transform: translateX(8px);
     }
     .main { margin-left: 260px; padding: 70px 80px 120px; max-width: 1100px; }
-
-    h1 { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 3.7rem; 
-      line-height: 1.05; 
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.7rem;
+      line-height: 1.05;
     }
     .sec-title {
       font-family: 'Playfair Display', serif;
@@ -77,9 +76,9 @@
       margin-bottom: 32px;
       transition: all 0.4s;
     }
-    .card:hover { 
-      transform: translateY(-8px); 
-      border-color: var(--accent); 
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
     }
     .btn {
       display: inline-flex; align-items: center; gap: 12px;
@@ -91,11 +90,10 @@
       text-decoration: none;
       transition: all 0.3s;
     }
-    .btn:hover { 
-      background: white; 
-      transform: scale(1.05); 
+    .btn:hover {
+      background: white;
+      transform: scale(1.05);
     }
-
     .profile-photo {
       width: 155px;
       height: 155px;
@@ -105,19 +103,61 @@
       object-fit: cover;
     }
 
+    /* Skill Bars */
+    .skill-bar {
+      margin: 18px 0;
+    }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    .bar-container {
+      height: 8px;
+      background: rgba(200,150,62,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #e0b76b);
+      border-radius: 10px;
+      transition: width 1.2s ease;
+    }
+
+    /* Research Visuals */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .viz-card {
+      background: rgba(11, 25, 41, 0.85);
+      border: 1px solid rgba(200,150,62,0.22);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    .nuclear-svg {
+      width: 100%;
+      max-width: 220px;
+      margin: 0 auto 20px;
+    }
+
     @media (max-width: 920px) {
       .sidebar { transform: translateX(-100%); transition: 0.4s; }
       .sidebar.open { transform: translateX(0); }
       .main { margin-left: 0; padding: 40px 24px; }
+      .research-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
 <nav class="sidebar" id="sidebar">
   <div class="monogram">AS</div>
   <p style="color:#c8963e; margin:8px 0 40px; font-size:14.5px;">Mechanical & Aerospace Engineering</p>
-  
+ 
   <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
   <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
   <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
@@ -127,7 +167,6 @@
   <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
   <a href="#recommenders" class="nav-link"><i class="fas fa-user-graduate"></i> Recommenders</a>
   <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-
   <div style="margin-top: auto; padding-top: 40px;">
     <a href="CV.pdf" class="btn" style="width:100%; justify-content:center;" download>
       <i class="fas fa-download"></i> Download CV
@@ -142,7 +181,7 @@
     <h1>Adilet Shynggys</h1>
     <p style="font-size:1.45rem; color:var(--accent); margin:16px 0 28px;">Mechanical & Aerospace Engineering Student</p>
     <p style="font-size:1.22rem; max-width:780px; color:var(--text-dim);">
-      Top-performing student (GPA 3.86/4.00) at Nazarbayev University with research experience in Triboelectric Nanogenerators and Nuclear Reactor Simulations. 
+      Top-performing student (GPA 3.86/4.00) at Nazarbayev University with research experience in Triboelectric Nanogenerators and Nuclear Reactor Simulations.
       Passionate about advancing sustainable and reliable energy systems. Seeking Master's/PhD opportunities in the United States starting Fall 2027.
     </p>
   </section>
@@ -178,8 +217,8 @@
     <div class="card">
       <h3>Research Assistant — Triboelectric Nanogenerators</h3>
       <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
-      <p>Designed & fabricated TENG devices using electrospinning, silver-ink micro-printing & silicon printing. 
-      Improved power density by <strong>15–20%</strong>. Manuscript in preparation. 
+      <p>Designed & fabricated TENG devices using electrospinning, silver-ink micro-printing & silicon printing.
+      Improved power density by <strong>15–20%</strong>. Manuscript in preparation.
       <strong>Best Research Poster Award</strong>, Belt & Road Initiative Conference 2025.</p>
     </div>
     <div class="card">
@@ -192,8 +231,50 @@
   <!-- Research Interests -->
   <section id="research">
     <h2 class="sec-title">Research Interests</h2>
-    <div class="card">
-      <p><strong>Sustainable Energy Systems</strong> — Triboelectric Nanogenerators, Nuclear Reactor Modeling, Energy Harvesting, Advanced Manufacturing, and integration of clean energy technologies.</p>
+    <div class="research-grid">
+      <div class="card">
+        <p><strong>Sustainable Energy Systems</strong> — Triboelectric Nanogenerators, Nuclear Reactor Modeling, Energy Harvesting, Advanced Manufacturing, and integration of clean energy technologies.</p>
+      </div>
+      
+      <!-- Nuclear Visualization -->
+      <div class="viz-card">
+        <h3 style="margin-bottom: 20px; color: var(--accent);">Nuclear Reactor Focus</h3>
+        <svg class="nuclear-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Reactor Vessel -->
+          <circle cx="100" cy="100" r="65" fill="none" stroke="#c8963e" stroke-width="12" stroke-opacity="0.3"/>
+          <circle cx="100" cy="100" r="52" fill="none" stroke="#c8963e" stroke-width="8"/>
+          
+          <!-- Core -->
+          <circle cx="100" cy="100" r="32" fill="#1a2a44"/>
+          <circle cx="100" cy="100" r="26" fill="#c8963e" fill-opacity="0.15"/>
+          
+          <!-- Fuel Rods -->
+          <rect x="88" y="72" width="8" height="56" rx="4" fill="#e0b76b"/>
+          <rect x="104" y="72" width="8" height="56" rx="4" fill="#e0b76b"/>
+          <rect x="72" y="88" width="8" height="56" rx="4" fill="#e0b76b" transform="rotate(-45 76 100)"/>
+          <rect x="120" y="88" width="8" height="56" rx="4" fill="#e0b76b" transform="rotate(45 124 100)"/>
+          
+          <!-- Neutrons / Energy -->
+          <circle cx="65" cy="65" r="6" fill="#ffeb9f">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="135" cy="65" r="6" fill="#ffeb9f">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="65" cy="135" r="6" fill="#ffeb9f">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="135" cy="135" r="6" fill="#ffeb9f">
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          
+          <!-- Steam / Energy Flow -->
+          <path d="M80 40 Q100 25 120 40" fill="none" stroke="#a8d4ff" stroke-width="4" stroke-opacity="0.7">
+            <animate attributeName="stroke-dashoffset" from="60" to="0" dur="4s" repeatCount="indefinite"/>
+          </path>
+        </svg>
+        <p style="color:var(--text-dim); font-size:0.95rem;">Clean Baseload Energy Modeling</p>
+      </div>
     </div>
   </section>
 
@@ -232,22 +313,70 @@
   <!-- Skills -->
   <section id="skills">
     <h2 class="sec-title">Skills</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:28px;">
+      
       <div class="card">
         <h3>Fabrication & Laboratory</h3>
-        <p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Electrospinning & Printing</span><span>90%</span></div>
+          <div class="bar-container"><div class="bar" style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>3D Printing</span><span>85%</span></div>
+          <div class="bar-container"><div class="bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Thermal Testing</span><span>80%</span></div>
+          <div class="bar-container"><div class="bar" style="width:80%"></div></div>
+        </div>
       </div>
+
       <div class="card">
         <h3>Software & Tools</h3>
-        <p>SolidWorks (CSWA), MATLAB, Python, OriginPro, Wolfram Mathematica</p>
+        <div class="skill-bar">
+          <div class="skill-label"><span>SolidWorks (CSWA)</span><span>88%</span></div>
+          <div class="bar-container"><div class="bar" style="width:88%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>MATLAB / Python</span><span>85%</span></div>
+          <div class="bar-container"><div class="bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>OriginPro & Mathematica</span><span>75%</span></div>
+          <div class="bar-container"><div class="bar" style="width:75%"></div></div>
+        </div>
       </div>
+
       <div class="card">
         <h3>Technical Knowledge</h3>
-        <p>Thermodynamics, Fluid Mechanics, Energy Systems, Nuclear Modeling</p>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Thermodynamics & Fluids</span><span>92%</span></div>
+          <div class="bar-container"><div class="bar" style="width:92%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Nuclear Reactor Modeling</span><span>78%</span></div>
+          <div class="bar-container"><div class="bar" style="width:78%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Energy Systems</span><span>87%</span></div>
+          <div class="bar-container"><div class="bar" style="width:87%"></div></div>
+        </div>
       </div>
+
       <div class="card">
         <h3>Languages</h3>
-        <p>English (Fluent), Russian (Native), Kazakh (Native)</p>
+        <div class="skill-bar">
+          <div class="skill-label"><span>English</span><span>Fluent</span></div>
+          <div class="bar-container"><div class="bar" style="width:95%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Russian</span><span>Native</span></div>
+          <div class="bar-container"><div class="bar" style="width:100%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Kazakh</span><span>Native</span></div>
+          <div class="bar-container"><div class="bar" style="width:100%"></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -282,6 +411,7 @@
 </main>
 
 <script>
+  // Smooth scrolling + active nav
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -290,6 +420,25 @@
       document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  // Animate skill bars when scrolled into view
+  const bars = document.querySelectorAll('.bar');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        bars.forEach(bar => {
+          const width = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => {
+            bar.style.width = width;
+          }, 100);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(document.getElementById('skills'));
 </script>
 </body>
 </html>
