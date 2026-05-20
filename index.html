@@ -1,315 +1,295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Graduate application portfolio for Adilet Shynggys, Mechanical and Aerospace Engineering student."
-    />
-    <title>Adilet Shynggys | Graduate Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#overview" aria-label="Adilet Shynggys home">
-        <span class="brand-mark">AS</span>
-        <span>
-          <strong>Adilet Shynggys</strong>
-          <small>Mechanical & Aerospace Engineering</small>
-        </span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adilet Shynggys | Mechanical & Aerospace Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #07111e;
+      --accent: #c8963e;
+      --text: #edf0f5;
+      --text-dim: #b0bdd0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.85;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: rgba(200,150,62,0.4); border-radius: 10px; }
+
+    .sidebar {
+      position: fixed; left: 0; top: 0; bottom: 0;
+      width: 260px;                    /* Slightly narrower */
+      background: rgba(7, 17, 30, 0.98);
+      border-right: 1px solid rgba(200,150,62,0.25);
+      padding: 40px 24px;              /* Reduced padding */
+      z-index: 100;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .monogram {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--accent);
+    }
+    .nav-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 16px; 
+      margin: 4px 0;
+      border-radius: 10px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.97rem;
+      transition: all 0.3s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: rgba(200,150,62,0.15);
+      color: white;
+      transform: translateX(8px);
+    }
+    .main { margin-left: 260px; padding: 70px 80px 120px; max-width: 1100px; }
+
+    h1 { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 3.7rem; 
+      line-height: 1.05; 
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.65rem;
+      color: var(--accent);
+      margin: 65px 0 32px;
+    }
+    .card {
+      background: rgba(11, 25, 41, 0.9);
+      border: 1px solid rgba(200,150,62,0.22);
+      border-radius: 18px;
+      padding: 34px;
+      margin-bottom: 32px;
+      transition: all 0.4s;
+    }
+    .card:hover { 
+      transform: translateY(-8px); 
+      border-color: var(--accent); 
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: #07111e;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn:hover { 
+      background: white; 
+      transform: scale(1.05); 
+    }
+
+    .profile-photo {
+      width: 155px;
+      height: 155px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      margin: 20px 0 15px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 920px) {
+      .sidebar { transform: translateX(-100%); transition: 0.4s; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="sidebar" id="sidebar">
+  <div class="monogram">AS</div>
+  <p style="color:#c8963e; margin:8px 0 40px; font-size:14.5px;">Mechanical & Aerospace Engineering</p>
+  
+  <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
+  <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+  <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
+  <a href="#research" class="nav-link"><i class="fas fa-flask"></i> Research</a>
+  <a href="#leadership" class="nav-link"><i class="fas fa-users"></i> Leadership</a>
+  <a href="#awards" class="nav-link"><i class="fas fa-award"></i> Awards</a>
+  <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
+  <a href="#recommenders" class="nav-link"><i class="fas fa-user-graduate"></i> Recommenders</a>
+  <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+
+  <div style="margin-top: auto; padding-top: 40px;">
+    <a href="CV.pdf" class="btn" style="width:100%; justify-content:center;" download>
+      <i class="fas fa-download"></i> Download CV
+    </a>
+  </div>
+</nav>
+
+<main class="main">
+  <!-- About -->
+  <section id="about">
+    <img src="my_photo.jpg" alt="Adilet Shynggys" class="profile-photo">
+    <h1>Adilet Shynggys</h1>
+    <p style="font-size:1.45rem; color:var(--accent); margin:16px 0 28px;">Mechanical & Aerospace Engineering Student</p>
+    <p style="font-size:1.22rem; max-width:780px; color:var(--text-dim);">
+      Top-performing student (GPA 3.86/4.00) at Nazarbayev University with research experience in Triboelectric Nanogenerators and Nuclear Reactor Simulations. 
+      Passionate about advancing sustainable and reliable energy systems. Seeking Master's/PhD opportunities in the United States starting Fall 2027.
+    </p>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2 class="sec-title">Education</h2>
+    <div class="card">
+      <h3>Nazarbayev University, Astana, Kazakhstan</h3>
+      <p><strong>B.S. Mechanical & Aerospace Engineering</strong> — Expected June 2027</p>
+      <p>GPA: <strong>3.86/4.00</strong> (Top of Cohort) • Dean’s List (4 semesters) • Presidential Scholarship</p>
+    </div>
+    <div class="card">
+      <h3>University of Hong Kong — International Exchange</h3>
+      <p><strong>Spring 2026</strong></p>
+      <p>Collaborated with:</p>
+      <ul style="margin-top:12px; padding-left:22px; color:var(--text-dim);">
+        <li>Prof. N. Fang — Chair Professor</li>
+        <li>Prof. W. Yan — Senior Lecturer</li>
+        <li>Prof. H. Kazerooni (UC Berkeley) — Visiting Professor</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2 class="sec-title">Research & Professional Experience</h2>
+    <div class="card">
+      <h3>Research Assistant — Nuclear Reactor Simulations</h3>
+      <p style="color:var(--accent);">Summer 2026 (Upcoming) • Prof. Amgad Salama, Nazarbayev University</p>
+      <p>Computational modeling of nuclear reactor systems for clean baseload energy.</p>
+    </div>
+    <div class="card">
+      <h3>Research Assistant — Triboelectric Nanogenerators</h3>
+      <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
+      <p>Designed & fabricated TENG devices using electrospinning, silver-ink micro-printing & silicon printing. 
+      Improved power density by <strong>15–20%</strong>. Manuscript in preparation. 
+      <strong>Best Research Poster Award</strong>, Belt & Road Initiative Conference 2025.</p>
+    </div>
+    <div class="card">
+      <h3>Product Support Engineering Intern</h3>
+      <p style="color:var(--accent);">Wabtec Corporation • Jun – Jul 2025</p>
+      <p>Reduced material waste by <strong>10%</strong> and conducted thermal testing of electric motors.</p>
+    </div>
+  </section>
+
+  <!-- Research Interests -->
+  <section id="research">
+    <h2 class="sec-title">Research Interests</h2>
+    <div class="card">
+      <p><strong>Sustainable Energy Systems</strong> — Triboelectric Nanogenerators, Nuclear Reactor Modeling, Energy Harvesting, Advanced Manufacturing, and integration of clean energy technologies.</p>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership">
+    <h2 class="sec-title">Leadership & Volunteering</h2>
+    <div class="card">
+      <h3>Charity Trail Run Organizer</h3>
+      <p>Raised <strong>600,000 KZT (~1,300 USD)</strong> for single mothers’ business education (150+ participants).</p>
+    </div>
+    <div class="card">
+      <h3>Physics Tutor & Freshman Mentor</h3>
+      <p>Tutored 20+ students with average <strong>+15%</strong> grade improvement.</p>
+    </div>
+    <div class="card">
+      <h3>Other Contributions</h3>
+      <p>Ramadan Volunteering, HKU Muslim Society • Mereke CF “Warm Winter” (winter clothing distribution for children) • Cohort Representative, MAE Department</p>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards">
+    <h2 class="sec-title">Awards & Scholarships</h2>
+    <div class="card">
+      <ul style="padding-left: 20px; line-height: 2;">
+        <li><strong>Presidential Scholarship</strong>, Republic of Kazakhstan (2026)</li>
+        <li><strong>Yessenov Scholarship 2026</strong> — Top 20 out of 500+ applicants</li>
+        <li><strong>Best Research Poster</strong> — Belt & Road Initiative Conference 2025</li>
+        <li><strong>1st Place</strong> — Mechaton Engineering Case Competition</li>
+        <li>Presidential Scholarship, Nazarbayev University</li>
+        <li>Dean’s List (4 semesters)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="sec-title">Skills</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;">
+      <div class="card">
+        <h3>Fabrication & Laboratory</h3>
+        <p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p>
+      </div>
+      <div class="card">
+        <h3>Software & Tools</h3>
+        <p>SolidWorks (CSWA), MATLAB, Python, OriginPro, Wolfram Mathematica</p>
+      </div>
+      <div class="card">
+        <h3>Technical Knowledge</h3>
+        <p>Thermodynamics, Fluid Mechanics, Energy Systems, Nuclear Modeling</p>
+      </div>
+      <div class="card">
+        <h3>Languages</h3>
+        <p>English (Fluent), Russian (Native), Kazakh (Native)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommenders -->
+  <section id="recommenders">
+    <h2 class="sec-title">Recommenders</h2>
+    <div class="card">
+      <ul style="padding-left: 20px; line-height: 2.1;">
+        <li>Prof. H. Kazerooni (UC Berkeley) — kazerooni@berkeley.edu</li>
+        <li>Prof. N. Fang (HKU) — nicxfang@hku.hk</li>
+        <li>Prof. W. Yan (HKU) — weiyan@hku.hk</li>
+        <li>Prof. A. Salama (NU) — amgad.salama@nu.edu.kz</li>
+        <li>Prof. E. Shehab (NU) — essam.shehab@nu.edu.kz</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="sec-title">Let's Connect</h2>
+    <p style="font-size:1.25rem; max-width:720px;">
+      Actively seeking Master's and PhD opportunities in Sustainable Energy, Nuclear Engineering, Mechanical Engineering, and related fields for Fall 2027.
+    </p>
+    <div style="margin-top:48px;">
+      <a href="mailto:shyngysadilet81@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email Me</a>
+      <a href="https://www.linkedin.com/in/adilet-shynggys/" target="_blank" class="btn" style="margin-left:20px;">
+        <i class="fab fa-linkedin"></i> LinkedIn
       </a>
+    </div>
+  </section>
+</main>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" id="site-nav" aria-label="Portfolio sections">
-        <a href="#overview">Overview</a>
-        <a href="#education">Education</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#honors">Honors</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero" id="overview">
-        <div class="hero-copy">
-          <p class="eyebrow">Graduate Application Portfolio</p>
-          <h1>Adilet Shynggys</h1>
-          <p class="hero-lede">
-            Mechanical and Aerospace Engineering student focused on energy systems,
-            advanced fabrication, and computational modeling for clean, resilient technology.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:shyngysadilet81@gmail.com">Contact Me</a>
-            <a class="button secondary" href="#research">View Research</a>
-          </div>
-        </div>
-
-        <aside class="hero-panel" aria-label="Application highlights">
-          <div>
-            <span class="metric">3.86</span>
-            <span class="metric-label">GPA / 4.00</span>
-          </div>
-          <div>
-            <span class="metric">Top</span>
-            <span class="metric-label">of Cohort</span>
-          </div>
-          <div>
-            <span class="metric">4x</span>
-            <span class="metric-label">Dean's List</span>
-          </div>
-        </aside>
-      </section>
-
-      <section class="profile-band" aria-label="Profile summary">
-        <div class="profile-statement">
-          <h2>Academic Direction</h2>
-          <p>
-            My work connects mechanical engineering fundamentals with energy and fabrication challenges:
-            triboelectric nanogenerators, thermal testing, electric motor support, and upcoming nuclear
-            reactor simulation research.
-          </p>
-        </div>
-        <div class="quick-facts">
-          <div><strong>Location</strong><span>Astana, Kazakhstan</span></div>
-          <div><strong>Exchange</strong><span>University of Hong Kong, Spring 2026</span></div>
-          <div><strong>Languages</strong><span>English, Russian, Kazakh</span></div>
-        </div>
-      </section>
-
-      <section class="section" id="education">
-        <div class="section-heading">
-          <p class="eyebrow">Education</p>
-          <h2>Academic Foundation</h2>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <span class="time">Expected June 2027</span>
-            <h3>Nazarbayev University</h3>
-            <p>B.S. Mechanical & Aerospace Engineering, Astana, Kazakhstan</p>
-            <ul>
-              <li>GPA: 3.86 / 4.00</li>
-              <li>Top of cohort</li>
-              <li>Dean's List for four semesters</li>
-            </ul>
-          </article>
-          <article class="timeline-item">
-            <span class="time">Spring 2026</span>
-            <h3>University of Hong Kong</h3>
-            <p>International exchange, Hong Kong SAR</p>
-            <ul>
-              <li>Collaborated with Prof. N. Fang, Prof. W. Yan, and Prof. H. Kazerooni</li>
-              <li>Broadened research exposure across robotics, micro/nano systems, and engineering design</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section alt" id="research">
-        <div class="section-heading">
-          <p class="eyebrow">Research Experience</p>
-          <h2>Energy, Materials, and Simulation</h2>
-        </div>
-        <div class="research-grid">
-          <article class="feature-card">
-            <span class="tag">Upcoming</span>
-            <h3>Nuclear Reactor Simulations</h3>
-            <p class="meta">Research Assistant, Prof. Amgad Salama, Nazarbayev University | Summer 2026</p>
-            <p>
-              Computational modeling of nuclear reactor systems for clean baseload energy, with emphasis on
-              simulation-driven analysis and engineering decision support.
-            </p>
-          </article>
-          <article class="feature-card">
-            <span class="tag">Manuscript in preparation</span>
-            <h3>Triboelectric Nanogenerators</h3>
-            <p class="meta">Research Assistant, Nazarbayev University | Jan-Dec 2025</p>
-            <p>
-              Designed and fabricated TENG devices using electrospinning, silver-ink micro-printing, and
-              silicon printing; improved power density by 15-20%.
-            </p>
-            <p class="result">Best Research Poster Award, Belt & Road Initiative Conference 2025</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="section-heading">
-          <p class="eyebrow">Projects & Professional Work</p>
-          <h2>Applied Engineering</h2>
-        </div>
-        <div class="project-list">
-          <article>
-            <div>
-              <span class="time">Jun-Jul 2025</span>
-              <h3>Product Support Engineering Intern</h3>
-              <p class="meta">Wabtec Corporation</p>
-            </div>
-            <p>
-              Supported engineering work around electric motor thermal testing and reduced material waste by 10%.
-            </p>
-          </article>
-          <article>
-            <div>
-              <span class="time">Engineering Competition</span>
-              <h3>Mechaton Engineering Case Competition</h3>
-              <p class="meta">1st Place</p>
-            </div>
-            <p>
-              Built and presented an engineering case solution under competition constraints, combining technical
-              analysis, teamwork, and clear communication.
-            </p>
-          </article>
-          <article>
-            <div>
-              <span class="time">Community Project</span>
-              <h3>Charity Trail Run Organizer</h3>
-              <p class="meta">150+ participants</p>
-            </div>
-            <p>
-              Organized a charity trail run that raised 600K KZT, approximately 1,300 USD, in support of single mothers.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section split alt" id="honors">
-        <div class="section-heading">
-          <p class="eyebrow">Honors & Awards</p>
-          <h2>Recognition</h2>
-        </div>
-        <div class="award-grid">
-          <article class="award-card">
-            <span>2026</span>
-            <h3>Presidential Scholarship</h3>
-            <p>Republic of Kazakhstan</p>
-          </article>
-          <article class="award-card">
-            <span>2026</span>
-            <h3>Yessenov Scholarship</h3>
-            <p>Top 20 of 500+ applicants</p>
-          </article>
-          <article class="award-card">
-            <span>2025</span>
-            <h3>Best Research Poster</h3>
-            <p>Belt & Road Initiative Conference</p>
-          </article>
-          <article class="award-card">
-            <span>1st Place</span>
-            <h3>Mechaton Engineering Case Competition</h3>
-            <p>Engineering design and case analysis</p>
-          </article>
-          <article class="award-card">
-            <span>Academic</span>
-            <h3>Presidential Scholarship</h3>
-            <p>Nazarbayev University</p>
-          </article>
-          <article class="award-card">
-            <span>4 Semesters</span>
-            <h3>Dean's List</h3>
-            <p>Nazarbayev University</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="certifications">
-        <div class="section-heading">
-          <p class="eyebrow">Certifications & Skills</p>
-          <h2>Technical Toolkit</h2>
-        </div>
-        <div class="skills-layout">
-          <article>
-            <h3>Certification</h3>
-            <p>Certified SOLIDWORKS Associate (CSWA)</p>
-          </article>
-          <article>
-            <h3>Fabrication</h3>
-            <p>3D printing, electrospinning, silver-ink printing, silicon printing, thermal testing</p>
-          </article>
-          <article>
-            <h3>Software</h3>
-            <p>SolidWorks, MATLAB, Python, OriginPro, Mathematica</p>
-          </article>
-          <article>
-            <h3>Technical Areas</h3>
-            <p>Thermodynamics, fluid mechanics, energy systems, nuclear modeling</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section alt">
-        <div class="section-heading">
-          <p class="eyebrow">Leadership & Service</p>
-          <h2>Community Contribution</h2>
-        </div>
-        <div class="service-grid">
-          <article>
-            <h3>Physics Tutor & Freshman Mentor</h3>
-            <p>Tutored 20+ students, contributing to an average grade improvement of 15%.</p>
-          </article>
-          <article>
-            <h3>Ramadan Volunteering</h3>
-            <p>Served with the HKU Muslim Society during Ramadan community programming.</p>
-          </article>
-          <article>
-            <h3>Mereke CF Warm Winter</h3>
-            <p>Supported winter clothing distribution for children.</p>
-          </article>
-          <article>
-            <h3>Cohort Representative</h3>
-            <p>Represented the Mechanical and Aerospace Engineering cohort at Nazarbayev University.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section contact" id="contact">
-        <div class="section-heading">
-          <p class="eyebrow">Contact</p>
-          <h2>Connect</h2>
-        </div>
-        <div class="contact-panel">
-          <div>
-            <p class="contact-lede">
-              I welcome conversations about graduate research in mechanical engineering, energy systems,
-              advanced manufacturing, and simulation-driven design.
-            </p>
-            <div class="contact-links">
-              <a href="mailto:shyngysadilet81@gmail.com">shyngysadilet81@gmail.com</a>
-              <a href="tel:+77009590833">+7 700 959 0833</a>
-              <span>Astana, Kazakhstan</span>
-            </div>
-          </div>
-          <div class="recommenders">
-            <h3>Academic References</h3>
-            <ul>
-              <li>Prof. H. Kazerooni, UC Berkeley</li>
-              <li>Prof. N. Fang, University of Hong Kong</li>
-              <li>Prof. W. Yan, University of Hong Kong</li>
-              <li>Prof. A. Salama, Nazarbayev University</li>
-              <li>Prof. E. Shehab, Nazarbayev University</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>Adilet Shynggys | Graduate Application Portfolio</p>
-      <a href="#overview">Back to top</a>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
 </html>
