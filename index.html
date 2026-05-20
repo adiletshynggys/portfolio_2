@@ -13,6 +13,7 @@
       --accent: #c8963e;
       --text: #edf0f5;
       --text-dim: #b0bdd0;
+      --tagline: #f0d9a0;   /* Light golden yellow */
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -84,7 +85,6 @@
       border-color: var(--accent);
     }
 
-    /* Icon Card Style */
     .icon-card {
       display: flex;
       gap: 20px;
@@ -97,7 +97,6 @@
       flex-shrink: 0;
     }
 
-    /* Profile Photo - Restored original size */
     .profile-photo {
       width: 155px;
       height: 155px;
@@ -107,7 +106,6 @@
       object-fit: cover;
     }
 
-    /* Buttons - Restored original design */
     .btn {
       display: inline-flex; 
       align-items: center; 
@@ -123,6 +121,24 @@
     .btn:hover {
       background: white;
       transform: scale(1.05);
+    }
+
+    /* Improved About Section Spacing */
+    .about-title {
+      margin-bottom: 8px;
+    }
+    .about-major {
+      font-size: 1.45rem;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .tagline {
+      font-size: 1.32rem;
+      color: var(--tagline);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 32px;
+      line-height: 1.4;
     }
 
     .research-grid {
@@ -166,10 +182,12 @@
   <section id="about">
     <img src="my_photo.jpg" alt="Adilet Shynggys" class="profile-photo">
     <h1>Adilet Shynggys</h1>
-    <p style="font-size:1.45rem; color:var(--accent); margin:16px 0 8px;">Mechanical & Aerospace Engineering Student</p>
     
-    <!-- Your Driving Phrase -->
-    <p class="tagline">"Sustainable energy is the foundation for stable and equitable global development."</p>
+    <p class="about-major">Mechanical & Aerospace Engineering Student</p>
+    
+    <p class="tagline">
+      "Sustainable energy is the foundation for stable and equitable global development."
+    </p>
     
     <p style="font-size:1.22rem; max-width:780px; color:var(--text-dim);">
       Top-performing student (GPA 3.86/4.00) at Nazarbayev University with research experience in Triboelectric Nanogenerators and Nuclear Reactor Simulations.
@@ -177,7 +195,7 @@
     </p>
   </section>
 
-  <!-- Education -->
+  <!-- Other sections remain the same -->
   <section id="education">
     <h2 class="sec-title">Education</h2>
     <div class="card">
@@ -197,10 +215,8 @@
     </div>
   </section>
 
-  <!-- Experience -->
   <section id="experience">
     <h2 class="sec-title">Research & Professional Experience</h2>
-    
     <div class="card icon-card">
       <i class="fas fa-atom"></i>
       <div>
@@ -230,7 +246,6 @@
     </div>
   </section>
 
-  <!-- Research Interests -->
   <section id="research">
     <h2 class="sec-title">Research Interests</h2>
     <div class="research-grid">
@@ -247,52 +262,30 @@
     </div>
   </section>
 
-  <!-- Leadership -->
   <section id="leadership">
     <h2 class="sec-title">Leadership & Volunteering</h2>
-    
     <div class="card icon-card">
       <i class="fas fa-running"></i>
-      <div>
-        <h3>Charity Trail Run Organizer</h3>
-        <p>Raised <strong>600,000 KZT (~1,300 USD)</strong> for single mothers’ business education (150+ participants).</p>
-      </div>
+      <div><h3>Charity Trail Run Organizer</h3><p>Raised <strong>600,000 KZT (~1,300 USD)</strong> for single mothers’ business education (150+ participants).</p></div>
     </div>
-
     <div class="card icon-card">
       <i class="fas fa-chalkboard-teacher"></i>
-      <div>
-        <h3>Physics Tutor & Freshman Mentor</h3>
-        <p>Tutored 20+ students with average <strong>+15%</strong> grade improvement.</p>
-      </div>
+      <div><h3>Physics Tutor & Freshman Mentor</h3><p>Tutored 20+ students with average <strong>+15%</strong> grade improvement.</p></div>
     </div>
-
     <div class="card icon-card">
       <i class="fas fa-users"></i>
-      <div>
-        <h3>Cohort Representative, MAE Department</h3>
-        <p>Represented Mechanical & Aerospace Engineering students at Nazarbayev University.</p>
-      </div>
+      <div><h3>Cohort Representative, MAE Department</h3><p>Represented Mechanical & Aerospace Engineering students at Nazarbayev University.</p></div>
     </div>
-
     <div class="card icon-card">
       <i class="fas fa-mosque"></i>
-      <div>
-        <h3>HKU Muslim Society – Ramadan Volunteering</h3>
-        <p>Active volunteer during exchange at University of Hong Kong.</p>
-      </div>
+      <div><h3>HKU Muslim Society – Ramadan Volunteering</h3><p>Active volunteer during exchange at University of Hong Kong.</p></div>
     </div>
-
     <div class="card icon-card">
       <i class="fas fa-child"></i>
-      <div>
-        <h3>Mereke CF “Warm Winter” Campaign</h3>
-        <p>Distributed winter clothing to children in need.</p>
-      </div>
+      <div><h3>Mereke CF “Warm Winter” Campaign</h3><p>Distributed winter clothing to children in need.</p></div>
     </div>
   </section>
 
-  <!-- Awards, Skills, Recommenders, Contact -->
   <section id="awards">
     <h2 class="sec-title">Awards & Scholarships</h2>
     <div class="card">
@@ -310,22 +303,10 @@
   <section id="skills">
     <h2 class="sec-title">Skills</h2>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;">
-      <div class="card">
-        <h3>Fabrication & Laboratory</h3>
-        <p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p>
-      </div>
-      <div class="card">
-        <h3>Software & Tools</h3>
-        <p>SolidWorks (CSWA), MATLAB, Python, OriginPro, Wolfram Mathematica</p>
-      </div>
-      <div class="card">
-        <h3>Technical Knowledge</h3>
-        <p>Thermodynamics, Fluid Mechanics, Energy Systems, Nuclear Modeling</p>
-      </div>
-      <div class="card">
-        <h3>Languages</h3>
-        <p>English (Fluent), Russian (Native), Kazakh (Native)</p>
-      </div>
+      <div class="card"><h3>Fabrication & Laboratory</h3><p>3D Printing, Electrospinning, Silver-ink Micro-printing, Silicon Printing, Thermal Testing</p></div>
+      <div class="card"><h3>Software & Tools</h3><p>SolidWorks (CSWA), MATLAB, Python, OriginPro, Wolfram Mathematica</p></div>
+      <div class="card"><h3>Technical Knowledge</h3><p>Thermodynamics, Fluid Mechanics, Energy Systems, Nuclear Modeling</p></div>
+      <div class="card"><h3>Languages</h3><p>English (Fluent), Russian (Native), Kazakh (Native)</p></div>
     </div>
   </section>
 
