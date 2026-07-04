@@ -13,7 +13,7 @@
       --accent: #c8963e;
       --text: #edf0f5;
       --text-dim: #b0bdd0;
-      --tagline: #f0d9a0;   /* Light golden yellow */
+      --tagline: #f0d9a0;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -24,6 +24,11 @@
     }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-thumb { background: rgba(200,150,62,0.4); border-radius: 10px; }
+
+    /* Mobile Toggle Button (Hidden on Desktop) */
+    .mobile-toggle {
+      display: none;
+    }
 
     .sidebar {
       position: fixed; left: 0; top: 0; bottom: 0;
@@ -123,7 +128,6 @@
       transform: scale(1.05);
     }
 
-    /* Improved About Section Spacing & New Elements */
     .about-title {
       margin-bottom: 8px;
     }
@@ -191,15 +195,40 @@
       gap: 28px;
     }
 
+    /* Mobile Responsive Rules */
     @media (max-width: 920px) {
       .sidebar { transform: translateX(-100%); transition: 0.4s; }
       .sidebar.open { transform: translateX(0); }
       .main { margin-left: 0; padding: 40px 24px; }
       .research-grid { grid-template-columns: 1fr; }
+      
+      .mobile-toggle {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--accent);
+        color: #07111e;
+        border: none;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      }
     }
   </style>
 </head>
 <body>
+
+<button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+  <i class="fas fa-bars"></i>
+</button>
+
 <nav class="sidebar" id="sidebar">
   <div class="monogram">AS</div>
   <p style="color:#c8963e; margin:8px 0 40px; font-size:14.5px;">Mechanical & Aerospace Engineering</p>
@@ -235,10 +264,10 @@
     <div class="stat-grid">
       <div class="stat-card">
         <div class="stat-num">3.86</div>
-        <div class="stat-label">GPA (Top 1 Cohort)</div>
+        <div class="stat-label">GPA (Top 1 of Cohort)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">Q1</div>
+        <div class="stat-num">1st</div>
         <div class="stat-label">Co-Authored Paper (Small)</div>
       </div>
       <div class="stat-card">
@@ -278,7 +307,7 @@
     <div class="card">
       <h3>Nazarbayev University, Astana, Kazakhstan</h3>
       <p><strong>B.S. Mechanical & Aerospace Engineering</strong> — Expected June 2027</p>
-      <p>GPA: <strong>3.86/4.00</strong> (Top of Cohort) • Dean’s List (4 semesters) • Presidential Scholarship</p>
+      <p>GPA: <strong>3.86/4.00</strong> (Top of Cohort) • Dean’s List (4 consecutive semesters) • Presidential Scholarship</p>
     </div>
     <div class="card">
       <h3>University of Hong Kong — International Exchange</h3>
@@ -414,14 +443,54 @@
 </main>
 
 <script>
+  // 1. Smooth scroll when clicking sidebar links
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
       this.classList.add('active');
+      
+      // Close mobile menu if open
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar) sidebar.classList.remove('open');
+      
       document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  // 2. Mobile menu toggle button
+  const mobileToggle = document.getElementById('mobile-toggle');
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+      document.getElementById('sidebar').classList.toggle('open');
+    });
+  }
+
+  // 3. Automatically update active sidebar link while scrolling
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
 </script>
 </body>
 </html>
