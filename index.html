@@ -6,7 +6,7 @@
   <title>Adilet Shynggys | Mechanical & Aerospace Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
- 
+  
   <style>
     :root {
       --bg: #07111e;
@@ -123,7 +123,7 @@
       transform: scale(1.05);
     }
 
-    /* Improved About Section Spacing */
+    /* Improved About Section Spacing & New Elements */
     .about-title {
       margin-bottom: 8px;
     }
@@ -139,6 +139,50 @@
       font-style: italic;
       margin-bottom: 32px;
       line-height: 1.4;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin: 35px 0 40px;
+    }
+    .stat-card {
+      background: rgba(11, 25, 41, 0.6);
+      border: 1px solid rgba(200, 150, 62, 0.3);
+      border-radius: 14px;
+      padding: 22px 18px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .stat-card:hover {
+      background: rgba(200, 150, 62, 0.1);
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .bio-text {
+      font-size: 1.12rem;
+      color: var(--text-dim);
+      margin-bottom: 30px;
+      max-width: 850px;
+      text-align: justify;
+    }
+    .highlight-word {
+      color: var(--text);
+      font-weight: 500;
     }
 
     .research-grid {
@@ -159,7 +203,7 @@
 <nav class="sidebar" id="sidebar">
   <div class="monogram">AS</div>
   <p style="color:#c8963e; margin:8px 0 40px; font-size:14.5px;">Mechanical & Aerospace Engineering</p>
- 
+  
   <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
   <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
   <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
@@ -178,7 +222,6 @@
 </nav>
 
 <main class="main">
-  <!-- About -->
   <section id="about">
     <img src="my_photo.jpg" alt="Adilet Shynggys" class="profile-photo">
     <h1>Adilet Shynggys</h1>
@@ -188,20 +231,54 @@
     <p class="tagline">
       "Sustainable energy is the foundation for stable and equitable global development."
     </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">3.86</div>
+        <div class="stat-label">GPA (Top 1% Cohort)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1st</div>
+        <div class="stat-label">Co-Authored Paper (Small)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4×</div>
+        <div class="stat-label">Dean's List Scholar</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">15–20%</div>
+        <div class="stat-label">TENG Power Boost</div>
+      </div>
+    </div>
     
-    <p style="font-size:1.22rem; max-width:780px; color:var(--text-dim);">
-      Top-performing student (GPA 3.86/4.00) at Nazarbayev University with research experience in Triboelectric Nanogenerators and Nuclear Reactor Simulations.
-      Passionate about advancing sustainable and reliable energy systems. Seeking Master's/PhD opportunities starting Fall 2027.
-    </p>
+    <div class="bio-text">
+      <p style="margin-bottom: 16px;">
+        I am a senior <span class="highlight-word">Mechanical & Aerospace Engineering student at Nazarbayev University</span>, ranked at the top of my cohort with a 3.86 GPA. My academic journey is driven by a singular fascination: how advanced thermal-fluid mechanics and smart material fabrication can be leveraged to build next-generation, sustainable energy systems.
+      </p>
+      <p style="margin-bottom: 16px;">
+        My research footprint spans both micro- and macro-energy harvesting. In the laboratory, I have designed and fabricated <span class="highlight-word">Triboelectric Nanogenerators (TENGs)</span> using electrospinning and silver-ink micro-printing—work that resulted in a co-authored publication in <em>Small</em> and a Best Research Poster award. On the macro scale, my upcoming computational work focuses on <span class="highlight-word">core modeling and fluid-dynamics analysis for nuclear reactor systems</span>, exploring clean baseload energy solutions.
+      </p>
+      <p>
+        Beyond the lab, my international exchange at the <span class="highlight-word">University of Hong Kong (HKU)</span> allowed me to collaborate with world-renowned chairs in manufacturing and robotics, broadening my global engineering perspective. As a passionate leader, I also organized a major charity trail run that raised 600,000 KZT for social causes and regularly mentor freshman engineering students in physics.
+      </p>
+    </div>
+
+    <div class="card" style="max-width: 850px; background: rgba(200, 150, 62, 0.07); border-color: var(--accent);">
+      <h3 style="color: var(--accent); margin-bottom: 10px;">
+        <i class="fas fa-bullseye" style="margin-right: 10px;"></i>Objective for Fall 2027
+      </h3>
+      <p style="font-size: 1.05rem; color: var(--text);">
+        Actively seeking competitive <strong>Master’s and Ph.D. opportunities in the United States</strong> focusing on Thermal-Fluid Sciences, Energy Harvesting Systems, Nuclear Engineering, or Advanced Manufacturing. Eager to contribute rigorous computational modeling and experimental fabrication skills to a dynamic research laboratory.
+      </p>
+    </div>
   </section>
 
-  <!-- Other sections remain the same -->
   <section id="education">
     <h2 class="sec-title">Education</h2>
     <div class="card">
       <h3>Nazarbayev University, Astana, Kazakhstan</h3>
       <p><strong>B.S. Mechanical & Aerospace Engineering</strong> — Expected June 2027</p>
-      <p>GPA: <strong>3.86/4.00</strong> (Top 1 of Cohort) • Dean’s List (4 semesters) • Presidential Scholarship</p>
+      <p>GPA: <strong>3.86/4.00</strong> (Top of Cohort) • Dean’s List (4 semesters) • Presidential Scholarship</p>
     </div>
     <div class="card">
       <h3>University of Hong Kong — International Exchange</h3>
@@ -231,9 +308,8 @@
       <div>
         <h3>Research Assistant — Triboelectric Nanogenerators</h3>
         <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
-        <p>Co-authored paper published in Small; designed and fabricated Triboelectric Nanogenerators (TENG) using electrospinning, silver-ink, and silicon micro-printing. 
-        Improved power density by <strong>15–20%</strong>. Awarded Best Research Poster
-at the Belt & Road Initiative Conference 2025.</p>
+        <p>Designed & fabricated TENG devices using electrospinning, silver-ink micro-printing & silicon printing. 
+        Improved power density by <strong>15–20%</strong>. Co-authored paper published in <em>Small</em>.</p>
       </div>
     </div>
 
@@ -296,7 +372,7 @@ at the Belt & Road Initiative Conference 2025.</p>
         <li><strong>Best Research Poster</strong> — Belt & Road Initiative Conference 2025</li>
         <li><strong>1st Place</strong> — Mechaton Engineering Case Competition</li>
         <li>Presidential Scholarship, Nazarbayev University</li>
-        <li>Dean’s List (4 semesters)</li>
+        <li>Dean’s List (4 consecutive semesters)</li>
       </ul>
     </div>
   </section>
