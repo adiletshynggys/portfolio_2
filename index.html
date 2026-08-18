@@ -354,7 +354,7 @@
       <div>
         <h3>Research Assistant — Nanogenerators & Energy Conversion</h3>
         <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
-        <p>Fabricated Triboelectric Nanogenerators using electrospinning, silver-ink printing, and silicon synthesis, yielding a <strong>15–20% increase</strong> in power output. Co-authored paper published in <em>Small</em> (IF = 11.8, Q1, <a href="https://doi.org/10.1016/j.colsurfa.2023.131151" target="_blank" style="color:var(--accent);">DOI link</a>).</p>
+        <p>Fabricated Triboelectric Nanogenerators using electrospinning, silver-ink printing, and silicon synthesis, yielding a <strong>15–20% increase</strong> in power output. Co-authored paper published in <em>Small</em> (IF = 11.8, Q1, <a href="https://doi.org/10.1002/smll.74486" target="_blank" style="color:var(--accent);">DOI link</a>).</p>
       </div>
     </div>
 
@@ -470,7 +470,7 @@
       </div>
       <div class="card">
         <h3 style="color:var(--accent);">Languages</h3>
-        <p>English (Fluent, IELTS 8.0), Russian (Native), Kazakh (Native)</p>
+        <p>English (Fluent, IELTS 8.0), Kazakh (Native), Russian (Upper-Intermediate)</p>
       </div>
     </div>
   </section>
@@ -502,16 +502,22 @@
 </main>
 
 <script>
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-      
-      const sidebar = document.getElementById('sidebar');
-      if (sidebar) sidebar.classList.remove('open');
-      
-      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      const targetId = this.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) sidebar.classList.remove('open');
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     });
   });
 
