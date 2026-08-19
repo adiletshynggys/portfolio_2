@@ -6,7 +6,7 @@
   <title>Adilet Shynggys | Mechanical & Nuclear Engineering Research</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --bg: #07111e;
@@ -106,11 +106,12 @@
       border: 4px solid var(--accent);
       margin: 20px 0 15px;
       object-fit: cover;
+      background: rgba(200,150,62,0.08);
     }
 
     .btn {
-      display: inline-flex; 
-      align-items: center; 
+      display: inline-flex;
+      align-items: center;
       gap: 12px;
       padding: 14px 32px;
       background: var(--accent);
@@ -189,12 +190,32 @@
       gap: 28px;
     }
 
+    .pub-list { list-style: none; }
+    .pub-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(200,150,62,0.15);
+    }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
     @media (max-width: 920px) {
       .sidebar { transform: translateX(-100%); transition: 0.4s; }
       .sidebar.open { transform: translateX(0); }
       .main { margin-left: 0; padding: 40px 24px; }
       .research-grid { grid-template-columns: 1fr; }
-      
+
       .mobile-toggle {
         display: flex;
         position: fixed;
@@ -218,26 +239,28 @@
 </head>
 <body>
 
-<button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+<button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">
   <i class="fas fa-bars"></i>
 </button>
 
 <nav class="sidebar" id="sidebar">
   <div class="monogram">AS</div>
   <p style="color:#c8963e; margin:8px 0 40px; font-size:14.5px;">Mechanical Engineering | Interfacial Fluids & Nuclear Systems</p>
-  
+
   <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
   <a href="#research" class="nav-link"><i class="fas fa-flask"></i> Research Focus</a>
   <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+  <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
   <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
+  <a href="#projects" class="nav-link"><i class="fas fa-drafting-compass"></i> Projects</a>
   <a href="#leadership" class="nav-link"><i class="fas fa-users"></i> Leadership</a>
   <a href="#awards" class="nav-link"><i class="fas fa-award"></i> Awards</a>
   <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
-  <a href="#recommenders" class="nav-link"><i class="fas fa-user-graduate"></i> Recommenders</a>
+  <a href="#recommenders" class="nav-link"><i class="fas fa-user-graduate"></i> References</a>
   <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-  
+
   <div style="margin-top: auto; padding-top: 40px;">
-    <a href="CV.pdf" class="btn" style="width:100%; justify-content:center;" download>
+    <a href="assets/CV.pdf" class="btn" style="width:100%; justify-content:center;" download>
       <i class="fas fa-download"></i> Download CV
     </a>
   </div>
@@ -245,11 +268,11 @@
 
 <main class="main">
   <section id="about">
-    <img src="my_photo.jpg" alt="Adilet Shynggys" class="profile-photo">
+    <img src="assets/photo.jpg" alt="Adilet Shynggys" class="profile-photo">
     <h1>Adilet Shynggys</h1>
-    
+
     <p class="about-major">Mechanical Engineering Student | Interfacial Fluid Dynamics & Nuclear Systems</p>
-    
+
     <p class="tagline">
       "Fundamental thermo-fluid mechanics is key to enabling next-generation clean energy systems."
     </p>
@@ -257,10 +280,10 @@
     <div class="stat-grid">
       <div class="stat-card">
         <div class="stat-num">3.86</div>
-        <div class="stat-label">GPA (Top 1 of Cohort)</div>
+        <div class="stat-label">GPA — 1st in Cohort</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">Q1, IF=11.8</div>
+        <div class="stat-num">Q1, IF 11.8</div>
         <div class="stat-label">Co-Authored Paper (Small)</div>
       </div>
       <div class="stat-card">
@@ -269,19 +292,19 @@
       </div>
       <div class="stat-card">
         <div class="stat-num">8.0</div>
-        <div class="stat-label">IELTS Overall (W 7.5 / S 7.5)</div>
+        <div class="stat-label">IELTS Overall</div>
       </div>
     </div>
-    
+
     <div class="bio-text">
       <p style="margin-bottom: 16px;">
-        I am a senior <span class="highlight-word">Mechanical Engineering student at Nazarbayev University</span>, ranked 1st in my cohort with a 3.86 GPA. My research centers on <span class="highlight-word">interfacial fluid dynamics and nuclear reactor thermal-hydraulics</span>, aiming to solve critical transport problems in advanced energy conversion and safety systems.
+        I am a senior <span class="highlight-word">Mechanical &amp; Aerospace Engineering student at Nazarbayev University</span>, ranked 1st in my cohort with a 3.86 GPA. My research interests span <span class="highlight-word">multiphase and interfacial fluid mechanics, capillary and contact-line dynamics, boiling and two-phase heat transfer, and nuclear reactor thermal-hydraulics and passive safety</span>.
       </p>
       <p style="margin-bottom: 16px;">
-        Under the direction of Prof. Amgad Salama, my current research focuses on <span class="highlight-word">dynamic contact line behavior, capillary flow, and wetting dynamics in tapered conduits</span>, alongside capstone engineering on nuclear power plant accident prevention and thermal safety margins. This builds upon my experimental background in energy conversion devices, which yielded a co-authored publication in <em>Small</em> (IF = 11.8) and the Best Research Poster award at the Belt & Road Initiative Conference.
+        Under the direction of <span class="highlight-word">Prof. Amgad Salama</span>, I am extending a semi-analytical framework for the penetration dynamics of wetting and non-wetting liquids through cylindrical and tapered capillaries — physics that connects directly to rewetting, dryout, and critical heat flux in reactor coolant channels. This builds on earlier experimental work in triboelectric energy conversion, which produced a co-authored publication in <em>Small</em> (IF = 11.8) and a Best Research Poster award at the Belt & Road Initiative Conference.
       </p>
       <p>
-        My academic training is further enhanced by an international exchange at the <span class="highlight-word">University of Hong Kong (HKU)</span>, collaborating with leading global faculty in advanced design and dynamic systems.
+        My training is further shaped by a visiting exchange at the <span class="highlight-word">University of Hong Kong</span>, where I worked on mechanical design and manufacturing projects alongside Prof. Nicholas X. Fang (formerly MIT MechE), Prof. Wei Yan, and Prof. Homayoon Kazerooni (UC Berkeley).
       </p>
     </div>
 
@@ -290,7 +313,7 @@
         <i class="fas fa-bullseye" style="margin-right: 10px;"></i>Objective for Fall 2027
       </h3>
       <p style="font-size: 1.05rem; color: var(--text);">
-        Seeking competitive <strong>Ph.D. admissions in Mechanical Engineering or Nuclear Engineering</strong> (specifically targeting institutions like MIT, ETH Zurich, and top US/UK programs). Eager to contribute expertise in multiphase fluid dynamics, numerical modeling, and physical experimentation to high-impact laboratories in clean energy and transport phenomena.
+        Seeking competitive <strong>Ph.D. admission in Mechanical Engineering or Nuclear Engineering</strong>, with particular interest in top US/UK/European programs. Eager to contribute expertise in multiphase fluid dynamics, contact-line physics, and reactor thermal-hydraulics to a high-impact research group in clean energy and transport phenomena.
       </p>
     </div>
   </section>
@@ -300,12 +323,12 @@
     <div class="research-grid">
       <div class="card">
         <h3 style="color:var(--accent); margin-bottom: 12px;"><i class="fas fa-tint" style="margin-right: 8px;"></i>Interfacial & Capillary Dynamics</h3>
-        <p>Investigating dynamic wetting/non-wetting fluid interaction, contact angle hysteresis, and meniscus transport within variable geometries (cylindrical, tapered, asymmetric microchannels). Applications in passive fluid control and advanced heat transfer interfaces.</p>
+        <p>Penetration dynamics of wetting and non-wetting liquids in cylindrical and tapered capillaries — meniscus velocity, dynamic contact angle, and film thickness. Coupled momentum–capillarity equations benchmarked against classical Lucas–Washburn and Bosanquet limits.</p>
       </div>
-      
+
       <div class="card">
-        <h3 style="color:var(--accent); margin-bottom: 12px;"><i class="fas fa-atom" style="margin-right: 8px;"></i>Nuclear Reactor Safety & Core Thermal-Hydraulics</h3>
-        <p>Engineering computational core models for thermal-hydraulic evaluation. Focused on passive decay heat removal, void fraction distribution, and thermal margin maximization for accident prevention in advanced fission reactors.</p>
+        <h3 style="color:var(--accent); margin-bottom: 12px;"><i class="fas fa-atom" style="margin-right: 8px;"></i>Nuclear Reactor Thermal-Hydraulics & Passive Safety</h3>
+        <p>Steady-state and transient thermal-hydraulic modeling of a reactor core: departure-from-nucleate-boiling margins, peak fuel and cladding temperatures, and passive decay-heat removal by natural circulation under loss-of-flow conditions.</p>
       </div>
     </div>
   </section>
@@ -314,47 +337,55 @@
     <h2 class="sec-title">Education</h2>
     <div class="card">
       <h3>Nazarbayev University, Astana, Kazakhstan</h3>
-      <p><strong>B.S. Mechanical & Aerospace Engineering</strong> — Expected June 2027</p>
-      <p>GPA: <strong>3.86/4.00</strong> (Ranked 1st in Cohort) • Dean’s List (4 consecutive semesters) • Presidential Scholarship</p>
+      <p><strong>B.Eng. Mechanical & Aerospace Engineering</strong> — Expected June 2027</p>
+      <p>GPA: <strong>3.86/4.00</strong> (Ranked 1st in Cohort) • Dean's List (4 consecutive semesters) • Full-tuition Presidential Scholarship</p>
     </div>
     <div class="card">
-      <h3>University of Hong Kong — International Exchange</h3>
-      <p><strong>Spring 2026</strong></p>
-      <p>Academic Collaboration:</p>
+      <h3>The University of Hong Kong — Visiting Exchange Student</h3>
+      <p><strong>Department of Mechanical Engineering • Spring 2026</strong></p>
+      <p style="margin-top:10px;">Coursework and design projects in mechanical design and manufacturing, working with:</p>
       <ul style="margin-top:12px; padding-left:22px; color:var(--text-dim);">
-        <li>Prof. N. Fang — Chair Professor</li>
-        <li>Prof. W. Yan — Senior Lecturer</li>
-        <li>Prof. H. Kazerooni (UC Berkeley) — Visiting Professor</li>
+        <li>Prof. Nicholas X. Fang (formerly MIT MechE, 2011–2022)</li>
+        <li>Prof. Wei Yan</li>
+        <li>Prof. Homayoon Kazerooni (UC Berkeley)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2 class="sec-title">Publications & Presentations</h2>
+    <div class="card">
+      <ul class="pub-list">
+        <li>
+          S. Faramarzi, S. Yavari, U. Ospanova, <strong>A. Shynggys</strong>, et al., "Polarity-Engineered, Tribo-Positive Imidazolium-Mediated Crosslinked 6FDA-Durene Films for Triboelectric Nanogenerator," <em>Small</em>, 2026, art. e74486.
+          <span class="pub-tag">IF 11.8 · Q1</span><br>
+          <a href="https://doi.org/10.1002/smll.74486" target="_blank" style="color:var(--accent);">doi.org/10.1002/smll.74486</a>
+        </li>
+        <li>
+          <strong>A. Shynggys</strong> et al., "Green-Synthesized Ag Nanoparticles Incorporated into High-Performance Triboelectric Wearable Sensors," Belt and Road Initiative Conference, Astana, 2025.
+          <span class="pub-tag">Best Research Poster</span>
+        </li>
       </ul>
     </div>
   </section>
 
   <section id="experience">
-    <h2 class="sec-title">Research & Experience</h2>
+    <h2 class="sec-title">Research & Industry Experience</h2>
     <div class="card icon-card">
       <i class="fas fa-flask"></i>
       <div>
-        <h3>Research Assistant — Interfacial Fluid Mechanics</h3>
-        <p style="color:var(--accent);">Summer 2026 – Present • Prof. Amgad Salama (Nazarbayev University)</p>
-        <p>Formulating dynamic contact line models and analyzing capillary motion of wetting/non-wetting liquids in tapered and irregular channels to optimize multi-phase transport phenomena.</p>
-      </div>
-    </div>
-
-    <div class="card icon-card">
-      <i class="fas fa-shield-alt"></i>
-      <div>
-        <h3>Engineering Design — Nuclear Core Thermal Safety (Capstone)</h3>
-        <p style="color:var(--accent);">2026 – Present • Nazarbayev University</p>
-        <p>Performing thermal-hydraulic simulations and core mechanical design updates focused on passive accident prevention and thermal margin limits in nuclear reactors.</p>
+        <h3>Undergraduate Researcher — Interfacial & Multiphase Fluid Mechanics</h3>
+        <p style="color:var(--accent);">June 2026 – Present • Nazarbayev University • Advisor: Prof. Amgad Salama</p>
+        <p>Extending a semi-analytical framework for the penetration dynamics of wetting and non-wetting liquids through cylindrical and tapered capillaries. Formulating and numerically integrating the coupled momentum–capillarity equations governing contact-line motion, and connecting this physics to two-phase transport in confined geometries relevant to reactor coolant channels.</p>
       </div>
     </div>
 
     <div class="card icon-card">
       <i class="fas fa-bolt"></i>
       <div>
-        <h3>Research Assistant — Nanogenerators & Energy Conversion</h3>
-        <p style="color:var(--accent);">Jan – Dec 2025 • Nazarbayev University</p>
-        <p>Fabricated Triboelectric Nanogenerators using electrospinning, silver-ink printing, and silicon synthesis, yielding a <strong>15–20% increase</strong> in power output. Co-authored paper published in <em>Small</em> (IF = 11.8, Q1, <a href="https://doi.org/10.1002/smll.74486" target="_blank" style="color:var(--accent);">DOI link</a>).</p>
+        <h3>Undergraduate Researcher — Triboelectric Energy Conversion</h3>
+        <p style="color:var(--accent);">Jan – Dec 2025 • Energy Conversion Laboratory, Nazarbayev University</p>
+        <p>Fabricated triboelectric nanogenerators by electrospinning and silicone casting, varying surface morphology and material pairing to raise power output density by <strong>15–20%</strong>. Built the electrical characterization workflow (open-circuit voltage, short-circuit current, load sweeps) and processed datasets in OriginPro and MATLAB, contributing to a co-authored article in <em>Small</em> and an award-winning conference poster.</p>
       </div>
     </div>
 
@@ -362,47 +393,74 @@
       <i class="fas fa-cogs"></i>
       <div>
         <h3>Product Support Engineering Intern</h3>
-        <p style="color:var(--accent);">Wabtec Corporation • Jun – Jul 2025</p>
-        <p>Conducted motor thermal stress evaluations and proposed technical drawing updates that reduced material waste by <strong>10%</strong>.</p>
+        <p style="color:var(--accent);">Wabtec Corporation, Kazakhstan • Jun – Jul 2025</p>
+        <p>Analyzed thermal performance of locomotive traction motors and supported root-cause review of field temperature excursions. Revised technical drawings and process documentation, cutting material waste by <strong>10%</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="sec-title">Engineering Design Projects</h2>
+    <div class="card icon-card">
+      <i class="fas fa-shield-alt"></i>
+      <div>
+        <h3>Nuclear Reactor Core Thermal-Hydraulic and Safety Design</h3>
+        <p style="color:var(--accent);">Senior Capstone Project • 2026 – 2027</p>
+        <p>Steady-state and transient thermal-hydraulic modeling of a reactor core, evaluating departure-from-nucleate-boiling margins and peak fuel/cladding temperatures, and assessing passive decay-heat removal by natural circulation under loss-of-flow conditions.</p>
+      </div>
+    </div>
+
+    <div class="card icon-card">
+      <i class="fas fa-chair"></i>
+      <div>
+        <h3>Ergonomic Train-Driver Seat Design</h3>
+        <p style="color:var(--accent);">Mechaton Engineering Case Competition, sponsored by Wabtec • 2025 • 1st Place</p>
+        <p>Designed a high-durability driver seat certified against <strong>GOST 33330-2015</strong>, verifying the structure under 12-hour static and dynamic fatigue loading.</p>
+      </div>
+    </div>
+
+    <div class="card icon-card">
+      <i class="fas fa-gears"></i>
+      <div>
+        <h3>Multi-Stage Transmission Gearbox</h3>
+        <p style="color:var(--accent);">Design and Manufacture Course Project, The University of Hong Kong • 2026</p>
+        <p>Sized shafts using the ASME combined bending–torsion criterion and selected gear modules, keyways, and rolling-element bearings for a specified fatigue life.</p>
       </div>
     </div>
   </section>
 
   <section id="leadership">
-    <h2 class="sec-title">Leadership & Service</h2>
-    <div class="card icon-card">
-      <i class="fas fa-running"></i>
-      <div>
-        <h3>Charity Trail Run Lead Organizer</h3>
-        <p>Directed logistics and operations for a community sports fundraiser, raising <strong>600,000 KZT (~$1,300 USD)</strong> with 150+ participants to support single mothers' education initiatives.</p>
-      </div>
-    </div>
+    <h2 class="sec-title">Teaching, Leadership & Service</h2>
     <div class="card icon-card">
       <i class="fas fa-chalkboard-teacher"></i>
       <div>
-        <h3>Academic Physics Tutor & Mentor</h3>
-        <p>Tutored 20+ lower-division engineering students in mechanics and thermodynamics, raising average exam scores by <strong>15%</strong>.</p>
-      </div>
-    </div>
-    <div class="card icon-card">
-      <i class="fas fa-mosque"></i>
-      <div>
-        <h3>HKU Muslim Society Community Volunteer</h3>
-        <p>Coordinated distribution logistics and guest operations for Ramadan programs during international exchange at the University of Hong Kong.</p>
-      </div>
-    </div>
-    <div class="card icon-card">
-      <i class="fas fa-hand-holding-heart"></i>
-      <div>
-        <h3>Mereke CF "Warm Winter" Volunteer</h3>
-        <p>Organized supply packaging and outreach logistics to deliver essential winter items to low-income families.</p>
+        <h3>Physics Tutor</h3>
+        <p style="color:var(--accent);">Nazarbayev University • 2024 – 2026</p>
+        <p>Tutored 20+ first-year engineering students in mechanics and thermodynamics, raising the cohort average exam score by <strong>15%</strong>.</p>
       </div>
     </div>
     <div class="card icon-card">
       <i class="fas fa-users"></i>
       <div>
-        <h3>MAE Cohort Representative</h3>
-        <p>Served as student-faculty liaison for the Mechanical & Aerospace Engineering department at Nazarbayev University.</p>
+        <h3>Cohort Representative, Mechanical & Aerospace Engineering</h3>
+        <p style="color:var(--accent);">Nazarbayev University • 2024 – 2025</p>
+        <p>Served as student–faculty liaison for the department.</p>
+      </div>
+    </div>
+    <div class="card icon-card">
+      <i class="fas fa-running"></i>
+      <div>
+        <h3>Organizer, Charity Trail Run</h3>
+        <p style="color:var(--accent);">2025</p>
+        <p>Directed logistics for a community fundraiser with 150 runners, raising <strong>600,000 KZT (~$1,300 USD)</strong> to support single mothers' education initiatives.</p>
+      </div>
+    </div>
+    <div class="card icon-card">
+      <i class="fas fa-hand-holding-heart"></i>
+      <div>
+        <h3>Volunteer</h3>
+        <p style="color:var(--accent);">HKU Muslim Society (Hong Kong) & Mereke Charity Foundation (Kazakhstan) • 2024 – 2026</p>
+        <p>Coordinated distribution logistics and outreach for community programs, including Ramadan operations at HKU and winter-supply drives with Mereke CF.</p>
       </div>
     </div>
   </section>
@@ -413,42 +471,42 @@
       <i class="fas fa-award"></i>
       <div>
         <h3>Presidential Scholarship, Republic of Kazakhstan (2026)</h3>
-        <p style="color:var(--text-dim);">Nationwide award conferred upon top academic achievers.</p>
+        <p style="color:var(--text-dim);">Nationally competitive, full-tuition merit award.</p>
       </div>
     </div>
     <div class="card icon-card">
       <i class="fas fa-award"></i>
       <div>
-        <h3>Yessenov Scholarship (Top 20 of 500+ Applicants)</h3>
-        <p style="color:var(--text-dim);">Highly competitive national fellowship based on research capability, leadership, and technical interviews.</p>
+        <h3>Yessenov Foundation Scholarship — Top 20 of 500+ Applicants (2025)</h3>
+        <p style="color:var(--text-dim);">Competitive national fellowship based on research capability, leadership, and technical interviews.</p>
       </div>
     </div>
     <div class="card icon-card">
       <i class="fas fa-award"></i>
       <div>
         <h3>Best Research Poster — Belt & Road Initiative Conference (2025)</h3>
-        <p style="color:var(--text-dim);">Selected out of competitive international research submissions.</p>
+        <p style="color:var(--text-dim);">Selected from competitive international research submissions.</p>
       </div>
     </div>
     <div class="card icon-card">
       <i class="fas fa-award"></i>
       <div>
-        <h3>1st Place — Mechaton Engineering Case Competition</h3>
-        <p style="color:var(--text-dim);">First place overall out of 8 teams for dynamic mechanics calculations and structural verification against GOST standards.</p>
+        <h3>1st Place — Mechaton Engineering Case Competition (2025)</h3>
+        <p style="color:var(--text-dim);">Sponsored by Wabtec Corporation; first overall out of 8 teams.</p>
       </div>
     </div>
     <div class="card icon-card">
       <i class="fas fa-award"></i>
       <div>
-        <h3>Nazarbayev University President's Scholarship</h3>
-        <p style="color:var(--text-dim);">Institutional award for high academic performance.</p>
+        <h3>Champion — NU AIChE Engineering Challenges (2024)</h3>
+        <p style="color:var(--text-dim);">Institutional engineering design competition.</p>
       </div>
     </div>
     <div class="card icon-card">
       <i class="fas fa-award"></i>
       <div>
-        <h3>Dean's List (4 Consecutive Semesters)</h3>
-        <p style="color:var(--text-dim);">Maintained term GPA above 3.75 threshold throughout degree program.</p>
+        <h3>Nazarbayev University President's Scholarship (2023 – 2027)</h3>
+        <p style="color:var(--text-dim);">Institutional award for sustained academic performance.</p>
       </div>
     </div>
   </section>
@@ -457,31 +515,36 @@
     <h2 class="sec-title">Technical Skills</h2>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;">
       <div class="card">
-        <h3 style="color:var(--accent);">Computational & Modeling</h3>
-        <p>MATLAB, Python, OriginPro, Mathematica, Reactor Core Modeling, Fluid Dynamics Simulation</p>
+        <h3 style="color:var(--accent);">Programming</h3>
+        <p>MATLAB, Python, Mathematica, LaTeX</p>
       </div>
       <div class="card">
-        <h3 style="color:var(--accent);">Engineering Mechanics</h3>
-        <p>Thermodynamics, Interfacial Fluid Mechanics, Nuclear Thermal-Hydraulics, Structural Mechanics (ASME, GOST)</p>
+        <h3 style="color:var(--accent);">Simulation & CAD</h3>
+        <p>SolidWorks (CSWA certified), flow and structural simulation, OriginPro</p>
       </div>
       <div class="card">
-        <h3 style="color:var(--accent);">Fabrication & Hardware</h3>
-        <p>SolidWorks (CSWA), Electrospinning, Silver-Ink Printing, Silicon Fabrication, 3D Printing, Thermal Testing</p>
+        <h3 style="color:var(--accent);">Experimental</h3>
+        <p>Electrospinning, silicone casting, 3D printing, device characterization</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent);">Design Codes</h3>
+        <p>ASME shaft design, GOST 33330-2015</p>
       </div>
       <div class="card">
         <h3 style="color:var(--accent);">Languages</h3>
-        <p>English (Fluent, IELTS 8.0), Kazakh (Native), Russian (Upper-Intermediate)</p>
+        <p>Kazakh (native), Russian (fluent), English (IELTS Overall Band 8.0)</p>
       </div>
     </div>
   </section>
 
   <section id="recommenders">
-    <h2 class="sec-title">Academic Recommenders</h2>
+    <h2 class="sec-title">References</h2>
     <div class="card">
       <ul style="padding-left: 20px; line-height: 2.1;">
-        <li><strong>Prof. Amgad Salama</strong> (Nazarbayev University) — Research Advisor (Interfacial Fluid Dynamics & Nuclear Systems)</li>
-        <li><strong>Prof. W. Yan</strong> (University of Hong Kong) — Exchange Supervisor</li>
-        <li><strong>Prof. H. Kazerooni</strong> (UC Berkeley / HKU) — Exchange Collaborator</li>
+        <li><strong>Prof. Amgad Salama</strong> — Nazarbayev University (Research Advisor, Interfacial Fluid Mechanics)</li>
+        <li><strong>Prof. Wei Yan</strong> — The University of Hong Kong</li>
+        <li><strong>Prof. Nicholas X. Fang</strong> — The University of Hong Kong (formerly MIT MechE, 2011–2022)</li>
+        <li><strong>Prof. Homayoon Kazerooni</strong> — UC Berkeley / The University of Hong Kong</li>
       </ul>
       <p style="margin-top:16px; color:var(--text-dim); font-size:0.95rem;">Contact information available upon request.</p>
     </div>
@@ -490,7 +553,7 @@
   <section id="contact">
     <h2 class="sec-title">Contact</h2>
     <p style="font-size:1.25rem; max-width:720px;">
-      Open to discussions regarding Ph.D. positions and research collaborations in interfacial fluid mechanics and nuclear safety systems for Fall 2027.
+      Open to discussions regarding Ph.D. positions and research collaborations in interfacial fluid mechanics and nuclear thermal-hydraulics for Fall 2027.
     </p>
     <div style="margin-top:48px;">
       <a href="mailto:shyngysadilet81@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email Me</a>
@@ -509,10 +572,13 @@
         e.preventDefault();
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         this.classList.add('active');
-        
+
         const sidebar = document.getElementById('sidebar');
-        if (sidebar) sidebar.classList.remove('open');
-        
+        if (sidebar) {
+          sidebar.classList.remove('open');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -524,7 +590,9 @@
   const mobileToggle = document.getElementById('mobile-toggle');
   if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
-      document.getElementById('sidebar').classList.toggle('open');
+      const sidebar = document.getElementById('sidebar');
+      const isOpen = sidebar.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
     });
   }
 
