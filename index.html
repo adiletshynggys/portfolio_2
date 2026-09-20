@@ -4,225 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adilet Shynggys | Heat Transfer, Boiling &amp; Surface Engineering for Power Plants</title>
-  <meta name="description" content="Adilet Shynggys — Mechanical and Aerospace Engineering student at Nazarbayev University working on heat transfer, boiling, and surface engineering to improve the efficiency of power plants, nuclear plants in particular.">
+  <meta name="description" content="Adilet Shynggys — Mechanical and Aerospace Engineering student at Nazarbayev University working on heat transfer, boiling, and surface engineering for cleaner, more efficient power plants, nuclear plants in particular.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #07111e;
-      --accent: #c8963e;
-      --text: #edf0f5;
-      --text-dim: #b0bdd0;
-      --tagline: #f0d9a0;
-    }
+    :root { --bg: #07111e; --accent: #c8963e; --text: #edf0f5; --text-dim: #b0bdd0; --tagline: #f0d9a0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.85;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.85; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-thumb { background: rgba(200,150,62,0.4); border-radius: 10px; }
-
     .mobile-toggle { display: none; }
-
-    .sidebar {
-      position: fixed; left: 0; top: 0; bottom: 0;
-      width: 260px;
-      background: rgba(7, 17, 30, 0.98);
-      border-right: 1px solid rgba(200,150,62,0.25);
-      padding: 40px 24px;
-      z-index: 100;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-    }
-    .monogram {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px;
-      font-weight: 900;
-      color: var(--accent);
-    }
-    .nav-link {
-      display: flex; align-items: center; gap: 12px;
-      padding: 11px 16px;
-      margin: 4px 0;
-      border-radius: 10px;
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 0.97rem;
-      transition: all 0.3s;
-    }
-    .nav-link:hover, .nav-link.active {
-      background: rgba(200,150,62,0.15);
-      color: white;
-      transform: translateX(8px);
-    }
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; background: rgba(7, 17, 30, 0.98);
+      border-right: 1px solid rgba(200,150,62,0.25); padding: 40px 24px; z-index: 100; overflow-y: auto;
+      display: flex; flex-direction: column; }
+    .monogram { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--accent); }
+    .nav-link { display: flex; align-items: center; gap: 12px; padding: 11px 16px; margin: 4px 0; border-radius: 10px;
+      color: var(--text-dim); text-decoration: none; font-size: 0.97rem; transition: all 0.3s; }
+    .nav-link:hover, .nav-link.active { background: rgba(200,150,62,0.15); color: white; transform: translateX(8px); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .main { margin-left: 260px; padding: 70px 80px 120px; max-width: 1100px; }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.7rem;
-      line-height: 1.05;
-    }
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.65rem;
-      color: var(--accent);
-      margin: 65px 0 32px;
-    }
-
-    .card {
-      background: rgba(11, 25, 41, 0.9);
-      border: 1px solid rgba(200,150,62,0.22);
-      border-radius: 18px;
-      padding: 34px;
-      margin-bottom: 32px;
-      transition: all 0.4s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-    }
-
-    .icon-card {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-    .icon-card i {
-      font-size: 2.3rem;
-      color: var(--accent);
-      margin-top: 4px;
-      flex-shrink: 0;
-    }
-
-    .profile-photo {
-      width: 155px;
-      height: 155px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      margin: 20px 0 15px;
-      object-fit: cover;
-      background: rgba(200,150,62,0.08);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 32px;
-      background: var(--accent);
-      color: #07111e;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .btn:hover {
-      background: white;
-      transform: scale(1.05);
-    }
-
-    .about-major {
-      font-size: 1.45rem;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-    .tagline {
-      font-size: 1.32rem;
-      color: var(--tagline);
-      font-weight: 500;
-      font-style: italic;
-      margin-bottom: 32px;
-      line-height: 1.4;
-    }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      margin: 35px 0 40px;
-    }
-    .stat-card {
-      background: rgba(11, 25, 41, 0.6);
-      border: 1px solid rgba(200, 150, 62, 0.3);
-      border-radius: 14px;
-      padding: 22px 18px;
-      text-align: center;
-      transition: all 0.3s;
-    }
-    .stat-card:hover {
-      background: rgba(200, 150, 62, 0.1);
-      border-color: var(--accent);
-      transform: translateY(-4px);
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1.1;
-    }
-    .stat-label {
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      margin-top: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .stat-caption {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      margin-top: 4px;
-      font-style: italic;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-    .bio-text {
-      font-size: 1.12rem;
-      color: var(--text-dim);
-      margin-bottom: 30px;
-      max-width: 850px;
-      text-align: justify;
-    }
-    .highlight-word {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-    }
-
+    h1 { font-family: 'Playfair Display', serif; font-size: 3.7rem; line-height: 1.05; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: 2.65rem; color: var(--accent); margin: 65px 0 32px; }
+    .card { background: rgba(11, 25, 41, 0.9); border: 1px solid rgba(200,150,62,0.22); border-radius: 18px;
+      padding: 34px; margin-bottom: 32px; transition: all 0.4s; }
+    .card:hover { transform: translateY(-8px); border-color: var(--accent); }
+    .icon-card { display: flex; gap: 20px; align-items: flex-start; }
+    .icon-card i { font-size: 2.3rem; color: var(--accent); margin-top: 4px; flex-shrink: 0; }
+    .profile-photo { width: 155px; height: 155px; border-radius: 50%; border: 4px solid var(--accent);
+      margin: 20px 0 15px; object-fit: cover; background: rgba(200,150,62,0.08); }
+    .btn { display: inline-flex; align-items: center; gap: 12px; padding: 14px 32px; background: var(--accent);
+      color: #07111e; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+    .btn:hover { background: white; transform: scale(1.05); }
+    .about-major { font-size: 1.45rem; color: var(--accent); margin-bottom: 18px; }
+    .tagline { font-size: 1.32rem; color: var(--tagline); font-weight: 500; font-style: italic; margin-bottom: 32px; line-height: 1.4; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin: 35px 0 40px; }
+    .stat-card { background: rgba(11, 25, 41, 0.6); border: 1px solid rgba(200, 150, 62, 0.3); border-radius: 14px;
+      padding: 22px 18px; text-align: center; transition: all 0.3s; }
+    .stat-card:hover { background: rgba(200, 150, 62, 0.1); border-color: var(--accent); transform: translateY(-4px); }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1.1; }
+    .stat-label { font-size: 0.88rem; color: var(--text-dim); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .stat-caption { font-size: 0.78rem; color: var(--text-dim); margin-top: 4px; font-style: italic; text-transform: none; letter-spacing: 0; }
+    .bio-text { font-size: 1.12rem; color: var(--text-dim); margin-bottom: 30px; max-width: 850px; text-align: justify; }
+    .highlight-word { color: var(--text); font-weight: 500; }
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
     .pub-list { list-style: none; }
-    .pub-list li {
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(200,150,62,0.15);
-    }
+    .pub-list li { padding: 20px 0; border-bottom: 1px solid rgba(200,150,62,0.15); }
     .pub-list li:last-child { border-bottom: none; }
-    .pub-tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--accent);
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-left: 10px;
-      vertical-align: middle;
-    }
-
+    .pub-tag { display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--bg); background: var(--accent); padding: 3px 10px; border-radius: 20px; margin-left: 10px; vertical-align: middle; }
     @media (max-width: 920px) {
       .sidebar { transform: translateX(-100%); transition: 0.4s; }
       .sidebar.open { transform: translateX(0); }
@@ -231,27 +61,10 @@
       h1 { font-size: 2.6rem; }
       .sec-title { font-size: 2rem; margin: 48px 0 24px; }
       .bio-text { text-align: left; }
-
-      .mobile-toggle {
-        display: flex;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        background: var(--accent);
-        color: #07111e;
-        border: none;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.4rem;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      }
+      .mobile-toggle { display: flex; position: fixed; top: 20px; right: 20px; z-index: 1000; background: var(--accent);
+        color: #07111e; border: none; width: 48px; height: 48px; border-radius: 50%; align-items: center;
+        justify-content: center; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
     }
-
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; }
       .card:hover, .stat-card:hover, .btn:hover, .nav-link:hover { transform: none; }
@@ -271,10 +84,11 @@
   <a href="#about" class="nav-link active"><i class="fas fa-user"></i> About</a>
   <a href="#research" class="nav-link"><i class="fas fa-flask"></i> Research Focus</a>
   <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+  <a href="#experience" class="nav-link"><i class="fas fa-microscope"></i> Research &amp; Design</a>
   <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
-  <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
-  <a href="#projects" class="nav-link"><i class="fas fa-drafting-compass"></i> Projects</a>
-  <a href="#leadership" class="nav-link"><i class="fas fa-users"></i> Leadership</a>
+  <a href="#leadership" class="nav-link"><i class="fas fa-users"></i> Teaching &amp; Service</a>
+  <a href="#projects" class="nav-link"><i class="fas fa-drafting-compass"></i> Other Projects</a>
+  <a href="#industry" class="nav-link"><i class="fas fa-briefcase"></i> Industry</a>
   <a href="#awards" class="nav-link"><i class="fas fa-award"></i> Awards</a>
   <a href="#skills" class="nav-link"><i class="fas fa-tools"></i> Skills</a>
   <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
@@ -320,16 +134,16 @@
 
     <div class="bio-text">
       <p style="margin-bottom: 16px;">
-        I am a final-year <span class="highlight-word">Mechanical &amp; Aerospace Engineering student at Nazarbayev University</span>, ranked 1st in my cohort with a 3.86 GPA. I work on <span class="highlight-word">heat transfer and thermodynamics for more efficient power plants</span>, nuclear plants in particular. A thermal plant can only convert as much heat as its surfaces can safely move, and I want to engineer those surfaces directly: how microscale geometry, texture, and wettability shape boiling, and how far they can push back the boiling crisis that limits how hard a reactor core can be run.
+        I am a final-year <span class="highlight-word">Mechanical &amp; Aerospace Engineering student at Nazarbayev University</span>, ranked 1st in my cohort with a 3.86 GPA. I work on <span class="highlight-word">heat transfer and thermodynamics for cleaner, more efficient power plants</span>, nuclear plants in particular. A thermal plant can only convert as much heat as its surfaces can safely move, and I want to engineer those surfaces directly: how microscale geometry, texture, and wettability shape boiling, and how far they can push back the boiling crisis that limits how hard a reactor core can be run.
       </p>
       <p style="margin-bottom: 16px;">
         I started at the smallest scale. In the Energy Conversion Laboratory, our group fabricated triboelectric nanogenerators by electrospinning and silicone casting, varying surface morphology and material pairing to raise output power density by 15–20%. I ran the performance characterization by hand across humidity and cyclic-durability testing and built the electrical workflow behind it. That work contributed to a co-authored publication in <em>Small</em>, my first-author poster won Best Research Poster at the Belt &amp; Road Initiative Conference, and it taught me that the surface, more than the bulk material, decides how a device performs.
       </p>
       <p style="margin-bottom: 16px;">
-        With <span class="highlight-word">Prof. Amgad Salama</span>, our group now produces tapered SU-8 microchannels by photolithography on silicon and is running transport experiments across a range of taper geometries. The width gradient creates a Laplace-pressure asymmetry that should drive wetting liquids toward the narrow end with no pump and no moving parts. What interests me is what this means for a hot surface: when a heated wall dries out, recovery depends on how quickly liquid returns, and geometry is a less-explored lever on that return than roughness, wettability, or porosity.
+        With <span class="highlight-word">Prof. Amgad Salama</span>, our group designed an inverted photomask and fabricated our first successful sample of tapered SU-8 microchannels on silicon, in a clean room where a single particle can ruin a wafer and five hours of work. The width gradient creates a Laplace-pressure asymmetry that should drive wetting liquids toward the narrow end with no pump and no moving parts; transport experiments across taper geometries are the next step. What interests me is what this means for a hot surface: when a heated wall dries out, recovery depends on how quickly liquid returns, and geometry is a less-explored lever on that return than roughness, wettability, or porosity.
       </p>
       <p>
-        My training was further shaped by a visiting exchange at the <span class="highlight-word">University of Hong Kong</span>, where I completed a multi-stage transmission design project with Prof. Wei Yan and collaborated with her on undergraduate curriculum design, and separately worked with Prof. Homayoon Kazerooni (UC Berkeley) on a 3D-printed public art installation.
+        My training was further shaped by a visiting exchange at the <span class="highlight-word">University of Hong Kong</span>, where I collaborated with Prof. Wei Yan on undergraduate curriculum design and worked with Prof. Homayoon Kazerooni (UC Berkeley) on a 3D-printed public art installation.
       </p>
     </div>
 
@@ -375,7 +189,7 @@
       <p><strong>B.Eng. Mechanical &amp; Aerospace Engineering</strong> — Expected June 2027</p>
       <p>GPA: <strong>3.86/4.00</strong> (Ranked 1st in Cohort) • Dean's List (4 consecutive semesters)</p>
       <p style="margin-top:12px; color:var(--text-dim);">
-        <strong style="color:var(--text);">Coursework:</strong> Fluid Mechanics; Engineering Thermodynamics; Numerical Methods in Engineering; Differential Equations and Linear Algebra; Applied Probability and Statistics; Engineering Dynamics I–II; Structural Mechanics; Materials and Manufacturing; CAD.
+        <strong style="color:var(--text);">Coursework:</strong> Engineering Thermodynamics; Fluid Mechanics; Structural Mechanics; Materials and Manufacturing; Numerical Methods in Engineering; Differential Equations and Linear Algebra; Engineering Dynamics I–II; CAD.
       </p>
       <p style="margin-top:8px; color:var(--text-dim);">
         <strong style="color:var(--text);">In progress (2026–27):</strong> Heat and Mass Transfer; Mechanical Systems Design; Aerospace Propulsion.
@@ -386,9 +200,39 @@
       <p><strong>Department of Mechanical Engineering • Spring 2026</strong></p>
       <p style="margin-top:10px; color:var(--text-dim);">Coursework in Energy Conversion Systems, Design and Manufacture, and Additive Manufacturing.</p>
       <ul style="margin-top:12px; padding-left:22px; color:var(--text-dim);">
-        <li>Multi-stage transmission design project supervised by <strong style="color:var(--text);">Prof. Wei Yan</strong>; separately collaborated with her on undergraduate curriculum design.</li>
+        <li>Collaborated with <strong style="color:var(--text);">Prof. Wei Yan</strong> on curriculum design for an undergraduate course.</li>
         <li>Independent extracurricular collaboration with <strong style="color:var(--text);">Prof. Homayoon Kazerooni</strong> (UC Berkeley) on a 3D-printed interactive art installation.</li>
       </ul>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="sec-title">Research &amp; Design Experience</h2>
+    <div class="card icon-card">
+      <i class="fas fa-flask"></i>
+      <div>
+        <h3>Capillary-Driven Surface Engineering</h3>
+        <p style="color:var(--accent);">August 2026 – Present • Nazarbayev University • Advisor: Prof. Amgad Salama</p>
+        <p>Studying how microchannel taper geometry moves liquid with no pump, toward understanding how geometry can speed the rewetting of heated surfaces. The taper creates a Laplace-pressure asymmetry that should drive wetting liquids toward the narrow end and non-wetting liquids toward the wide end. Our group designed the inverted photomask and carried out the full clean-room photolithography process, from pre-treatment through post-treatment, producing a <strong>first successful sample</strong> of tapered SU-8 microchannels on silicon. Fabrication is the hardest part: a single particle can ruin a wafer and the five to six hours spent on that run. Next come transport experiments across a range of taper geometries and quantitative measurement of droplet and liquid-slug velocity.</p>
+      </div>
+    </div>
+
+    <div class="card icon-card">
+      <i class="fas fa-shield-alt"></i>
+      <div>
+        <h3>Senior Capstone (Engineering Design): VVER-1200 Reactor Core</h3>
+        <p style="color:var(--accent);">August 2026 – Present • Nazarbayev University • Team of four • Advisor: Prof. Amgad Salama</p>
+        <p>Designing a VVER-1200 reactor core from scratch as a four-student team: from the plant's required electrical power output, to a core thermal power of <strong>3,200 MWth</strong> via cycle efficiency, to a target fuel burnup near <strong>50 GWd per tonne heavy metal</strong> used to size fuel pellets, rods, and bundles, arriving at a hexagonal core configuration. With geometry and power sizing complete, the team is now entering the thermal-hydraulic phase: coolant flow rate and temperature rise, critical heat flux, and margins to subcooled boiling and departure from nucleate boiling. These will feed a coupled neutronic–thermal-hydraulic reduced-order model, to be validated against published reference data.</p>
+      </div>
+    </div>
+
+    <div class="card icon-card">
+      <i class="fas fa-bolt"></i>
+      <div>
+        <h3>Triboelectric Nanogenerators for Wearable Sensing</h3>
+        <p style="color:var(--accent);">Jan – Dec 2025 • Energy Conversion Laboratory, Nazarbayev University • Supervisor: Dr. Shabnam Yavari</p>
+        <p>Our group fabricated triboelectric nanogenerators for self-powered wearable sensing by electrospinning and silicone casting, varying surface morphology and material pairing to raise measured output power density by <strong>15–20%</strong>. I ran the performance characterization by hand across humidity levels and cyclic durability testing, and built the electrical characterization workflow behind it: load sweeps, data acquisition, and processing of the datasets in OriginPro and MATLAB. The results contributed to a co-authored article in <em>Small</em> and my first-author poster, which won Best Research Poster.</p>
+      </div>
     </div>
   </section>
 
@@ -402,65 +246,58 @@
           <a href="https://doi.org/10.1002/smll.74486" target="_blank" rel="noopener" style="color:var(--accent);">doi.org/10.1002/smll.74486</a>
         </li>
         <li>
-          <strong>A. Shynggys</strong>, S. Yavari, G. Kalimuldina, "Green-Synthesized Ag Nanoparticles Incorporated into High-Performance Triboelectric Wearable Sensors," Belt and Road Initiative Conference, Astana, 2025.
-          <span class="pub-tag">Poster Presentation</span>
+          <strong>A. Shynggys</strong>, S. Yavari, G. Kalimuldina, "Green-Synthesized Ag Nanoparticles Incorporated into High-Performance Triboelectric Wearable Sensors," Belt and Road Initiative Conference, Astana, 2025; also presented as an abstract at the 13th International Conference on Nanomaterials and Advanced Energy Storage Systems (INESS-2025), Astana, Aug. 2025.
+          <span class="pub-tag">Poster</span>
           <span class="pub-tag">Best Research Poster</span>
-        </li>
-        <li>
-          <strong>A. Shynggys</strong>, S. Yavari, G. Kalimuldina, "Green-Synthesized Ag Nanoparticles Incorporated into High-Performance Triboelectric Wearable Sensors," 13th International Conference on Nanomaterials and Advanced Energy Storage Systems (INESS-2025), Nazarbayev University, Astana, Aug. 2025.
-          <span class="pub-tag">Abstract</span>
         </li>
       </ul>
     </div>
   </section>
 
-  <section id="experience">
-    <h2 class="sec-title">Research &amp; Industry Experience</h2>
+  <section id="leadership">
+    <h2 class="sec-title">Teaching, Leadership &amp; Service</h2>
     <div class="card icon-card">
-      <i class="fas fa-flask"></i>
+      <i class="fas fa-chalkboard-teacher"></i>
       <div>
-        <h3>Capillary-Driven Surface Engineering for Power-Plant Efficiency</h3>
-        <p style="color:var(--accent);">August 2026 – Present • Nazarbayev University • Advisor: Prof. Amgad Salama</p>
-        <p>Improving heat-exchanger and combustion-chamber efficiency in power plants by engineering capillary-driven surface structures that passively transport liquid slugs and droplets along heat-exchanger pipes, reducing flow maldistribution and heat loss without external pumping. Our group designed the photomasks and carried out the full photolithography process, from pre-treatment through post-treatment, producing tapered SU-8 microchannels on silicon with width gradients on the order of micrometres. The taper creates a Laplace-pressure asymmetry intended to drive wetting liquids toward the narrow end and non-wetting liquids toward the wide end. Initial transport experiments across a range of taper geometries are running; quantitative analysis of droplet and liquid-slug velocity is the next step.</p>
+        <h3>Physics Tutor (volunteer)</h3>
+        <p style="color:var(--accent);">Nazarbayev University • 2023 – 2024</p>
+        <p>Tutored 20+ first-year students in introductory physics.</p>
       </div>
     </div>
-
     <div class="card icon-card">
-      <i class="fas fa-bolt"></i>
+      <i class="fas fa-users"></i>
       <div>
-        <h3>Micro-Energy-Harvesting Fabrication and Characterization</h3>
-        <p style="color:var(--accent);">Jan – Dec 2025 • Energy Conversion Laboratory, Nazarbayev University</p>
-        <p>Applied the physical and surface properties of low-cost, simple materials toward sustainable, micro-scale green energy generation via triboelectric charge transfer. Our group fabricated triboelectric nanogenerators by electrospinning and silicone casting, varying surface morphology and material pairing to raise measured output power density by <strong>15–20%</strong>. I ran the performance characterization by hand across humidity levels and cyclic durability testing, benchmarking maximum power output per unit surface area alongside peak open-circuit voltage and short-circuit current across candidate applications (robotic-hand and haptic feedback systems, hiking/outdoor gear). I built the electrical characterization workflow (load sweeps, data acquisition) and processed the datasets in OriginPro and MATLAB, contributing to a co-authored article in <em>Small</em> and an award-winning conference poster.</p>
+        <h3>Cohort Representative, Mechanical &amp; Aerospace Engineering</h3>
+        <p style="color:var(--accent);">Nazarbayev University • 2024 – 2026</p>
+        <p>Ran more than ten exam-preparation nights for the cohort, and raised student requests with the dean, leading to a rescheduled exam and more exchange opportunities.</p>
       </div>
     </div>
-
     <div class="card icon-card">
-      <i class="fas fa-cogs"></i>
+      <i class="fas fa-running"></i>
       <div>
-        <h3>Product Support Engineering Intern</h3>
-        <p style="color:var(--accent);">Wabtec Corporation, Kazakhstan • Jun – Jul 2025</p>
-        <p>Analyzed thermal performance of locomotive traction motors and supported root-cause review of field temperature excursions. Separately, audited shop-floor manufacturing against engineering drawings with a fellow intern, reconciling GOST (shop practice) with ASME (Wabtec's U.S. engineering standard); traced an insulation-usage inconsistency across units to differing climate requirements between export markets — uninsulated units for warmer climates such as India versus insulated units required for Kazakhstan's winters.</p>
+        <h3>Charity Trail Run — Sponsorship Team</h3>
+        <p style="color:var(--accent);">Nazarbayev University • 2025</p>
+        <p>Member of the sponsorship team for a trail run for Nazarbayev University students and staff, supporting MamaPro, a nonprofit providing business education to single mothers: 150 runners and <strong>600,000 KZT (~$1,300)</strong> raised.</p>
+      </div>
+    </div>
+    <div class="card icon-card">
+      <i class="fas fa-hand-holding-heart"></i>
+      <div>
+        <h3>Volunteer</h3>
+        <p style="color:var(--accent);">Mereke Charity Foundation (Kazakhstan) &amp; HKU Muslim Society (Hong Kong) • 2025 – 2026</p>
+        <p>With Mereke, visited a retirement home and joined a winter clothing drive for children from vulnerable families; with the HKU Muslim Society, helped organize iftars during Ramadan.</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <h2 class="sec-title">Engineering Design Projects</h2>
-    <div class="card icon-card">
-      <i class="fas fa-shield-alt"></i>
-      <div>
-        <h3>Reduced-Order Design and Analysis of a VVER-1200 Reactor Core</h3>
-        <p style="color:var(--accent);">Senior Capstone Project • Team of 4 students, 1 supervisor • August 2026 – Present • In progress</p>
-        <p>Designing a VVER-1200 reactor core from scratch as a four-student team supervised by Prof. Amgad Salama: from the plant's required electrical power output, to a core thermal power of <strong>3,200 MWth</strong> via cycle efficiency, to a target fuel burnup near <strong>50 GWd per tonne heavy metal</strong> used to size fuel pellets, rods, and bundles, arriving at a hexagonal core configuration. With geometry and power sizing complete, the team is now entering the thermal-hydraulic phase: coolant flow rate and temperature rise, critical heat flux, and margins to subcooled boiling and departure from nucleate boiling. These will feed a coupled neutronic–thermal-hydraulic reduced-order model, to be validated against published reference data.</p>
-      </div>
-    </div>
-
+    <h2 class="sec-title">Other Design Projects</h2>
     <div class="card icon-card">
       <i class="fas fa-chair"></i>
       <div>
         <h3>Ergonomic Train-Driver Seat Design</h3>
         <p style="color:var(--accent);">Mechaton Engineering Case Competition, sponsored by Wabtec • Team of 3 • 2025 • 1st Place</p>
-        <p>Designed an ergonomic seat for locomotive drivers on long shifts. My role was the structural analysis: checking the armrest, back, and seat against the load requirements of <strong>GOST 33330-2015</strong> under static and dynamic fatigue loading using structural-mechanics methods. Built a low-cost demonstration from simple materials to present the results to competition judges. The prize included a paid engineering internship at Wabtec.</p>
+        <p>Designed an ergonomic seat for locomotive drivers on long shifts. My role was the structural analysis: checking the armrest, back, and seat against the load requirements of <strong>GOST 33330-2015</strong> under static and fatigue loading. Built a low-cost demonstration from simple materials to present the results to competition judges. The prize included a paid engineering internship at Wabtec.</p>
       </div>
     </div>
 
@@ -483,38 +320,14 @@
     </div>
   </section>
 
-  <section id="leadership">
-    <h2 class="sec-title">Teaching, Leadership &amp; Service</h2>
+  <section id="industry">
+    <h2 class="sec-title">Industry Experience</h2>
     <div class="card icon-card">
-      <i class="fas fa-chalkboard-teacher"></i>
+      <i class="fas fa-cogs"></i>
       <div>
-        <h3>Physics Tutor</h3>
-        <p style="color:var(--accent);">Nazarbayev University • 2023 – 2024</p>
-        <p>Tutored 20+ first-year engineering students in physics.</p>
-      </div>
-    </div>
-    <div class="card icon-card">
-      <i class="fas fa-users"></i>
-      <div>
-        <h3>Cohort Representative, Mechanical &amp; Aerospace Engineering</h3>
-        <p style="color:var(--accent);">Nazarbayev University • 2024 – 2026</p>
-        <p>Served as student–faculty liaison, raising and helping resolve academic concerns for the cohort, and organized more than ten midterm and final exam preparation sessions.</p>
-      </div>
-    </div>
-    <div class="card icon-card">
-      <i class="fas fa-running"></i>
-      <div>
-        <h3>Organizing Team, Charity Trail Run</h3>
-        <p style="color:var(--accent);">Nazarbayev University • 2025</p>
-        <p>Member of the sponsorship team for a student-run fundraiser with 150 runners, raising over <strong>600,000 KZT (~$1,300 USD)</strong> for MamaPro, a charity supporting children and families in need.</p>
-      </div>
-    </div>
-    <div class="card icon-card">
-      <i class="fas fa-hand-holding-heart"></i>
-      <div>
-        <h3>Volunteer</h3>
-        <p style="color:var(--accent);">HKU Muslim Society (Hong Kong) &amp; Mereke Charity Foundation (Kazakhstan) • 2025 – 2026</p>
-        <p>Volunteered in community programs, including Ramadan activities at HKU and winter-supply drives with Mereke Charity Foundation.</p>
+        <h3>Product Support Engineering Intern</h3>
+        <p style="color:var(--accent);">Wabtec Corporation, Kazakhstan • Jun – Jul 2025 • Awarded as the Mechaton 1st-place prize</p>
+        <p>Analyzed thermal performance of locomotive traction motors and supported root-cause review of field temperature excursions. Separately, audited shop-floor manufacturing against engineering drawings with a fellow intern, reconciling GOST (shop practice) with ASME (Wabtec's U.S. engineering standard), and traced an insulation-usage inconsistency across units to differing climate requirements between export markets: uninsulated units for warmer climates such as India versus insulated units for Kazakhstan's winters.</p>
       </div>
     </div>
   </section>
@@ -532,14 +345,14 @@
       <i class="fas fa-award"></i>
       <div>
         <h3>Yessenov Foundation Scholarship: Top 20 of 500+ Applicants (2026–2027)</h3>
-        <p style="color:var(--text-dim);">Merit scholarship from the Shakhmardan Yessenov Science and Education Foundation, supporting Kazakhstani students with strong academic records and demonstrated leadership.</p>
+        <p style="color:var(--text-dim);">Merit scholarship from the Shakhmardan Yessenov Science and Education Foundation.</p>
       </div>
     </div>
     <div class="card icon-card">
       <i class="fas fa-award"></i>
       <div>
         <h3>Nazarbayev University President's Scholarship (2024–2025)</h3>
-        <p style="color:var(--text-dim);">University merit scholarship for outstanding academic performance.</p>
+        <p style="color:var(--text-dim);">University merit scholarship for academic performance.</p>
       </div>
     </div>
     <div class="card icon-card">
@@ -562,24 +375,16 @@
     <h2 class="sec-title">Technical Skills</h2>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px;">
       <div class="card">
-        <h3 style="color:var(--accent);">Programming</h3>
-        <p>MATLAB, Python, Mathematica, LaTeX</p>
+        <h3 style="color:var(--accent);">Computing</h3>
+        <p>MATLAB, Python, Mathematica, OriginPro, LaTeX</p>
       </div>
       <div class="card">
-        <h3 style="color:var(--accent);">Modeling &amp; Numerics</h3>
-        <p>Reactor core sizing from thermal power and burnup targets; fuel assembly and core geometry design; reduced-order and lumped-parameter modeling of coupled systems</p>
+        <h3 style="color:var(--accent);">CAD</h3>
+        <p>SolidWorks (CSWA certified)</p>
       </div>
       <div class="card">
-        <h3 style="color:var(--accent);">Simulation &amp; CAD</h3>
-        <p>SolidWorks (CSWA certified), OriginPro</p>
-      </div>
-      <div class="card">
-        <h3 style="color:var(--accent);">Experimental</h3>
-        <p>Photolithographic microfabrication, electrospinning, silicone casting, 3D printing, electrical device characterization</p>
-      </div>
-      <div class="card">
-        <h3 style="color:var(--accent);">Design Codes</h3>
-        <p>ASME shaft design, GOST 33330-2015</p>
+        <h3 style="color:var(--accent);">Laboratory</h3>
+        <p>Photolithography, electrospinning, silicone casting, 3D printing, device characterization</p>
       </div>
       <div class="card">
         <h3 style="color:var(--accent);">Languages</h3>
@@ -613,16 +418,12 @@
         e.preventDefault();
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         this.classList.add('active');
-
         if (sidebar) {
           sidebar.classList.remove('open');
           if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
         }
-
         const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
@@ -636,27 +437,16 @@
 
   const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('.nav-link');
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -60% 0px',
-    threshold: 0
-  };
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
         navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
         });
       }
     });
-  }, observerOptions);
-
+  }, { root: null, rootMargin: '-20% 0px -60% 0px', threshold: 0 });
   sections.forEach(section => observer.observe(section));
 </script>
 </body>
