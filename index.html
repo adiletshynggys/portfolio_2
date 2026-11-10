@@ -153,6 +153,8 @@
     }
     h2 + .row, .sec-note + .row { margin-top: 18px; }
     .when { color: var(--text-dim); font-size: 0.86rem; padding-top: 4px; font-variant-numeric: tabular-nums; }
+    .when i { display: block; font-size: 1.5rem; color: var(--accent); margin-bottom: 10px; }
+    .plain li > span:first-child i { color: var(--accent); margin-right: 10px; }
     .org { color: var(--accent); font-size: 0.94rem; margin: 2px 0 10px; }
     .row ul { padding-left: 18px; color: var(--text-dim); max-width: 70ch; }
     .row li { margin: 6px 0; }
@@ -240,6 +242,7 @@
       .facts li, .facts li + li { padding: 14px 12px 14px 0; border-left: none; }
       .facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
       .row, .pubs li, .plain li, .skills > div { grid-template-columns: 1fr; gap: 4px; }
+      .when i { display: inline; font-size: 1rem; margin: 0 8px 0 0; }
       .plates, .schematic { grid-template-columns: 1fr; }
       .plate { aspect-ratio: auto; }
       .plate img { height: auto; }
@@ -325,7 +328,7 @@
     <h2>Research</h2>
 
     <div class="row">
-      <div class="when">Aug 2026 &ndash; Present</div>
+      <div class="when"><i class="fas fa-tint" aria-hidden="true"></i>Aug 2026 &ndash; Present</div>
       <div>
         <h3>Capillary-Driven Surface Engineering</h3>
         <p class="org">Dept. of Mechanical and Aerospace Engineering, Nazarbayev University &bull; Advisor: Prof. Amgad Salama</p>
@@ -366,7 +369,7 @@
     </div>
 
     <div class="row">
-      <div class="when">Aug 2026 &ndash; Present</div>
+      <div class="when"><i class="fas fa-shield-alt" aria-hidden="true"></i>Aug 2026 &ndash; Present</div>
       <div>
         <h3>Senior Capstone (Engineering Design): VVER-1200 Reactor Core</h3>
         <p class="org">Nazarbayev University &bull; Team of four &bull; Advisor: Prof. Amgad Salama</p>
@@ -387,7 +390,7 @@
     </div>
 
     <div class="row">
-      <div class="when">2026</div>
+      <div class="when"><i class="fas fa-atom" aria-hidden="true"></i>2026</div>
       <div>
         <h3>Interactive VVER-1200 Plant Simulator</h3>
         <p class="org">Teaching model, built separately from the capstone</p>
@@ -403,7 +406,7 @@
     </div>
 
     <div class="row">
-      <div class="when">Jan &ndash; Dec 2025</div>
+      <div class="when"><i class="fas fa-bolt" aria-hidden="true"></i>Jan &ndash; Dec 2025</div>
       <div>
         <h3>Triboelectric Nanogenerators for Wearable Sensing</h3>
         <p class="org">Energy Conversion Laboratory, Nazarbayev University &bull; Supervisor: Dr. Shabnam Yavari</p>
@@ -442,7 +445,7 @@
   <section id="education">
     <h2>Education</h2>
     <div class="row">
-      <div class="when">Expected June 2027</div>
+      <div class="when"><i class="fas fa-graduation-cap" aria-hidden="true"></i>Expected June 2027</div>
       <div>
         <h3>B.Eng., Mechanical and Aerospace Engineering</h3>
         <p class="org">Nazarbayev University &bull; Astana, Kazakhstan</p>
@@ -453,7 +456,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="when">Spring 2026</div>
+      <div class="when"><i class="fas fa-earth-asia" aria-hidden="true"></i>Spring 2026</div>
       <div>
         <h3>Visiting Exchange Student, Mechanical Engineering</h3>
         <p class="org">The University of Hong Kong &bull; Hong Kong SAR</p>
@@ -468,11 +471,11 @@
   <section id="awards">
     <h2>Awards and Honors</h2>
     <ul class="plain">
-      <li><span>2026&ndash;27</span><span><strong>Presidential Scholarship of the Republic of Kazakhstan</strong></span></li>
-      <li><span>2026&ndash;27</span><span><strong>Yessenov Foundation Scholarship</strong>, 20 of 500+ applicants</span></li>
-      <li><span>2025</span><span><strong>Best Research Poster</strong>, Belt and Road Initiative Conference</span></li>
-      <li><span>2025</span><span><strong>1st Place</strong>, Mechaton Engineering Case Competition</span></li>
-      <li><span>2024&ndash;25</span><span><strong>NU President's Scholarship</strong></span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2026&ndash;27</span><span><strong>Presidential Scholarship of the Republic of Kazakhstan</strong></span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2026&ndash;27</span><span><strong>Yessenov Foundation Scholarship</strong>, 20 of 500+ applicants</span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2025</span><span><strong>Best Research Poster</strong>, Belt and Road Initiative Conference</span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2025</span><span><strong>1st Place</strong>, Mechaton Engineering Case Competition</span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2024&ndash;25</span><span><strong>NU President's Scholarship</strong></span></li>
     </ul>
   </section>
 
@@ -480,7 +483,7 @@
   <section id="experience">
     <h2>Industry and Design</h2>
     <div class="row">
-      <div class="when">June &ndash; July 2025</div>
+      <div class="when"><i class="fas fa-cogs" aria-hidden="true"></i>June &ndash; July 2025</div>
       <div>
         <h3>Product Support Engineering Intern</h3>
         <p class="org">Wabtec Corporation, Kazakhstan &bull; awarded as the Mechaton 1st-place prize</p>
@@ -491,7 +494,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="when">Spring 2026</div>
+      <div class="when"><i class="fas fa-drafting-compass" aria-hidden="true"></i>Spring 2026</div>
       <div>
         <h3>Design Projects at The University of Hong Kong</h3>
         <ul>
@@ -506,7 +509,7 @@
   <section id="leadership">
     <h2>Teaching, Leadership, and Service</h2>
     <div class="row">
-      <div class="when">2026 &ndash; Present</div>
+      <div class="when"><i class="fas fa-landmark" aria-hidden="true"></i>2026 &ndash; Present</div>
       <div>
         <h3>Elected Undergraduate Representative</h3>
         <p class="org">Student Advisory Body, School of Engineering, Nazarbayev University</p>
@@ -516,7 +519,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="when">2024 &ndash; 2026</div>
+      <div class="when"><i class="fas fa-users" aria-hidden="true"></i>2024 &ndash; 2026</div>
       <div>
         <h3>Cohort Representative, Mechanical and Aerospace Engineering</h3>
         <p class="org">Nazarbayev University</p>
@@ -527,7 +530,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="when">2023 &ndash; 2024</div>
+      <div class="when"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>2023 &ndash; 2024</div>
       <div>
         <h3>Physics Tutor (volunteer)</h3>
         <p class="org">Nazarbayev University</p>
@@ -535,7 +538,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="when">2025 &ndash; 2026</div>
+      <div class="when"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i>2025 &ndash; 2026</div>
       <div>
         <h3>Community Service</h3>
         <ul>
