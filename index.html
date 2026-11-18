@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adilet Shynggys | Heat Transfer, Two-Phase Flow & Nuclear Thermal-Hydraulics</title>
-  <meta name="description" content="Adilet Shynggys, senior in Mechanical and Aerospace Engineering at Nazarbayev University. Research on capillary-driven surfaces, boiling, and reactor thermal-hydraulics. Ph.D. applicant for Fall 2027.">
+  <meta name="description" content="Adilet Shynggys, senior in Mechanical and Aerospace Engineering at Nazarbayev University. Research interests: reactor thermal-hydraulics, two-phase flow, boiling and the boiling crisis. Applying for Fall 2027 graduate study: master's continuing to PhD, or PhD.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -176,7 +176,7 @@
     .plate img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .shot { display: block; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
     .shot img { width: 100%; height: auto; display: block; }
-    .schematic { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .schematic { display: grid; grid-template-columns: minmax(0, 440px); gap: 14px; }
     .schematic > div { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 14px 8px; }
     .schematic svg { width: 100%; height: auto; display: block; }
     .schematic text { font-family: 'Inter', sans-serif; fill: var(--text-dim); font-size: 12px; }
@@ -296,7 +296,7 @@
     </div>
 
     <p class="lede">
-      I study heat transfer and two-phase flow for cleaner, safer power generation, particularly nuclear energy: how microscale surface geometry, texture, and wettability govern the supply of liquid to heated surfaces, boiling, and the boiling crisis.
+      My research interests are reactor thermal-hydraulics and two-phase flow for safer, more efficient nuclear power: boiling heat transfer and the boiling crisis, studied through experiments, including material and surface effects, and CFD models validated against them.
     </p>
 
     <div class="btn-row">
@@ -307,7 +307,7 @@
     </div>
 
     <ul class="facts">
-      <li><strong>Ph.D. applicant</strong><span>Fall 2027, mechanical or nuclear engineering</span></li>
+      <li><strong>Graduate applicant</strong><span>Fall 2027: master's continuing to PhD, or PhD; mechanical or nuclear engineering</span></li>
       <li><strong>GPA 3.86 / 4.00</strong><span>Ranked 1st in cohort</span></li>
       <li><strong>Co-author, <em>Small</em></strong><span>2026 journal article</span></li>
       <li><strong>Presidential Scholar</strong><span>Republic of Kazakhstan, 2026&ndash;27</span></li>
@@ -330,12 +330,12 @@
     <div class="row">
       <div class="when"><i class="fas fa-tint" aria-hidden="true"></i>Aug 2026 &ndash; Present</div>
       <div>
-        <h3>Capillary-Driven Surface Engineering</h3>
+        <h3>Capillary-Driven Liquid Transport in Tapered Microchannels</h3>
         <p class="org">Dept. of Mechanical and Aerospace Engineering, Nazarbayev University &bull; Advisor: Prof. Amgad Salama</p>
         <ul>
-          <li>Investigating wetting phenomena and how microchannel taper geometry drives liquid with no pump: the taper creates a Laplace-pressure asymmetry that should drive wetting liquids toward the narrow end and non-wetting liquids toward the wide end.</li>
-          <li>Designed the inverted photomask with the group and executed the full clean-room photolithography process, producing a first successful sample of tapered SU-8 microchannels on silicon.</li>
-          <li>Planning transport experiments across taper geometries to measure droplet and slug velocity, targeting pump-free delivery of working fluid to heated components.</li>
+          <li>Investigating capillary-driven liquid transport in tapered microchannels: the difference in meniscus curvature across a wetting liquid slug creates a capillary pressure difference that should drive it toward the narrow end with no pump.</li>
+          <li>Designed the inverted photomask with the group and fabricated a first successful sample of tapered SU-8 microchannels on silicon through the full clean-room photolithography process.</li>
+          <li>Designing transport experiments across taper geometries to quantify droplet and slug velocity, with applications in heat pipes, thermal management, and microfluidics.</li>
         </ul>
 
         <figure>
@@ -351,19 +351,8 @@
                 <text x="320" y="172" text-anchor="end">narrow end</text>
               </svg>
             </div>
-            <div>
-              <svg viewBox="0 0 340 190" role="img" aria-label="Non-wetting liquid slug in a tapered channel, expected to move toward the wide end">
-                <text class="cap" x="20" y="18">Non-wetting liquid</text>
-                <path d="M130,51.7 L220,61.3 Q236,90 220,118.7 L130,128.3 Q112,90 130,51.7 Z" fill="#e0a04a" fill-opacity="0.9"/>
-                <path d="M20,40 L320,72 M20,140 L320,108" stroke="#b0bdd0" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                <path d="M98,90 H44" stroke="#e0a04a" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M52,82 L42,90 L52,98" stroke="#e0a04a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                <text x="20" y="172">wide end</text>
-                <text x="320" y="172" text-anchor="end">narrow end</text>
-              </svg>
-            </div>
           </div>
-          <figcaption>Schematic of the working hypothesis, not experimental data. The two menisci of a slug in a tapered channel have different curvatures, so the Laplace pressures do not balance and the slug is expected to move.</figcaption>
+          <figcaption>Schematic of the working hypothesis, not experimental data. The two menisci of a wetting slug in a tapered channel have different curvatures, so the capillary pressures do not balance and the slug is expected to move toward the narrow end.</figcaption>
         </figure>
       </div>
     </div>
@@ -375,7 +364,7 @@
         <p class="org">Nazarbayev University &bull; Team of four &bull; Advisor: Prof. Amgad Salama</p>
         <ul>
           <li>Derived 3,200 MWth of core thermal power from the required electrical output via cycle efficiency, and sized fuel pellets, rods, and bundles into a hexagonal core configuration from a target burnup near 50 GWd/tHM.</li>
-          <li>Initiating thermal-hydraulic analysis: coolant flow and temperature rise, critical heat flux, and margins to subcooled boiling and departure from nucleate boiling (DNB), feeding a reduced-order model to be validated against published reference data.</li>
+          <li>Launching thermal-hydraulic analysis: coolant flow and temperature rise, critical heat flux, and margins to subcooled boiling and departure from nucleate boiling (DNB), feeding a reduced-order model to be validated against published reference data.</li>
         </ul>
 
         <figure>
@@ -473,9 +462,10 @@
     <ul class="plain">
       <li><span><i class="fas fa-award" aria-hidden="true"></i>2026&ndash;27</span><span><strong>Presidential Scholarship of the Republic of Kazakhstan</strong></span></li>
       <li><span><i class="fas fa-award" aria-hidden="true"></i>2026&ndash;27</span><span><strong>Yessenov Foundation Scholarship</strong>, 20 of 500+ applicants</span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2025, 2026</span><span><strong>NU President's Scholarship</strong></span></li>
       <li><span><i class="fas fa-award" aria-hidden="true"></i>2025</span><span><strong>Best Research Poster</strong>, Belt and Road Initiative Conference</span></li>
-      <li><span><i class="fas fa-award" aria-hidden="true"></i>2025</span><span><strong>1st Place</strong>, Mechaton Engineering Case Competition</span></li>
-      <li><span><i class="fas fa-award" aria-hidden="true"></i>2024&ndash;25</span><span><strong>NU President's Scholarship</strong></span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2026</span><span><strong>1st Place</strong>, Catalyst Engineering Hackathon, NU AIChE Student Chapter, Air Liquide case</span></li>
+      <li><span><i class="fas fa-award" aria-hidden="true"></i>2025</span><span><strong>1st Place</strong>, Mechaton Engineering Hackathon, NU IMechE Student Chapter, Wabtec case</span></li>
     </ul>
   </section>
 
@@ -494,12 +484,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="when"><i class="fas fa-drafting-compass" aria-hidden="true"></i>Spring 2026</div>
+      <div class="when"><i class="fas fa-drafting-compass" aria-hidden="true"></i>2025 &ndash; 2026</div>
       <div>
-        <h3>Design Projects at The University of Hong Kong</h3>
+        <h3>Other Design Projects</h3>
         <ul>
-          <li><strong>Multi-stage gearbox:</strong> sized shafts by the ASME bending&ndash;torsion criterion and selected gears, keyways, and bearings for the required fatigue life.</li>
-          <li><strong>Interactive art installation</strong> (with Prof. Homayoon Kazerooni, UC Berkeley): modeled petal forms in SolidWorks, verified collision clearance and stability, and 3D-printed each piece.</li>
+          <li><strong>Syngas air-cooler debottlenecking</strong> (Air Liquide case, AIChE Catalyst Hackathon, 1st place): modeled how fin fouling cuts airflow and duty, and evaluated three fixes with the team in an interactive simulator.</li>
+          <li><strong>Multi-stage gearbox</strong> (University of Hong Kong): sized shafts by the ASME bending&ndash;torsion criterion and selected gears, keyways, and bearings for the required fatigue life.</li>
+          <li><strong>Interactive art installation</strong> (HKU, with Prof. Homayoon Kazerooni, UC Berkeley): modeled petal forms in SolidWorks, verified collision clearance and stability, and 3D-printed each piece.</li>
         </ul>
       </div>
     </div>
@@ -530,11 +521,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="when"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>2023 &ndash; 2024</div>
+      <div class="when"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>2023 &ndash; 2026</div>
       <div>
-        <h3>Physics Tutor (volunteer)</h3>
+        <h3>Physics Tutor (volunteer) and Guest Lecturer</h3>
         <p class="org">Nazarbayev University</p>
-        <p>Tutored <strong>20+</strong> first-year students.</p>
+        <p>Tutored <strong>20+</strong> first-year students; guest lecture to first-year engineers (2026).</p>
       </div>
     </div>
     <div class="row">
@@ -553,7 +544,7 @@
   <section id="skills">
     <h2>Skills</h2>
     <dl class="skills">
-      <div><dt>Computing</dt><dd>MATLAB, Python, Mathematica, OriginPro, LaTeX</dd></div>
+      <div><dt>Computing</dt><dd>MATLAB, Python, Mathematica, OriginPro, ANSYS Fluent (beginner)</dd></div>
       <div><dt>CAD</dt><dd>SolidWorks (CSWA certified)</dd></div>
       <div><dt>Lab</dt><dd>Photolithography, electrospinning, silicone casting, 3D printing, device characterization</dd></div>
       <div><dt>Languages</dt><dd>Kazakh (native), Russian (fluent), English (IELTS 8.0)</dd></div>
